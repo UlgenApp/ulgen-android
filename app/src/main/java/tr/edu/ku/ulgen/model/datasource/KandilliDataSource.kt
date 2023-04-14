@@ -1,4 +1,4 @@
-package tr.edu.ku.ulgen.Model.Datasource
+package tr.edu.ku.ulgen.model.datasource
 
 import android.util.Log
 
@@ -7,8 +7,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import tr.edu.ku.ulgen.Model.ApiInterface.ApiInterface
-import tr.edu.ku.ulgen.Model.KandilliLiveDataStructure.KandilliEarthquakeLiveData
+import tr.edu.ku.ulgen.model.apiinterface.ApiInterface
+import tr.edu.ku.ulgen.model.kandillilivedatastructure.KandilliEarthquakeLiveData
 
 const val KandilliBaseURL = "https://api.orhanaydogdu.com.tr/"
 

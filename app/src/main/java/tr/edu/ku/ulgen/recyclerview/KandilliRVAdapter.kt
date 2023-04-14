@@ -1,11 +1,11 @@
-package tr.edu.ku.ulgen.RecyclerView
+package tr.edu.ku.ulgen.recyclerview
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import tr.edu.ku.ulgen.Model.KandilliLiveDataStructure.KandilliEarthquakeLiveData
+import tr.edu.ku.ulgen.model.kandillilivedatastructure.KandilliEarthquakeLiveData
 import tr.edu.ku.ulgen.R
 
 

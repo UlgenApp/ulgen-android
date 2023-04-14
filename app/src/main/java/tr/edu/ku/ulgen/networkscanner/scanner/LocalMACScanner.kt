@@ -1,4 +1,4 @@
-package tr.edu.ku.ulgen.Model.Scanner
+package tr.edu.ku.ulgen.networkscanner.scanner
 
 
 import java.net.Inet4Address

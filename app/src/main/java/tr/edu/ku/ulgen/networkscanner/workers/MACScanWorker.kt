@@ -1,9 +1,9 @@
-package tr.edu.ku.ulgen.Model.Workers
+package tr.edu.ku.ulgen.networkscanner.workers
 
 import android.content.Context
 import android.util.Log
 import androidx.work.*
-import tr.edu.ku.ulgen.Model.Scanner.LocalMACScanner
+import tr.edu.ku.ulgen.networkscanner.scanner.LocalMACScanner
 import java.util.concurrent.TimeUnit
 
 class MACScanWorker(appContext: Context, workerParams: WorkerParameters) :

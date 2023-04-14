@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import tr.edu.ku.ulgen.Model.Workers.MACScanWorker
+import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
 
 
 class MainActivity : AppCompatActivity() {

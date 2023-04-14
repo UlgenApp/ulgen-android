@@ -1,4 +1,4 @@
-package tr.edu.ku.ulgen.Model.KandilliLiveDataStructure
+package tr.edu.ku.ulgen.model.kandillilivedatastructure
 
 data class ClosestCity(
     val cityCode: Int,
