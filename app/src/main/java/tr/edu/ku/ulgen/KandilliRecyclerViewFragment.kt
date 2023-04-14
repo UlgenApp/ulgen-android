@@ -9,10 +9,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import tr.edu.ku.ulgen.Model.Datasource.KandilliDataSource
-import tr.edu.ku.ulgen.Model.Datasource.IObserver
-import tr.edu.ku.ulgen.Model.KandilliLiveDataStructure.KandilliEarthquakeLiveData
-import tr.edu.ku.ulgen.RecyclerView.KandilliRecyclerviewAdapter
+import tr.edu.ku.ulgen.model.datasource.KandilliDataSource
+import tr.edu.ku.ulgen.model.datasource.IObserver
+import tr.edu.ku.ulgen.model.kandillilivedatastructure.KandilliEarthquakeLiveData
+import tr.edu.ku.ulgen.recyclerview.KandilliRecyclerviewAdapter
 
 
 class KandilliRecyclerViewFragment : Fragment(), IObserver {
