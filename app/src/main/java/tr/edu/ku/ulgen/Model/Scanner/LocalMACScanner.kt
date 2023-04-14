@@ -25,7 +25,7 @@ object LocalMACScanner {
                         }
                 }
                 .associate { it }
-        } catch (ex: Exception) { //handle exception
+        } catch (ex: Exception) {
             ex.printStackTrace()
             emptyMap()
         }

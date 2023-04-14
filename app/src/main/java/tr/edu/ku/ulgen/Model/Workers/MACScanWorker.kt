@@ -10,7 +10,6 @@ class MACScanWorker(appContext: Context, workerParams: WorkerParameters) :
     Worker(appContext, workerParams) {
 
     override fun doWork(): Result {
-        // Do the work here
         Log.d("UlgenMACScanWorker", "doWork started")
         val macAddresses = LocalMACScanner.getMacAddresses()
         for (elem in macAddresses) {
@@ -20,7 +19,7 @@ class MACScanWorker(appContext: Context, workerParams: WorkerParameters) :
     }
 
     companion object {
-        private const val TAG = "UlgenMACScanWorker"
+        private const val TAG = "UlgenMACScanWorker-7c9db77f"
 
         fun schedule(context: Context) {
             val constraints = Constraints.Builder()
