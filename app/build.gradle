@@ -1,7 +1,14 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
+
+def koin_version = "2.1.6"
+def lifecycleVersion = "2.2.0"
+def retrofitVersion = '2.9.0'
+def okhttpVersion = '4.9.0'
+def glideVersion = '4.11.0'
 
 android {
     namespace 'tr.edu.ku.ulgen'
@@ -19,12 +26,14 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     buildFeatures {
         viewBinding = true
+        dataBinding true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -47,9 +56,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
     implementation "androidx.work:work-runtime-ktx:2.7.0"
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
+
+    implementation("androidx.security:security-crypto:1.0.0")
+    implementation "com.airbnb.android:lottie:3.4.0"
+
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 }
