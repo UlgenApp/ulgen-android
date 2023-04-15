@@ -1,3 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="app_name">Ulgen</string>
+    <string name="app_name">Ülgen</string>
+    <string name="loading">Loading…</string>
+    <string name="no_internet_connection">No internet connection!</string>
+<string name="msg_ba_lant_y_g_nd">Bağlantıyı gönder</string>
+<string name="msg">_________________             _________________</string>
+<string name="msg_hesap_olu_turar">Hesap oluşturarak Ülgen Kullanım Şartlarını kabul ediyorum ve Gizlilik Beyanını onaylıyorum.  </string>
+<string name="msg_lgen_e_ho_gel">Ülgen\u2019e hoş geldin!</string>
+<string name="lbl_giri_yap"> Giriş yap</string>
+<string name="msg_lgen_hesab_na">Ülgen hesabına giriş yap</string>
+<string name="lbl_ad_soyad">ad-soyad</string>
+<string name="msg_hesap_olu_turar2">Hesap oluşturarak </string>
+<string name="msg_lgen_hesab_n">Ülgen hesabını oluştur</string>
+<string name="lbl_e_mail">e-mail</string>
+<string name="lbl_ifre">şifre</string>
+<string name="msg_lgen_kullan_m">Ülgen Kullanım Şartlarını</string>
+<string name="msg_ifreni_mi_unut">şifreni mi unuttun?</string>
+<string name="msg_zaten_hesab_n_v2">Zaten hesabın var mı?</string>
+<string name="lbl_giri_yap2">Giriş yap</string>
+<string name="lbl_ya_da">Ya da</string>
+<string name="msg_e_posta_adresin">E-posta adresine hesabına tekrar erişebilmen için\u2028şifre değiştirme bağlantısı yollayacağız.</string>
+<string name="msg_olas_afet_duru">Olası afet durumlarına karşı sevdiklerinin ve kendinin durumunu yetkililere bildir, hem de mobil cihazına dokunmadan.</string>
+<string name="msg_gizlilik_beyan">Gizlilik Beyanını</string>
+<string name="lbl_hesap_olu_tur">Hesap oluştur</string>
+<string name="lbl_onayl_yorum"> onaylıyorum.  </string>
+<string name="msg_zaten_hesab_n_v">Zaten hesabın var mı? Giriş yap</string>
+<string name="msg_kabul_ediyorum"> kabul ediyorum ve </string>
+<string name="msg_ifreni_mi_unut2">Şifreni mi unuttun?</string>
 </resources>
