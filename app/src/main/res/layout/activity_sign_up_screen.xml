@@ -76,7 +76,7 @@
                     <EditText
                         android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
                         android:ellipsize="end"
-                        android:hint="@string/lbl_faruk_ko"
+
                         android:id="@+id/etGroupNine"
                         android:inputType="text"
                         android:layout_height="wrap_content"
@@ -104,7 +104,6 @@
                     <EditText
                         android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
                         android:ellipsize="end"
-                        android:hint="@string/msg_farukkoc_gmail"
                         android:id="@+id/etEmailOne"
                         android:inputType="textEmailAddress"
                         android:layout_height="wrap_content"
@@ -132,7 +131,6 @@
                     <EditText
                         android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
                         android:ellipsize="end"
-                        android:hint="@string/lbl"
                         android:id="@+id/etPassword"
                         android:inputType="textPassword"
                         android:layout_height="wrap_content"

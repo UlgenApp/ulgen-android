@@ -74,24 +74,26 @@
                         android:singleLine="true"
                         android:text="@string/lbl_e_mail"
                         style="@style/txtNunitoregular18" tools:text="@string/lbl_e_mail"/>
+
                     <EditText
-                        android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
-                        android:ellipsize="end"
-                        android:hint="@string/msg_farukkoc_gmail"
                         android:id="@+id/etEmailOne"
-                        android:inputType="textEmailAddress"
+                        style="@style/etSolidRounded"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_20pxh"
                         android:layout_marginStart="@dimen/_20pxh"
                         android:layout_marginTop="@dimen/_3pxv"
-                        android:layout_width="match_parent"
-                        android:paddingBottom="@dimen/_11pxv"
-                        android:paddingEnd="@dimen/_30pxh"
+                        android:layout_marginEnd="@dimen/_20pxh"
+                        android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
+                        android:ellipsize="end"
+                        android:inputType="textEmailAddress"
                         android:paddingStart="@dimen/_11pxh"
                         android:paddingTop="@dimen/_12pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingBottom="@dimen/_11pxv"
                         android:singleLine="true"
                         android:textColorHint="@color/gray_50"
-                        style="@style/etSolidRounded" tools:ignore="Autofill"/>
+                        tools:ignore="Autofill" />
+
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtIfre"
                         android:layout_gravity="start"
@@ -106,7 +108,6 @@
                     <EditText
                         android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
                         android:ellipsize="end"
-                        android:hint="@string/lbl"
                         android:id="@+id/etPassword"
                         android:inputType="textPassword"
                         android:layout_height="wrap_content"
