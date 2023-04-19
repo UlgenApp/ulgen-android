@@ -13,7 +13,8 @@
     <fragment
         android:id="@+id/startScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.StartScreenFragment"
-        android:label="StartScreenFragment" >
+        android:label="StartScreenFragment"
+        tools:layout="@layout/activity_start_screen">
         <action
             android:id="@+id/action_startScreenFragment_to_signUpScreenFragment"
             app:destination="@id/signUpScreenFragment" />
@@ -24,7 +25,8 @@
     <fragment
         android:id="@+id/signUpScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.SignUpScreenFragment"
-        android:label="SignUpScreenFragment" >
+        android:label="SignUpScreenFragment"
+        tools:layout="@layout/activity_sign_up_screen">
         <action
             android:id="@+id/action_signUpScreenFragment_to_loginScreenFragment"
             app:destination="@id/loginScreenFragment" />
@@ -32,5 +34,15 @@
     <fragment
         android:id="@+id/loginScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.LoginScreenFragment"
-        android:label="LoginScreenFragment" />
+        android:label="LoginScreenFragment"
+        tools:layout="@layout/activity_login_screen">
+        <action
+            android:id="@+id/action_loginScreenFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.ResetPasswordFragment"
+        android:label="ResetPasswordFragment"
+        tools:layout="@layout/activity_reset_password_screen"/>
 </navigation>
