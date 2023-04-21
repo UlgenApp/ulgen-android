@@ -39,10 +39,17 @@
         <action
             android:id="@+id/action_loginScreenFragment_to_resetPasswordFragment"
             app:destination="@id/resetPasswordFragment" />
+        <action
+            android:id="@+id/action_loginScreenFragment_to_kandilliTableFragment"
+            app:destination="@id/kandilliTableFragment" />
     </fragment>
     <fragment
         android:id="@+id/resetPasswordFragment"
         android:name="tr.edu.ku.ulgen.uiviews.ResetPasswordFragment"
         android:label="ResetPasswordFragment"
         tools:layout="@layout/activity_reset_password_screen"/>
+    <fragment
+        android:id="@+id/emptyFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.EmptyFragment"
+        android:label="EmptyFragment" />
 </navigation>
