@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/kandilliTableFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/baseline_table_rows_24"
         android:title="Earthquake Table" />
     <item
         android:id="@+id/emptyFragment"
