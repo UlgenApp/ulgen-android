@@ -14,7 +14,7 @@
         android:id="@+id/startScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.StartScreenFragment"
         android:label="StartScreenFragment"
-        tools:layout="@layout/activity_start_screen">
+        tools:layout="@layout/fragment_start_screen">
         <action
             android:id="@+id/action_startScreenFragment_to_signUpScreenFragment"
             app:destination="@id/signUpScreenFragment" />
@@ -26,7 +26,7 @@
         android:id="@+id/signUpScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.SignUpScreenFragment"
         android:label="SignUpScreenFragment"
-        tools:layout="@layout/activity_sign_up_screen">
+        tools:layout="@layout/fragment_sign_up_screen">
         <action
             android:id="@+id/action_signUpScreenFragment_to_loginScreenFragment"
             app:destination="@id/loginScreenFragment" />
@@ -40,8 +40,8 @@
             android:id="@+id/action_loginScreenFragment_to_resetPasswordFragment"
             app:destination="@id/resetPasswordFragment" />
         <action
-            android:id="@+id/action_loginScreenFragment_to_kandilliTableFragment"
-            app:destination="@id/kandilliTableFragment" />
+            android:id="@+id/action_loginScreenFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/resetPasswordFragment"
@@ -51,5 +51,11 @@
     <fragment
         android:id="@+id/emptyFragment"
         android:name="tr.edu.ku.ulgen.uiviews.EmptyFragment"
-        android:label="EmptyFragment" />
+        android:label="EmptyFragment"
+        tools:layout="@layout/fragment_empty"/>
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.HomeScreenFragment"
+        android:label="HomeScreenFragment"
+        tools:layout="@layout/fragment_home_screen"/>
 </navigation>

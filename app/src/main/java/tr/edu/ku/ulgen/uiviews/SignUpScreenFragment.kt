@@ -16,7 +16,7 @@ class SignUpScreenFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.activity_sign_up_screen, container, false)
+        val view = inflater.inflate(R.layout.fragment_sign_up_screen, container, false)
 
         val loginTextView = view.findViewById<TextView>(R.id.txtZatenhesabnv)
         loginTextView.setOnClickListener {

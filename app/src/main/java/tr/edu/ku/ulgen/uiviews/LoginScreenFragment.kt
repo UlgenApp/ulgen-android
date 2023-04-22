@@ -26,7 +26,7 @@ class LoginScreenFragment : Fragment() {
 
         val loginButton = view.findViewById<Button>(R.id.btnGiriYap)
         loginButton.setOnClickListener {
-            findNavController().navigate(R.id.action_loginScreenFragment_to_kandilliTableFragment)
+            findNavController().navigate(R.id.action_loginScreenFragment_to_homeScreenFragment)
         }
 
         return view

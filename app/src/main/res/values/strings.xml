@@ -27,4 +27,22 @@
 <string name="msg_zaten_hesab_n_v">Zaten hesabın var mı? Giriş yap</string>
 <string name="msg_kabul_ediyorum"> kabul ediyorum ve </string>
 <string name="msg_ifreni_mi_unut2">Şifreni mi unuttun?</string>
+
+
+    <string name="msg_deprem_bilgilen">Deprem bilgilendirme kutusu</string>
+    <string name="msg_g_nl_k_i_erik_k">Günlük içerik kutusu/görsel \u2028içerik</string>
+
+    <string name="lbl_merhaba_faruk">Merhaba Faruk! </string>
+
+    <string name="msg_alarm_d_d_k_ses">Alarm/düdük sesi tuşu kutusu(?)</string>
+    <string name="msg_lgen_hesab_do">Ülgen hesabı doluluk oranı: %50</string>
+
+
+    <string name="msg_kullan_c_genel">Kullanıcı genel bilgiler kutusu</string>
+
+    <string name="msg_hesab_n_tamaml">hesabını tamamlamak için tıkla!</string>
+
+
+
+
 </resources>

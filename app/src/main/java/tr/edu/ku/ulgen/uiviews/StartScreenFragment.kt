@@ -19,7 +19,7 @@ class StartScreenFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.activity_start_screen, container, false)
+        val view = inflater.inflate(R.layout.fragment_start_screen, container, false)
 
         val createAccountButton = view.findViewById<Button>(R.id.btnHesapOlutur)
         val loginTextView = view.findViewById<TextView>(R.id.txtZatenhesabnv)
