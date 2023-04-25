@@ -7,14 +7,25 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-<color name="bluegray_900">#1c2941</color>
-<color name="indigo_700_3f">#3f34548e</color>
-<color name="bluegray_700">#50536c</color>
-<color name="yellow_51">#fff8ee</color>
-<color name="yellow_50">#fff7ee</color>
-<color name="indigo_700_8c">#8c34548e</color>
-<color name="indigo_700_e5">#e534548e</color>
-<color name="indigo_700">#34548e</color>
-<color name="black_900_3f">#3f000000</color>
-<color name="gray_50">#fffbf6</color>
+    <color name="bluegray_900">#1c2941</color>
+    <color name="indigo_700_3f">#3f34548e</color>
+    <color name="bluegray_700">#50536c</color>
+    <color name="yellow_51">#fff8ee</color>
+    <color name="yellow_50">#fff7ee</color>
+    <color name="indigo_700_8c">#8c34548e</color>
+    <color name="indigo_700_e5">#e534548e</color>
+    <color name="indigo_700">#34548e</color>
+    <color name="black_900_3f">#3f000000</color>
+    <color name="gray_50">#fffbf6</color>
+
+
+    <color name="gray_600">#747070</color>
+
+    <color name="indigo_700_cc">#cc34548e</color>
+
+
+    <color name="bluegray_500">#5c73a1</color>
+    <color name="indigo_700_f2">#f234548e</color>
+
+
 </resources>

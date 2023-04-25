@@ -9,6 +9,7 @@ def lifecycleVersion = "2.2.0"
 def retrofitVersion = '2.9.0'
 def okhttpVersion = '4.9.0'
 def glideVersion = '4.11.0'
+def nav_version = "2.5.3"
 
 android {
     namespace 'tr.edu.ku.ulgen'
@@ -46,6 +47,8 @@ android {
 
 dependencies {
 
+
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -67,4 +70,10 @@ dependencies {
 
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }

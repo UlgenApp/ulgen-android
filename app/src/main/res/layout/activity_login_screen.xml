@@ -4,154 +4,192 @@
     <LinearLayout android:gravity="center_horizontal"
         android:id="@+id/linearColumnfiftyone"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/_74pxv"
-        android:layout_marginEnd="@dimen/_2pxh"
-        android:layout_marginStart="@dimen/_3pxh"
-        android:layout_marginTop="@dimen/_34pxv"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
         android:layout_width="match_parent"
-        android:orientation="vertical" style="@style/groupStylegray_50">
-        <ScrollView android:clipToPadding="false"
-            android:fillViewport="true" android:gravity="start"
+        android:orientation="vertical" style="@style/groupStyleyellow_50">
+
+        <ScrollView
             android:id="@+id/scrollViewScrollview"
-            android:layout_height="0dp" android:layout_weight="1" android:layout_width="match_parent">
-            <LinearLayout android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:gravity="start">
+
+            <LinearLayout
                 android:id="@+id/linearLoginScreen"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent" android:orientation="vertical">
-                <FrameLayout android:gravity="start"
-                    android:id="@+id/frameStackfiftyone"
-                    android:layout_height="@dimen/_453pxv" android:layout_width="match_parent">
-                    <ImageView android:id="@+id/imageFiftyOne"
-                        android:layout_gravity="start"
-                        android:layout_height="@dimen/_425pxv"
-                        android:layout_marginBottom="@dimen/_10pxv"
-                        android:layout_marginTop="@dimen/_10pxv"
-                        android:layout_width="match_parent"
-                        android:scaleType="fitXY"
-                        imageRes="@{@drawable/img_51}"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_51"/>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
                     <LinearLayout
-                        android:id="@+id/linearColumnarrowleft"
-                        android:layout_gravity="center"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_26pxh"
-                        android:layout_marginStart="@dimen/_21pxh"
-                        android:layout_width="match_parent" android:orientation="vertical">
-                        <ImageView android:id="@+id/imageArrowleft"
-                            android:layout_height="@dimen/_25pxh"
-                            android:layout_marginEnd="@dimen/_10pxh"
-                            android:layout_width="@dimen/_16pxh"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/img_arrowleft"
-                            tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft"/>
-                        <TextView android:ellipsize="end"
-                            android:gravity="center_horizontal"
-                            android:id="@+id/txtLgenhesabna"
+                        android:id="@+id/frameStackfiftyone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageFiftyOne"
+                            android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_4pxh"
-                            android:layout_marginTop="@dimen/_391pxv"
+                            android:layout_gravity="center|top"
+                            android:layout_marginTop="@dimen/_10pxv"
+                            android:layout_marginBottom="@dimen/_10pxv"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            android:visibility="invisible"
+                            android:src="@drawable/img_51"
+                            tools:ignore="ContentDescription"
+                            tools:src="@drawable/img_51"
+                            />
+
+                        <TextView
+                            android:id="@+id/txtLgenhesabna"
+                            style="@style/txtMontserratromanmedium30"
                             android:layout_width="match_parent"
-                            android:singleLine="true"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_15pxh"
+                            android:layout_marginTop="@dimen/_4pxh"
+                            android:layout_marginEnd="@dimen/_15pxh"
+                            android:ellipsize="end"
+                            android:gravity="bottom|center"
+                            android:singleLine="false"
                             android:text="@string/msg_lgen_hesab_na"
-                            style="@style/txtMontserratromanmedium30" tools:text="@string/msg_lgen_hesab_na"/>
+                            tools:text="@string/msg_lgen_hesab_na" />
                     </LinearLayout>
                 </FrameLayout>
-                <LinearLayout android:id="@+id/linearColumnemail"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_31pxh"
-                    android:layout_marginStart="@dimen/_32pxh"
-                    android:layout_marginTop="@dimen/_37pxv"
+
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical" style="@style/groupStyleindigo_700_8ccornerRadius">
-                    <TextView android:ellipsize="end"
-                        android:id="@+id/txtEmail"
-                        android:layout_gravity="start"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_31pxh"
-                        android:layout_marginStart="@dimen/_31pxh"
-                        android:layout_marginTop="@dimen/_18pxv"
-                        android:layout_width="wrap_content"
-                        android:singleLine="true"
-                        android:text="@string/lbl_e_mail"
-                        style="@style/txtNunitoregular18" tools:text="@string/lbl_e_mail"/>
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-                    <EditText
-                        android:id="@+id/etEmailOne"
-                        style="@style/etSolidRounded"
+                    <LinearLayout
+                        android:id="@+id/linearColumnemail"
+                        style="@style/groupStyleindigo_700_8ccornerRadius"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_20pxh"
-                        android:layout_marginTop="@dimen/_3pxv"
-                        android:layout_marginEnd="@dimen/_20pxh"
-                        android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
-                        android:ellipsize="end"
-                        android:inputType="textEmailAddress"
-                        android:paddingStart="@dimen/_11pxh"
-                        android:paddingTop="@dimen/_12pxv"
-                        android:paddingEnd="@dimen/_30pxh"
-                        android:paddingBottom="@dimen/_11pxv"
-                        android:singleLine="true"
-                        android:textColorHint="@color/gray_50"
-                        tools:ignore="Autofill" />
+                        android:layout_marginStart="@dimen/_32pxh"
+                        android:layout_marginTop="@dimen/_32pxv"
+                        android:layout_marginEnd="@dimen/_32pxh"
+                        android:layout_marginBottom="@dimen/_32pxv"
+                        android:orientation="vertical">
 
-                    <TextView android:ellipsize="end"
-                        android:id="@+id/txtIfre"
-                        android:layout_gravity="start"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_31pxh"
-                        android:layout_marginStart="@dimen/_31pxh"
-                        android:layout_marginTop="@dimen/_14pxv"
-                        android:layout_width="wrap_content"
-                        android:singleLine="true"
-                        android:text="@string/lbl_ifre"
-                        style="@style/txtNunitoregular18" tools:text="@string/lbl_ifre"/>
-                    <EditText
-                        android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
-                        android:ellipsize="end"
-                        android:id="@+id/etPassword"
-                        android:inputType="textPassword"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_20pxh"
-                        android:layout_marginStart="@dimen/_20pxh"
-                        android:layout_marginTop="@dimen/_4pxv"
-                        android:layout_width="match_parent"
-                        android:paddingBottom="@dimen/_11pxv"
-                        android:paddingEnd="@dimen/_30pxh"
-                        android:paddingStart="@dimen/_11pxh"
-                        android:paddingTop="@dimen/_12pxv"
-                        android:singleLine="true"
-                        android:textColorHint="@color/gray_50"
-                        style="@style/etSolidRounded" tools:ignore="Autofill"/>
-                    <TextView android:ellipsize="end"
-                        android:id="@+id/txtIfrenimiunut"
-                        android:layout_gravity="end"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_20pxh"
-                        android:layout_marginStart="@dimen/_20pxh"
-                        android:layout_marginTop="@dimen/_10pxv"
-                        android:layout_width="wrap_content"
-                        android:singleLine="true"
-                        android:text="@string/msg_ifreni_mi_unut"
-                        style="@style/txtMontserratromanmedium14" tools:text="@string/msg_ifreni_mi_unut"/>
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:ellipsize="end" android:gravity="center"
-                        android:id="@+id/btnGiriYap"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_height="@dimen/_49pxv"
-                        android:layout_marginBottom="@dimen/_20pxv"
-                        android:layout_marginEnd="@dimen/_20pxh"
-                        android:layout_marginStart="@dimen/_20pxh"
-                        android:layout_marginTop="@dimen/_31pxv"
-                        android:layout_width="@dimen/_200pxh"
-                        android:paddingBottom="@dimen/_8pxv"
-                        android:paddingEnd="@dimen/_30pxh"
-                        android:paddingStart="@dimen/_30pxh"
-                        android:paddingTop="@dimen/_8pxv"
-                        android:singleLine="true"
-                        android:text="@string/lbl_giri_yap2"
-                        android:textAllCaps="false"
-                        style="@style/btnSolidRounded_1" tools:text="@string/lbl_giri_yap2"/>
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/txtEmail"
+                            style="@style/txtNunitoregular18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginStart="@dimen/_31pxh"
+                            android:layout_marginTop="@dimen/_18pxv"
+                            android:layout_marginEnd="@dimen/_31pxh"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="@string/lbl_e_mail"
+                            tools:text="@string/lbl_e_mail" />
+
+                        <EditText
+                            android:id="@+id/etEmailOne"
+                            style="@style/etSolidRounded"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20pxh"
+                            android:layout_marginTop="@dimen/_3pxv"
+                            android:layout_marginEnd="@dimen/_20pxh"
+                            android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
+                            android:ellipsize="end"
+                            android:inputType="textEmailAddress"
+                            android:paddingStart="@dimen/_11pxh"
+                            android:paddingTop="@dimen/_12pxv"
+                            android:paddingEnd="@dimen/_30pxh"
+                            android:paddingBottom="@dimen/_11pxv"
+                            android:singleLine="true"
+                            android:textColorHint="@color/gray_50"
+                            tools:ignore="Autofill" />
+
+                        <TextView
+                            android:id="@+id/txtIfre"
+                            style="@style/txtNunitoregular18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginStart="@dimen/_31pxh"
+                            android:layout_marginTop="@dimen/_14pxv"
+                            android:layout_marginEnd="@dimen/_31pxh"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="@string/lbl_ifre"
+                            tools:text="@string/lbl_ifre" />
+
+                        <EditText
+                            android:id="@+id/etPassword"
+                            style="@style/etSolidRounded"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20pxh"
+                            android:layout_marginTop="@dimen/_4pxv"
+                            android:layout_marginEnd="@dimen/_20pxh"
+                            android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
+                            android:ellipsize="end"
+                            android:inputType="textPassword"
+                            android:paddingStart="@dimen/_11pxh"
+                            android:paddingTop="@dimen/_12pxv"
+                            android:paddingEnd="@dimen/_30pxh"
+                            android:paddingBottom="@dimen/_11pxv"
+                            android:singleLine="true"
+                            android:textColorHint="@color/gray_50"
+                            tools:ignore="Autofill" />
+
+                        <TextView
+                            android:id="@+id/txtIfrenimiunut"
+                            style="@style/txtMontserratromanmedium14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="@dimen/_20pxh"
+                            android:layout_marginTop="@dimen/_10pxv"
+                            android:layout_marginEnd="@dimen/_20pxh"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="@string/msg_ifreni_mi_unut"
+                            tools:text="@string/msg_ifreni_mi_unut" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnGiriYap"
+                            style="@style/btnSolidRounded_1"
+                            android:layout_width="@dimen/_200pxh"
+                            android:layout_height="@dimen/_49pxv"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="@dimen/_20pxh"
+                            android:layout_marginTop="@dimen/_31pxv"
+                            android:layout_marginEnd="@dimen/_20pxh"
+                            android:layout_marginBottom="@dimen/_20pxv"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:paddingStart="0dp"
+                            android:paddingTop="0dp"
+                            android:paddingEnd="0dp"
+                            android:paddingBottom="0dp"
+                            android:singleLine="true"
+                            android:text="@string/lbl_giri_yap2"
+                            android:textAllCaps="false"
+                            tools:text="@string/lbl_giri_yap2" />
+
+                    </LinearLayout>
+                </FrameLayout>
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

@@ -3,11 +3,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/kandilliTableFragment">
+    app:startDestination="@id/startScreenFragment">
 
     <fragment
         android:id="@+id/kandilliTableFragment"
-        android:name="tr.edu.ku.ulgen.KandilliRecyclerViewFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.KandilliRecyclerViewFragment"
         android:label="fragment_kandilli_table"
         tools:layout="@layout/fragment_kandilli_table" />
+    <fragment
+        android:id="@+id/startScreenFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.StartScreenFragment"
+        android:label="StartScreenFragment"
+        tools:layout="@layout/fragment_start_screen">
+        <action
+            android:id="@+id/action_startScreenFragment_to_signUpScreenFragment"
+            app:destination="@id/signUpScreenFragment" />
+        <action
+            android:id="@+id/action_startScreenFragment_to_loginScreenFragment"
+            app:destination="@id/loginScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpScreenFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.SignUpScreenFragment"
+        android:label="SignUpScreenFragment"
+        tools:layout="@layout/fragment_sign_up_screen">
+        <action
+            android:id="@+id/action_signUpScreenFragment_to_loginScreenFragment"
+            app:destination="@id/loginScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginScreenFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.LoginScreenFragment"
+        android:label="LoginScreenFragment"
+        tools:layout="@layout/activity_login_screen">
+        <action
+            android:id="@+id/action_loginScreenFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
+        <action
+            android:id="@+id/action_loginScreenFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.ResetPasswordFragment"
+        android:label="ResetPasswordFragment"
+        tools:layout="@layout/activity_reset_password_screen"/>
+    <fragment
+        android:id="@+id/emptyFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.EmptyFragment"
+        android:label="EmptyFragment"
+        tools:layout="@layout/fragment_empty"/>
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.HomeScreenFragment"
+        android:label="HomeScreenFragment"
+        tools:layout="@layout/fragment_home_screen"/>
 </navigation>
