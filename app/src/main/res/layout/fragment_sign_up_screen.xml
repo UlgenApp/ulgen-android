@@ -10,16 +10,18 @@
             android:fillViewport="true" android:gravity="start"
             android:id="@+id/scrollViewScrollview"
             android:layout_height="0dp" android:layout_weight="1" android:layout_width="match_parent">
-            <LinearLayout android:gravity="center_horizontal"
+            <LinearLayout android:gravity="bottom|center"
                 android:id="@+id/linearColumnfiftyone"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:orientation="vertical" style="@style/groupStyleyellow_50">
+                android:orientation="vertical"
+
+                style="@style/groupStyleyellow_50">
 
                 <LinearLayout
                     android:id="@+id/frameStackfiftyone"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_411pxv"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_3pxh"
                     android:layout_marginEnd="@dimen/_2pxh"
                     android:gravity="bottom|center"
@@ -28,10 +30,10 @@
                     <ImageView
                         android:id="@+id/imageFiftyOne"
                         android:layout_width="257dp"
-                        android:layout_height="213dp"
+                        android:layout_height="150dp"
                         android:layout_gravity="center|top"
                         android:scaleType="centerInside"
-
+                        android:visibility="invisible"
                         android:src="@drawable/img_51_411x425"
                         tools:ignore="ContentDescription"
                         tools:src="@drawable/img_51_411x425" />
@@ -44,6 +46,7 @@
                         android:layout_marginStart="@dimen/_10pxh"
                         android:layout_marginEnd="@dimen/_10pxh"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="30dp"
                         android:ellipsize="none"
                         android:gravity="center"
                         android:maxLines="100"
