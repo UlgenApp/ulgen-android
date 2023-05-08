@@ -5,7 +5,7 @@
         android:icon="@drawable/baseline_table_rows_24"
         android:title="Earthquake Table" />
     <item
-        android:id="@+id/emptyFragment"
+        android:id="@+id/routingMapFragment"
         android:icon="@drawable/baseline_map_24"
         android:title="Map" />
     <item
