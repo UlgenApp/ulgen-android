@@ -6,6 +6,12 @@
     app:startDestination="@id/startScreenFragment">
 
     <fragment
+        android:id="@+id/heatmapFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.HeatmapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <fragment
         android:id="@+id/routingMapFragment"
         android:name="tr.edu.ku.ulgen.uiviews.RoutingMapFragment"
         android:label="Map"
