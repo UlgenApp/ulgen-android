@@ -21,14 +21,21 @@ import com.google.maps.DirectionsApi
 import com.google.maps.GeoApiContext
 import com.google.maps.android.PolyUtil
 import com.google.maps.model.TravelMode
-import org.json.JSONObject
 import tr.edu.ku.ulgen.BuildConfig
 import tr.edu.ku.ulgen.R
+import tr.edu.ku.ulgen.model.datasource.RoutingMapDataSource
 import tr.edu.ku.ulgen.uicomponents.CustomInfoWindowAdapter
 import java.util.*
+import tr.edu.ku.ulgen.model.routingmapdatastructure.RoutingMapResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import tr.edu.ku.ulgen.model.routingmapdatastructure.Depot
+import tr.edu.ku.ulgen.model.routingmapdatastructure.RoutingMapRequest
 
 class RoutingMapFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
+    private val routingMapData = RoutingMapDataSource.getRoutingMapData()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,127 +71,82 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
     @SuppressLint("PotentialBehaviorOverride")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        //TODO Take these values from previous screen
+        val depot = Depot(latitude = 41.015137, longitude = 28.979530)
+        val request = RoutingMapRequest(
+            epsilon = 0.002,
+            priority_coefficient = 0.3,
+            distance_coefficient = 0.7,
+            vehicleCount = 4,
+            depot = depot,
+            cities = listOf("Istanbul", "Ankara")
+        )
+        routingMapData.getUserRoute(request).enqueue(object : Callback<RoutingMapResponse> {
+            override fun onResponse(call: Call<RoutingMapResponse>, response: Response<RoutingMapResponse>) {
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    val result = responseBody?.body?.result
+                    val centroidData = result?.centroids
+                    val routeData = result?.route
 
-        val result = getData().getJSONObject("result")
-        val centroidData = result.getJSONArray("centroids")
-        val routeData = result.getJSONObject("route")
-        // Add your route points
-        val depot = LatLng(41.015137, 28.979530) // Will be taken from prev page
-        val customMarkerBitmap = BitmapFactory.decodeResource(resources, R.drawable.depot)
-        val scaledBitmap = scaleBitmap(customMarkerBitmap, 100, 100)
-        val customMarkerIcon = BitmapDescriptorFactory.fromBitmap(scaledBitmap)
+                    // Add your route points
+                    val depot = LatLng(depot.latitude, depot.longitude) // Will be taken from prev page
+                    val customMarkerBitmap = BitmapFactory.decodeResource(resources, R.drawable.depot)
+                    val scaledBitmap = scaleBitmap(customMarkerBitmap, 100, 100)
+                    val customMarkerIcon = BitmapDescriptorFactory.fromBitmap(scaledBitmap)
 
-        mMap.addMarker(MarkerOptions().position(depot).title("Depot").icon(customMarkerIcon))
-        //Will be filled from API call
-        val locations = ArrayList<LatLng>()
-        locations.add(depot)
-        mMap.setInfoWindowAdapter(CustomInfoWindowAdapter(requireContext()))
+                    mMap.addMarker(MarkerOptions().position(depot).title("Depot").icon(customMarkerIcon))
+                    //Will be filled from API call
+                    val locations = ArrayList<LatLng>()
+                    locations.add(depot)
+                    mMap.setInfoWindowAdapter(CustomInfoWindowAdapter(requireContext()))
 
+                    if (centroidData != null) {
+                        for (centroid in centroidData) {
+                            val latitude = centroid.latitude
+                            val longitude = centroid.longitude
+                            val priority = centroid.priority
 
-        for (i in 0 until centroidData.length()) {
-            val latitude = centroidData.getJSONObject(i).getDouble("latitude")
-            val longitude = centroidData.getJSONObject(i).getDouble("longitude")
-            val priority = centroidData.getJSONObject(i).getDouble("priority")
+                            val currentLocation = LatLng(latitude, longitude)
+                            locations.add(currentLocation)
+                            mMap.addMarker(MarkerOptions().position(currentLocation).title("Priority: $priority\nLatitude: $latitude\nLongitude: $longitude"))
+                        }
+                    }
 
-            val currentLocation = LatLng(latitude, longitude)
-            locations.add(currentLocation)
-            mMap.addMarker(MarkerOptions().position(currentLocation).title("Priority: $priority\nLatitude: $latitude\nLongitude: $longitude"))
+                    if (routeData != null) {
+                        for ((vehicleName, vehicleData) in routeData) {
+                            val currentRoutes = vehicleData.route
+                            val rnd = Random()
+                            val color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
 
+                            for (k in 0 until currentRoutes.size - 1) {
+                                val checkIndex = currentRoutes[k+1]
+                                if (checkIndex == 0) {
+                                    break
+                                }
 
-        }
+                                val prevLoc = locations[currentRoutes[k]]
+                                val nextLoc = locations[checkIndex]
 
-        for (j in 1..routeData.length()) {
-            val currentVehicle = routeData.getJSONObject("vehicle_$j")
-            val currentRoutes = currentVehicle.getJSONArray("route")
-            val rnd = Random()
-            val color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+                                drawRouteOnMap(mMap, prevLoc, nextLoc, color)
+                            }
+                        }
+                    }
 
-            for (k in 0 until currentRoutes.length()){
-                val checkIndex = currentRoutes.getInt(k+1)
-                if (checkIndex == 0){
-                    break
+                    // Move the camera to the depot
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(depot, 5f))
+                } else {
+                    println("Response failed with status code: ${response.code()}")
+                    println("Body: ${response.body()}")
                 }
-
-                val prevLoc = locations[currentRoutes.getInt(k)]
-                val nextLoc = locations[checkIndex]
-
-
-                drawRouteOnMap(mMap, prevLoc, nextLoc, color)
-
             }
-        }
-        // Move the camera to the depot
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(depot, 5f))
+
+            override fun onFailure(call: Call<RoutingMapResponse>, t: Throwable) {
+                println("Failed to get data: ${t.message}")
+            }
+        })
     }
     private fun scaleBitmap(bitmap: Bitmap, width: Int, height: Int): Bitmap {
         return Bitmap.createScaledBitmap(bitmap, width, height, false)
-    }
-    fun getData(): JSONObject {
-        return JSONObject("{\n" +
-                "    \"result\": {\n" +
-                "        \"centroids\": [\n" +
-                "            {\n" +
-                "                \"priority\": 1,\n" +
-                "                \"latitude\": 38.423733,\n" +
-                "                \"longitude\": 27.142826\n" +
-                "            },\n" +
-                "            {\n" +
-                "                \"priority\": 1,\n" +
-                "                \"latitude\": 37.0,\n" +
-                "                \"longitude\": 35.321335\n" +
-                "            },\n" +
-                "            {\n" +
-                "                \"priority\": 1,\n" +
-                "                \"latitude\": 37.575275,\n" +
-                "                \"longitude\": 36.922821\n" +
-                "            },\n" +
-                "            {\n" +
-                "                \"priority\": 1,\n" +
-                "                \"latitude\": 37.066666,\n" +
-                "                \"longitude\": 37.383331\n" +
-                "            },\n" +
-                "            {\n" +
-                "                \"priority\": 1,\n" +
-                "                \"latitude\": 36.891339,\n" +
-                "                \"longitude\": 30.712438\n" +
-                "            }\n" +
-                "        ],\n" +
-                "        \"route\": {\n" +
-                "            \"vehicle_1\": {\n" +
-                "                \"route\": [\n" +
-                "                    0,\n" +
-                "                    1,\n" +
-                "                    0\n" +
-                "                ],\n" +
-                "                \"distance_travelled\": 672798\n" +
-                "            },\n" +
-                "            \"vehicle_2\": {\n" +
-                "                \"route\": [\n" +
-                "                    0,\n" +
-                "                    5,\n" +
-                "                    0\n" +
-                "                ],\n" +
-                "                \"distance_travelled\": 977026\n" +
-                "            },\n" +
-                "            \"vehicle_3\": {\n" +
-                "                \"route\": [\n" +
-                "                    0,\n" +
-                "                    2,\n" +
-                "                    0\n" +
-                "                ],\n" +
-                "                \"distance_travelled\": 1296842\n" +
-                "            },\n" +
-                "            \"vehicle_4\": {\n" +
-                "                \"route\": [\n" +
-                "                    0,\n" +
-                "                    3,\n" +
-                "                    4,\n" +
-                "                    0\n" +
-                "                ],\n" +
-                "                \"distance_travelled\": 1576613\n" +
-                "            }\n" +
-                "        }\n" +
-                "    }\n" +
-                "}\n")
     }
 }

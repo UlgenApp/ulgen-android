@@ -25,7 +25,7 @@ import retrofit2.Response
 class HeatmapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private val heatMapApi = HeatMapDataSource.getHeatMapData()
+    private val heatMapData = HeatMapDataSource.getHeatMapData()
 
 
     override fun onCreateView(
@@ -55,7 +55,7 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
         //TODO Take cities and epsilon from previous page
         val request = HeatMapRequest(0.002, listOf("Istanbul", "Ankara"))
 
-        heatMapApi.getUserHeatMap(request).enqueue(object: Callback<HeatMapResponse> {
+        heatMapData.getUserHeatMap(request).enqueue(object: Callback<HeatMapResponse> {
             override fun onResponse(call: Call<HeatMapResponse>, response: Response<HeatMapResponse>) {
                 if(response.isSuccessful) {
                     val centroids = response.body()?.body?.result?.centroids
@@ -65,8 +65,9 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
                     }
                     addHeatMap(list)
                 } else {
-                    println("Response failed with status code: ${response.body()}")
-                    println("Error body: $response")                }
+                    println("Response failed with status code: ${response.code()}")
+                    println("Body: ${response.body()}")
+                }
             }
 
             override fun onFailure(call: Call<HeatMapResponse>, t: Throwable) {
@@ -81,7 +82,7 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
             .radius(50)
             .build()
 
-        mMap.addTileOverlay(TileOverlayOptions().tileProvider(provider)) // Change this line
+        mMap.addTileOverlay(TileOverlayOptions().tileProvider(provider))
     }
 
 }
