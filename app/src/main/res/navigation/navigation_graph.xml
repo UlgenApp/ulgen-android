@@ -6,6 +6,18 @@
     app:startDestination="@id/startScreenFragment">
 
     <fragment
+        android:id="@+id/heatmapFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.HeatmapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <fragment
+        android:id="@+id/routingMapFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.RoutingMapFragment"
+        android:label="Map"
+        tools:layout="@layout/fragment_routing_map" />
+
+    <fragment
         android:id="@+id/kandilliTableFragment"
         android:name="tr.edu.ku.ulgen.uiviews.KandilliRecyclerViewFragment"
         android:label="fragment_kandilli_table"
