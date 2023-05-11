@@ -53,7 +53,7 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
         val list = ArrayList<WeightedLatLng>()
 
         //TODO Take cities and epsilon from previous page
-        val request = HeatMapRequest(0.002, listOf("Istanbul", "Ankara"))
+        val request = HeatMapRequest(0.002, listOf("Adana", "Hatay"))
 
         heatMapData.getUserHeatMap(request).enqueue(object: Callback<HeatMapResponse> {
             override fun onResponse(call: Call<HeatMapResponse>, response: Response<HeatMapResponse>) {

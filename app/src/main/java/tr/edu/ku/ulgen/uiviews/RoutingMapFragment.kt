@@ -72,14 +72,14 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         //TODO Take these values from previous screen
-        val depot = Depot(latitude = 41.015137, longitude = 28.979530)
+        val depot = Depot(latitude = 37.041452, longitude = 37.361600)
         val request = RoutingMapRequest(
             epsilon = 0.002,
             priority_coefficient = 0.3,
             distance_coefficient = 0.7,
             vehicleCount = 4,
             depot = depot,
-            cities = listOf("Istanbul", "Ankara")
+            cities = listOf("Adana", "Hatay")
         )
         routingMapData.getUserRoute(request).enqueue(object : Callback<RoutingMapResponse> {
             override fun onResponse(call: Call<RoutingMapResponse>, response: Response<RoutingMapResponse>) {
