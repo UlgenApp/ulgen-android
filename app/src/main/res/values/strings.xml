@@ -41,6 +41,9 @@
     <string name="msg_kullan_c_genel">Kullanıcı genel bilgiler kutusu</string>
 
     <string name="msg_hesab_n_tamaml">hesabını tamamlamak için tıkla!</string>
+    <string name="login_failed">Geçersiz email veya şifre.</string>
+    <string name="sign_up_failed">Hesap oluşturma başarısız oldu.</string>
+    <string name="sign_up_succesfull">Hesabınız başarıyla oluşturuldu.</string>
 
 
 

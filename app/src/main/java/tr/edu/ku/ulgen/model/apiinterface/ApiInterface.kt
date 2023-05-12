@@ -1,10 +1,11 @@
 package tr.edu.ku.ulgen.model.apiinterface
 
+import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.*
+import tr.edu.ku.ulgen.model.apibodies.SignInBody
+import tr.edu.ku.ulgen.model.apibodies.UserBody
+import tr.edu.ku.ulgen.model.apibodies.UserProfile
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapRequest
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapResponse
 import tr.edu.ku.ulgen.model.kandillilivedatastructure.KandilliEarthquakeLiveData
@@ -19,5 +20,20 @@ interface ApiInterface {
     fun getUserHeatMap(@Body request: HeatMapRequest): Call<HeatMapResponse>
     @POST("api/v1/user/route")
     fun getUserRoute(@Body body: RoutingMapRequest): Call<RoutingMapResponse>
+
+    @Headers("Content-Type:application/json")
+    @POST("api/v1/auth/authenticate")
+    fun signin(@Body info: SignInBody): retrofit2.Call<ResponseBody>
+
+    @Headers("Content-Type:application/json")
+    @POST("api/v1/auth/register")
+    fun registerUser(
+        @Body info: UserBody
+    ): retrofit2.Call<ResponseBody>
+
+    @GET("api/v1/user/profile")
+    fun getUserProfile(@Header("Authorization") token: String): Call<UserProfile>
+
+
 
 }
