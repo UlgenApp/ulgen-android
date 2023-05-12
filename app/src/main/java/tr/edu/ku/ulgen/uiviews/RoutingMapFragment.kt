@@ -35,8 +35,6 @@ import tr.edu.ku.ulgen.model.routingmapdatastructure.RoutingMapRequest
 
 class RoutingMapFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
-    private val routingMapData = RoutingMapDataSource.getRoutingMapData()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -81,6 +79,9 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
             depot = depot,
             cities = listOf("Adana", "Hatay")
         )
+        RoutingMapDataSource.init(requireContext())
+        val routingMapData = RoutingMapDataSource.getRoutingMapData()
+
         routingMapData.getUserRoute(request).enqueue(object : Callback<RoutingMapResponse> {
             override fun onResponse(call: Call<RoutingMapResponse>, response: Response<RoutingMapResponse>) {
                 if (response.isSuccessful) {

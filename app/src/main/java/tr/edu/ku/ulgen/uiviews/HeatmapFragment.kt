@@ -25,8 +25,6 @@ import retrofit2.Response
 class HeatmapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private val heatMapData = HeatMapDataSource.getHeatMapData()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,6 +53,8 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
         //TODO Take cities and epsilon from previous page
         val request = HeatMapRequest(0.002, listOf("Adana", "Hatay"))
 
+        HeatMapDataSource.init(requireContext())
+        val heatMapData = HeatMapDataSource.getHeatMapData()
         heatMapData.getUserHeatMap(request).enqueue(object: Callback<HeatMapResponse> {
             override fun onResponse(call: Call<HeatMapResponse>, response: Response<HeatMapResponse>) {
                 if(response.isSuccessful) {
