@@ -9,6 +9,8 @@ import tr.edu.ku.ulgen.model.apibodies.UserProfile
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapRequest
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapResponse
 import tr.edu.ku.ulgen.model.kandillilivedatastructure.KandilliEarthquakeLiveData
+import tr.edu.ku.ulgen.model.macscannerdatastructure.MACScannerRequest
+import tr.edu.ku.ulgen.model.macscannerdatastructure.MACScannerResponse
 import tr.edu.ku.ulgen.model.routingmapdatastructure.RoutingMapRequest
 import tr.edu.ku.ulgen.model.routingmapdatastructure.RoutingMapResponse
 
@@ -33,7 +35,7 @@ interface ApiInterface {
 
     @GET("api/v1/user/profile")
     fun getUserProfile(@Header("Authorization") token: String): Call<UserProfile>
-
-
+    @POST("api/v1/producer/produce")
+    fun sendMACAddresses(@Body requestBody: MACScannerRequest): Call<MACScannerResponse>
 
 }

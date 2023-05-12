@@ -23,13 +23,13 @@ import com.google.maps.android.PolyUtil
 import com.google.maps.model.TravelMode
 import tr.edu.ku.ulgen.BuildConfig
 import tr.edu.ku.ulgen.R
-import tr.edu.ku.ulgen.model.datasource.RoutingMapDataSource
 import tr.edu.ku.ulgen.uicomponents.CustomInfoWindowAdapter
 import java.util.*
 import tr.edu.ku.ulgen.model.routingmapdatastructure.RoutingMapResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.routingmapdatastructure.Depot
 import tr.edu.ku.ulgen.model.routingmapdatastructure.RoutingMapRequest
 
@@ -79,8 +79,8 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
             depot = depot,
             cities = listOf("Adana", "Hatay")
         )
-        RoutingMapDataSource.init(requireContext())
-        val routingMapData = RoutingMapDataSource.getRoutingMapData()
+        UlgenAPIDataSource.init(requireContext())
+        val routingMapData = UlgenAPIDataSource.getUlgenAPIData()
 
         routingMapData.getUserRoute(request).enqueue(object : Callback<RoutingMapResponse> {
             override fun onResponse(call: Call<RoutingMapResponse>, response: Response<RoutingMapResponse>) {

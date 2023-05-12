@@ -22,6 +22,7 @@ import tr.edu.ku.ulgen.model.datasource.AuthenticationDataSource
 import org.json.JSONObject
 import org.json.JSONException
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
+import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
 import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
 
 
@@ -71,6 +72,7 @@ class LoginScreenFragment : Fragment() {
                             val apiToken = json.getString("token")
                             sharedPreferencesUtil.saveApiToken(apiToken)
                             Log.d("Shared_preferences", sharedPreferencesUtil.getApiToken().toString())
+                            MACScanWorker.schedule(requireContext())
                             getUserProfile(apiToken)
                             findNavController().navigate(R.id.action_loginScreenFragment_to_homeScreenFragment)
                         } catch (e: JSONException) {

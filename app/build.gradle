@@ -25,17 +25,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        def tempBearerToken = "default"
-        if (project.hasProperty('TEMP_BEARER_TOKEN')) {
-            tempBearerToken = TEMP_BEARER_TOKEN
-        }
-
         def ulgenBaseUrl = "default"
         if (project.hasProperty('ULGEN_BASE_URL')) {
             ulgenBaseUrl = ULGEN_BASE_URL
         }
 
-        buildConfigField "String", "TEMP_BEARER_TOKEN", "\"${tempBearerToken}\""
         buildConfigField "String", "ULGEN_BASE_URL", "\"${ulgenBaseUrl}\""
 
     }

@@ -14,7 +14,7 @@ import com.google.android.gms.maps.model.TileOverlayOptions
 import com.google.maps.android.heatmaps.HeatmapTileProvider
 import com.google.maps.android.heatmaps.WeightedLatLng
 import tr.edu.ku.ulgen.R
-import tr.edu.ku.ulgen.model.datasource.HeatMapDataSource
+import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapRequest
 import java.util.ArrayList
 import retrofit2.Callback
@@ -53,8 +53,8 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
         //TODO Take cities and epsilon from previous page
         val request = HeatMapRequest(0.002, listOf("Adana", "Hatay"))
 
-        HeatMapDataSource.init(requireContext())
-        val heatMapData = HeatMapDataSource.getHeatMapData()
+        UlgenAPIDataSource.init(requireContext())
+        val heatMapData = UlgenAPIDataSource.getUlgenAPIData()
         heatMapData.getUserHeatMap(request).enqueue(object: Callback<HeatMapResponse> {
             override fun onResponse(call: Call<HeatMapResponse>, response: Response<HeatMapResponse>) {
                 if(response.isSuccessful) {
