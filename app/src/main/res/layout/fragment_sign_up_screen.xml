@@ -29,14 +29,17 @@
 
                     <ImageView
                         android:id="@+id/imageFiftyOne"
-                        android:layout_width="257dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="150dp"
                         android:layout_gravity="center|top"
                         android:scaleType="centerInside"
-                        android:visibility="invisible"
-                        android:src="@drawable/img_51_411x425"
+
+
+                        android:src="@drawable/ulgen_handshake"
                         tools:ignore="ContentDescription"
-                        tools:src="@drawable/img_51_411x425" />
+                        tools:src="@drawable/ulgen_handshake" />
+
+
 
                     <TextView
                         android:id="@+id/txtLgenhesabn"
@@ -46,7 +49,7 @@
                         android:layout_marginStart="@dimen/_10pxh"
                         android:layout_marginEnd="@dimen/_10pxh"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="30dp"
+                        android:layout_marginBottom="10dp"
                         android:ellipsize="none"
                         android:gravity="center"
                         android:maxLines="100"
@@ -64,7 +67,7 @@
                     android:layout_marginEnd="@dimen/_34pxh"
                     android:layout_marginStart="@dimen/_34pxh"
                     android:layout_width="match_parent"
-                    android:orientation="vertical" style="@style/groupStyleindigo_700_8ccornerRadius">
+                    android:orientation="vertical" >
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtAdsoyad"
                         android:layout_height="wrap_content"
@@ -76,9 +79,9 @@
                         android:text="@string/lbl_ad_soyad"
                         style="@style/txtNunitoregular18" tools:text="@string/lbl_ad_soyad"/>
                     <EditText
-                        android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
-                        android:ellipsize="end"
 
+                        android:ellipsize="end"
+                        android:background="@drawable/underline"
                         android:id="@+id/etGroupNine"
                         android:inputType="text"
                         android:layout_height="wrap_content"
@@ -104,7 +107,7 @@
                         android:text="@string/lbl_e_mail"
                         style="@style/txtNunitoregular18" tools:text="@string/lbl_e_mail"/>
                     <EditText
-                        android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
+                        android:background="@drawable/underline"
                         android:ellipsize="end"
                         android:id="@+id/etEmailOne"
                         android:inputType="textEmailAddress"
@@ -131,7 +134,7 @@
                         android:text="@string/lbl_ifre"
                         style="@style/txtNunitoregular18" tools:text="@string/lbl_ifre"/>
                     <EditText
-                        android:background="@drawable/rectangle_bg_indigo_700_3f_radius_10"
+                        android:background="@drawable/underline"
                         android:ellipsize="end"
                         android:id="@+id/etPassword"
                         android:inputType="textPassword"
@@ -154,7 +157,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_34pxh"
                     android:layout_marginStart="@dimen/_34pxh"
-                    android:layout_marginTop="@dimen/_23pxv"
+                    android:layout_marginTop="@dimen/_2pxv"
                     android:layout_width="match_parent" android:orientation="horizontal">
 
                     <CheckBox
@@ -180,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_34pxh"
                     android:layout_marginStart="@dimen/_34pxh"
-                    android:layout_marginTop="@dimen/_24pxv"
+                    android:layout_marginTop="@dimen/_5pxv"
                     android:layout_width="match_parent"
                     android:paddingBottom="@dimen/_17pxv"
                     android:paddingEnd="@dimen/_30pxh"
@@ -197,7 +200,7 @@
                     android:layout_marginBottom="@dimen/_20pxv"
                     android:layout_marginEnd="@dimen/_34pxh"
                     android:layout_marginStart="@dimen/_34pxh"
-                    android:layout_marginTop="@dimen/_26pxv"
+                    android:layout_marginTop="@dimen/_10pxv"
                     android:layout_width="match_parent"
                     android:singleLine="true"
                     android:text="@string/msg_zaten_hesab_n_v"

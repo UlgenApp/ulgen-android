@@ -44,6 +44,8 @@
     <string name="login_failed">Geçersiz email veya şifre.</string>
     <string name="sign_up_failed">Hesap oluşturma başarısız oldu.</string>
     <string name="sign_up_succesfull">Hesabınız başarıyla oluşturuldu.</string>
+    <string name="checkbox_not_checked"> Hesap oluşturabilmek için kutucuğu işaretleyin.</string>
+    <string name="missing_input_error"> Bazı kutucuklarda boşluklar var. Lütfen doldurun.</string>
 
 
 

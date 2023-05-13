@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -29,17 +30,25 @@ class SignUpScreenFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_sign_up_screen, container, false)
 
-        val singUpButton = view.findViewById<Button>(R.id.btnHesapOlutur)
+        val signUpButton = view.findViewById<Button>(R.id.btnHesapOlutur)
 
-        singUpButton.setOnClickListener {
-            val email = view.findViewById<EditText>(R.id.etEmailOne).text.toString()
-            val fullName = view.findViewById<EditText>(R.id.etGroupNine).text.toString()
-            val password = view.findViewById<EditText>(R.id.etPassword).text.toString()
-            val (names, surname) = parseName(fullName)
+        signUpButton.setOnClickListener {
+            if(view.findViewById<CheckBox>(R.id.viewRectangleSixtySeven).isChecked) {
+                val email = view.findViewById<EditText>(R.id.etEmailOne).text.toString()
+                val fullName = view.findViewById<EditText>(R.id.etGroupNine).text.toString()
+                val password = view.findViewById<EditText>(R.id.etPassword).text.toString()
+                val (names, surname) = parseName(fullName)
 
-            signUp(email,names, surname, password, view)
-
+                if (email.isBlank() || names.isBlank() || surname.isBlank() || password.isBlank()) {
+                    CustomSnackbar.showError(view, getString(R.string.missing_input_error))
+                } else {
+                    signUp(email, names, surname, password, view)
+                }
+            } else {
+                CustomSnackbar.showError(view, getString(R.string.checkbox_not_checked))
+            }
         }
+
 
         val loginTextView = view.findViewById<TextView>(R.id.txtZatenhesabnv)
         loginTextView.setOnClickListener {
@@ -74,21 +83,32 @@ class SignUpScreenFragment : Fragment() {
 
         })
     }
-    fun parseName(fullName: String): Pair<String, String> {
+    fun parseName(fullName: String?): Pair<String, String> {
+        if (fullName.isNullOrEmpty()) {
+            // No name
+            return Pair("", "")
+        }
+
         val nameParts = fullName.split(" ")
 
-        if (nameParts.size == 2) {
-            // One name and one surname
-            return Pair(nameParts[0], nameParts[1])
-        } else if (nameParts.size > 2) {
-            // More than one name and one surname
-            val names = nameParts.subList(0, nameParts.size - 1).joinToString(" ")
-            val surname = nameParts[nameParts.size - 1]
-            return Pair(names, surname)
-        } else {
-            throw IllegalArgumentException("Invalid name format!")
+        return when {
+            nameParts.size >= 2 -> {
+                // More than one name and one surname
+                val names = nameParts.subList(0, nameParts.size - 1).joinToString(" ")
+                val surname = nameParts.last()
+                Pair(names, surname)
+            }
+            nameParts.size == 1 -> {
+                // Only one name
+                Pair(nameParts[0], "")
+            }
+            else -> {
+                // No name
+                Pair("", "")
+            }
         }
     }
+
 
 
 }
