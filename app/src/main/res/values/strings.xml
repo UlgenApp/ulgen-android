@@ -9,11 +9,11 @@
 <string name="msg_lgen_e_ho_gel">Ülgen\u2019e hoş geldin!</string>
 <string name="lbl_giri_yap"> Giriş yap</string>
 <string name="msg_lgen_hesab_na">Ülgen hesabına giriş yap</string>
-<string name="lbl_ad_soyad">ad-soyad</string>
+<string name="lbl_ad_soyad">Ad Soyad</string>
 <string name="msg_hesap_olu_turar2">Hesap oluşturarak </string>
 <string name="msg_lgen_hesab_n">Ülgen hesabını oluştur</string>
-<string name="lbl_e_mail">e-mail</string>
-<string name="lbl_ifre">şifre</string>
+<string name="lbl_e_mail">E-mail</string>
+<string name="lbl_ifre">Şifre</string>
 <string name="msg_lgen_kullan_m">Ülgen Kullanım Şartlarını</string>
 <string name="msg_ifreni_mi_unut">şifreni mi unuttun?</string>
 <string name="msg_zaten_hesab_n_v2">Zaten hesabın var mı?</string>

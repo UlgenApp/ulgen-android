@@ -59,7 +59,11 @@
         android:id="@+id/resetPasswordFragment"
         android:name="tr.edu.ku.ulgen.uiviews.ResetPasswordFragment"
         android:label="ResetPasswordFragment"
-        tools:layout="@layout/activity_reset_password_screen"/>
+        tools:layout="@layout/activity_reset_password_screen">
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_loginScreenFragment"
+            app:destination="@id/loginScreenFragment" />
+    </fragment>
     <fragment
         android:id="@+id/emptyFragment"
         android:name="tr.edu.ku.ulgen.uiviews.EmptyFragment"
