@@ -69,11 +69,11 @@ object LocalMACScanner {
         }
         fusedLocationClient.lastLocation.addOnSuccessListener { androidLocation: android.location.Location? ->
             androidLocation?.let { location ->
-                val geocoder = Geocoder(applicationContext, Locale.getDefault())
+                val geocoder = Geocoder(applicationContext, Locale.ENGLISH)
                 val addresses: List<Address> = geocoder.getFromLocation(location.latitude, location.longitude, 1)
                 val cityName = addresses[0].adminArea
 
-                println(cityName)
+                println(convertTurkishToEnglish(cityName))
                 println(location.latitude)
                 println(location.longitude)
 
@@ -81,7 +81,7 @@ object LocalMACScanner {
                     val requestBody = MACScannerRequest(
                         location = Location(latitude = location.latitude, longitude = location.longitude),
                         macAddresses = macAddressList,
-                        userCity = cityName  // Updated to use the city name from reverse geocoding
+                        userCity = convertTurkishToEnglish(cityName)  // Updated to use the city name from reverse geocoding
                     )
 
                     CoroutineScope(Dispatchers.IO).launch {
@@ -115,5 +115,15 @@ object LocalMACScanner {
         return true
     }
 
+    fun convertTurkishToEnglish(text: String): String {
+        val turkishChars = charArrayOf('ş', 'ğ', 'ı', 'ö', 'ü', 'ç', 'Ş', 'Ğ', 'İ', 'Ö', 'Ü', 'Ç')
+        val englishChars = charArrayOf('s', 'g', 'i', 'o', 'u', 'c', 'S', 'G', 'I', 'O', 'U', 'C')
+
+        var result = text
+        for (i in turkishChars.indices) {
+            result = result.replace(turkishChars[i], englishChars[i])
+        }
+        return result
+    }
     data class MacAddress(val address: String)
 }

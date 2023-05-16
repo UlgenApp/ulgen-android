@@ -3,8 +3,6 @@ package tr.edu.ku.ulgen.networkscanner.workers
 import android.content.Context
 import android.util.Log
 import androidx.work.*
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.networkscanner.scanner.LocalMACScanner
 import java.util.concurrent.TimeUnit
@@ -29,7 +27,7 @@ class MACScanWorker(appContext: Context, workerParams: WorkerParameters) :
         }
     }
     companion object {
-        private const val TAG = "UlgenMACScanWorker-7c9db77fp"
+        private const val TAG = "UlgenMACScanWorker-7c9db77kf"
 
         fun schedule(context: Context) {
             UlgenAPIDataSource.init(context)
