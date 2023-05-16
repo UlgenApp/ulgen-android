@@ -3,19 +3,9 @@ package tr.edu.ku.ulgen.networkscanner.workers
 import android.content.Context
 import android.util.Log
 import androidx.work.*
-import com.google.android.gms.maps.model.LatLng
-import com.google.maps.android.heatmaps.WeightedLatLng
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
-import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapResponse
-import tr.edu.ku.ulgen.model.macscannerdatastructure.Location
-import tr.edu.ku.ulgen.model.macscannerdatastructure.MACScannerRequest
-import tr.edu.ku.ulgen.model.macscannerdatastructure.MACScannerResponse
 import tr.edu.ku.ulgen.networkscanner.scanner.LocalMACScanner
 import java.util.concurrent.TimeUnit
 
@@ -24,6 +14,7 @@ class MACScanWorker(appContext: Context, workerParams: WorkerParameters) :
 
     override fun doWork(): Result {
         Log.d("UlgenMACScanWorker", "doWork started")
+
         val macAddresses = LocalMACScanner.getMacAddresses()
         val macAddressList = mutableListOf<String>()
         for (elem in macAddresses) {
@@ -31,41 +22,14 @@ class MACScanWorker(appContext: Context, workerParams: WorkerParameters) :
             macAddressList.add(elem.value.address.subSequence(0,8).toString())
         }
 
-        val requestBody = MACScannerRequest(
-            location = Location(latitude = 32.560431, longitude = 36.394458),
-            macAddresses = macAddressList,
-            userCity = "Istanbul"
-        )
-
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val macScannerData = UlgenAPIDataSource.getUlgenAPIData()
-                macScannerData.sendMACAddresses(requestBody).enqueue(object: Callback<MACScannerResponse> {
-                    override fun onResponse(call: Call<MACScannerResponse>, response: Response<MACScannerResponse>) {
-                        if(response.isSuccessful) {
-                            println("MAC addresses sent successfully")
-                        } else {
-                            println("Response failed with status code: ${response.code()}")
-                            println("Body: ${response.body()}")
-                        }
-                    }
-
-                    override fun onFailure(call: Call<MACScannerResponse>, t: Throwable) {
-                        println("Failed to get data: ${t.message}")
-                    }
-                })
-            } catch (e: Exception) {
-                // TODO: Handle the error
-                println(e)
-            }
+        return if (LocalMACScanner.sendMACAddresses(macAddressList, applicationContext)){
+            Result.success()
+        } else {
+            Result.failure()
         }
-
-        return Result.success()
     }
-
-
     companion object {
-        private const val TAG = "UlgenMACScanWorker-7c9db77ft"
+        private const val TAG = "UlgenMACScanWorker-7c9db77fp"
 
         fun schedule(context: Context) {
             UlgenAPIDataSource.init(context)
@@ -74,7 +38,7 @@ class MACScanWorker(appContext: Context, workerParams: WorkerParameters) :
                 .setRequiresCharging(true)
                 .build()
 
-            val macScanRequest = PeriodicWorkRequestBuilder<MACScanWorker>(1, TimeUnit.MINUTES)
+            val macScanRequest = PeriodicWorkRequestBuilder<MACScanWorker>(1, TimeUnit.HOURS)
                 .setConstraints(constraints)
                 .build()
 
