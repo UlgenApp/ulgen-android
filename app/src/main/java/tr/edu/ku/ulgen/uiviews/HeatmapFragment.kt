@@ -42,7 +42,7 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(41.015137, 28.979530), 10f))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(39.359832, 35.473356), 5f))
 
         getSampleData()
     }
@@ -60,7 +60,6 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
                 if(response.isSuccessful) {
                     val centroids = response.body()?.body?.result?.centroids
                     centroids?.forEach {
-                        println("Priority: ${it.priority}, Latitude: ${it.latitude}, Longitude: ${it.longitude}")
                         list.add(WeightedLatLng(LatLng(it.latitude, it.longitude), it.priority.toDouble()))
                     }
                     addHeatMap(list)
