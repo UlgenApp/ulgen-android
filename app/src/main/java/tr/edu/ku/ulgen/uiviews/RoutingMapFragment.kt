@@ -69,13 +69,23 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
     @SuppressLint("PotentialBehaviorOverride")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        //TODO Take these values from previous screen
-        val depot = Depot(latitude = 37.041452, longitude = 37.361600)
+        // Getting values from previous fragment
+        val vehicleCount = arguments?.getString("vehicleCount")?.toIntOrNull() ?: 4
+        val latitude = arguments?.getString("latitude")?.toDoubleOrNull() ?: 37.041452
+        val longitude = arguments?.getString("longitude")?.toDoubleOrNull() ?: 37.361600
+        val seekBarProgress = arguments?.getDouble("seekBarProgress") ?: 0.0
+        val distanceCoefficient = 1 - seekBarProgress
+
+        println("AAAAAAAAAA")
+        println(distanceCoefficient)
+        println(seekBarProgress)
+
+        val depot = Depot(latitude = latitude, longitude = longitude)
         val request = RoutingMapRequest(
             epsilon = 0.002,
-            priority_coefficient = 0.3,
-            distance_coefficient = 0.7,
-            vehicleCount = 4,
+            priority_coefficient = seekBarProgress,
+            distance_coefficient = distanceCoefficient,
+            vehicleCount = vehicleCount,
             depot = depot,
             cities = listOf("Adana", "Hatay")
         )

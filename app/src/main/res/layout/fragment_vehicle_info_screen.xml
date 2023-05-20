@@ -53,7 +53,7 @@
                         android:orientation="vertical">
 
                         <EditText
-                            android:id="@+id/etTwo"
+                            android:id="@+id/vehicleCount"
                             style="@style/txtNunitoregular64"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                             android:orientation="vertical">
 
                             <EditText android:ellipsize="end" android:gravity="center"
-                                android:id="@+id/txt41205616_1"
+                                android:id="@+id/latitude"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="@dimen/_10pxv"
                                 android:layout_width="match_parent"
@@ -140,7 +140,7 @@
                             android:orientation="vertical">
 
                             <EditText android:ellipsize="end" android:gravity="center"
-                                android:id="@+id/txt41205616_2"
+                                android:id="@+id/longitude"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="@dimen/_10pxv"
                                 android:layout_width="match_parent"

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/vehicleInfoScreenFragment">
+    app:startDestination="@id/startScreenFragment">
 
     <fragment
         android:id="@+id/heatmapFragment"
@@ -78,5 +78,9 @@
         android:id="@+id/vehicleInfoScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.VehicleInfoScreenFragment"
         android:label="VehicleInfoScreenFragment"
-        tools:layout="@layout/fragment_vehicle_info_screen"/>
+        tools:layout="@layout/fragment_vehicle_info_screen">
+        <action
+            android:id="@+id/action_vehicleInfoScreenFragment_to_routingMapFragment"
+            app:destination="@id/routingMapFragment" />
+    </fragment>
 </navigation>
