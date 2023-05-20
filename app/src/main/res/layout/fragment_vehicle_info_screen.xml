@@ -158,8 +158,8 @@
                                 android:layout_marginTop="@dimen/_10pxv"
                                 android:layout_width="wrap_content"
                                 android:singleLine="true"
-                                android:text="Enlem"
-                                style="@style/txtNunitobold16" tools:text="@string/lbl_enlem"/>
+                                android:text="Boylam"
+                                style="@style/txtNunitobold16" tools:text="Boylam"/>
                         </LinearLayout>
                     </LinearLayout>
 
