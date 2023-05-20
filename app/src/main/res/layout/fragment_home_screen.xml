@@ -73,7 +73,7 @@
 
                                 <FrameLayout
                                     android:id="@+id/frameStacklanguage"
-                                    android:layout_width="@dimen/_272pxh"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="@dimen/_39pxv">
 
                                     <TextView
@@ -86,8 +86,7 @@
                                         android:layout_marginBottom="@dimen/_10pxv"
                                         android:ellipsize="end"
                                         android:singleLine="true"
-                                        android:text="@string/lbl_merhaba_faruk"
-                                        tools:text="@string/lbl_merhaba_faruk" />
+                                         />
 
                                     <LinearLayout
                                         android:id="@+id/linearColumnrectanglethirtynine"

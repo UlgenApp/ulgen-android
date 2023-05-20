@@ -17,15 +17,14 @@
     <color name="indigo_700">#34548e</color>
     <color name="black_900_3f">#3f000000</color>
     <color name="gray_50">#fffbf6</color>
-
-
     <color name="gray_600">#747070</color>
-
     <color name="indigo_700_cc">#cc34548e</color>
-
-
     <color name="bluegray_500">#5c73a1</color>
     <color name="indigo_700_f2">#f234548e</color>
-
+    <color name="gray_300">#dddfe3</color>
+    <color name="white_A700_00">#00ffffff</color>
+    <color name="white_A700">#ffffff</color>
+    <color name="pink_900">#730037</color>
+    <color name="white_A700_19">#19ffffff</color>
 
 </resources>

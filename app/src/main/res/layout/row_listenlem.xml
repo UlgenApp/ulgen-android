@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout android:id="@+id/frameStackenlem"
+        android:layout_height="wrap_content" android:layout_width="@dimen/_159pxh">
+        <TextView android:ellipsize="end" android:id="@+id/txtEnlem"
+            android:layout_gravity="bottom|center"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_55pxh"
+            android:layout_marginStart="@dimen/_55pxh"
+            android:layout_marginTop="@dimen/_10pxv"
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:text="Enlem"
+            style="@style/txtNunitobold16" tools:text="@string/lbl_enlem"/>
+        <TextView android:ellipsize="end" android:gravity="top|start"
+            android:id="@+id/txt41205616"
+            android:layout_gravity="top|center"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10pxv"
+            android:layout_marginEnd="@dimen/_18pxh"
+            android:layout_marginStart="@dimen/_18pxh"
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:text="41.205616"
+            style="@style/txtNunitoregular24" tools:text="@string/lbl_41_205616"/>
+        <View
+            android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1"
+            android:id="@+id/lineEmailusername"
+            android:layout_gravity="bottom|start"
+            android:layout_height="@dimen/_1pxv"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:layout_marginTop="@dimen/_20pxv" android:layout_width="@dimen/_159pxh"/>
+    </FrameLayout>
+</layout>

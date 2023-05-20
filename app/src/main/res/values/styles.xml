@@ -3,10 +3,10 @@
 
     <style name="etSolidRounded">
         <item name="android:textSize">@dimen/_18pxh</item>
-        <item name="android:textColor">@color/gray_50</item>
+        <item name="android:textColor">@color/indigo_700</item>
         <item name="android:fontFamily">@font/nunito</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
-        <item name="android:background">@drawable/rectangle_bg_indigo_700_3f_radius_10</item>
+
     </style>
 
     <style name="txtMontserratromanregular20">
@@ -196,4 +196,50 @@
     <style name="groupStyleyellow_1">
         <item name="android:background">@drawable/rectangle_bg_yellow_51_radius_50</item>
     </style>
+    <style name="txtNunitobold24">
+        <item name="android:textSize">@dimen/_24pxh</item>
+        <item name="android:textColor">@color/bluegray_900</item>
+        <item name="android:fontFamily">@font/nunito</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
+    <style name="txtNunitoregular64">
+        <item name="android:textSize">@dimen/_64pxh</item>
+        <item name="android:textColor">@color/indigo_700</item>
+        <item name="android:fontFamily">@font/nunito</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+    <style name="txtNunitobold18">
+        <item name="android:textSize">@dimen/_18pxh</item>
+        <item name="android:textColor">@color/bluegray_900</item>
+        <item name="android:fontFamily">@font/nunito</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
+    <style name="groupStylepink_900cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_pink_900_radius_20</item>
+    </style>
+    <style name="groupStylecornerRadius">
+        <item name="android:background">@drawable/rectangle_gradient_s_white_a700_19_e_white_a700_00_radius_20</item>
+    </style>
+    <style name="txtNunitobold14_1">
+        <item name="android:textSize">@dimen/_14pxh</item>
+        <item name="android:textColor">@color/bluegray_900</item>
+        <item name="android:fontFamily">@font/nunito</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
+    <style name="txtNunitobold16">
+        <item name="android:textSize">@dimen/_16pxh</item>
+        <item name="android:textColor">@color/bluegray_900</item>
+        <item name="android:fontFamily">@font/nunito</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
+    <style name="groupStylebluegray_500cornerRadius">
+        <item name="android:background">@drawable/rectangle_bg_bluegray_500_radius_32</item>
+    </style>
+    <style name="txtNunitoregular24">
+        <item name="android:textSize">@dimen/_24pxh</item>
+        <item name="android:textColor">@color/indigo_700</item>
+        <item name="android:fontFamily">@font/nunito</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+
 </resources>

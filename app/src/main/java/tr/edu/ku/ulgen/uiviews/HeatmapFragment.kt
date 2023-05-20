@@ -14,7 +14,7 @@ import com.google.android.gms.maps.model.TileOverlayOptions
 import com.google.maps.android.heatmaps.HeatmapTileProvider
 import com.google.maps.android.heatmaps.WeightedLatLng
 import tr.edu.ku.ulgen.R
-import tr.edu.ku.ulgen.model.datasource.HeatMapDataSource
+import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapRequest
 import java.util.ArrayList
 import retrofit2.Callback
@@ -25,8 +25,6 @@ import retrofit2.Response
 class HeatmapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private val heatMapData = HeatMapDataSource.getHeatMapData()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +42,7 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(41.015137, 28.979530), 10f))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(39.359832, 35.473356), 5f))
 
         getSampleData()
     }
@@ -55,12 +53,13 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
         //TODO Take cities and epsilon from previous page
         val request = HeatMapRequest(0.002, listOf("Adana", "Hatay"))
 
+        UlgenAPIDataSource.init(requireContext())
+        val heatMapData = UlgenAPIDataSource.getUlgenAPIData()
         heatMapData.getUserHeatMap(request).enqueue(object: Callback<HeatMapResponse> {
             override fun onResponse(call: Call<HeatMapResponse>, response: Response<HeatMapResponse>) {
                 if(response.isSuccessful) {
                     val centroids = response.body()?.body?.result?.centroids
                     centroids?.forEach {
-                        println("Priority: ${it.priority}, Latitude: ${it.latitude}, Longitude: ${it.longitude}")
                         list.add(WeightedLatLng(LatLng(it.latitude, it.longitude), it.priority.toDouble()))
                     }
                     addHeatMap(list)
