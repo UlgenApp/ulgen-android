@@ -63,7 +63,7 @@ class LoginScreenFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.activity_login_screen, container, false)
+        val view = inflater.inflate(R.layout.fragment_login_screen, container, false)
         sharedPreferencesUtil = SharedPreferencesUtil(requireContext())
 
         val resetPasswordTextView = view.findViewById<TextView>(R.id.txtIfrenimiunut)
