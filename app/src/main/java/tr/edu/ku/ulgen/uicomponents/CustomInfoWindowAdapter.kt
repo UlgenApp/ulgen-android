@@ -19,9 +19,10 @@ class CustomInfoWindowAdapter(private val context: Context) : GoogleMap.InfoWind
 
         val titleParts = marker.title?.split("\n")
 
-        priorityTextView.text = titleParts?.get(0) ?: "N/A"
-        latitudeTextView.text = titleParts?.get(1) ?: "N/A"
-        longitudeTextView.text = titleParts?.get(2) ?: "N/A"
+        priorityTextView.text = if ((titleParts?.size ?: 0) > 0) titleParts?.get(0) else "N/A"
+        latitudeTextView.text = if ((titleParts?.size ?: 0) > 1) titleParts?.get(1) else "N/A"
+        longitudeTextView.text = if ((titleParts?.size ?: 0) > 2) titleParts?.get(2) else "N/A"
+
 
         return view
     }
