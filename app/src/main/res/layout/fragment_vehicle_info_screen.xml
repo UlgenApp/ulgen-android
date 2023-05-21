@@ -62,6 +62,7 @@
                             android:singleLine="true"
                             android:background="@null"
                             android:hint="1"
+                            android:text="2"
                             tools:text="@string/lbl_2" />
 
                         <View
@@ -111,7 +112,7 @@
                                 android:singleLine="true"
                                 android:background="@null"
                                 android:hint="41.207115"
-
+                                android:text="41.20"
                                 style="@style/txtNunitoregular24" tools:text="@string/lbl_41_205616"/>
 
                             <View
@@ -147,6 +148,7 @@
                                 android:singleLine="true"
                                 android:background="@null"
                                 android:hint="29.075848"
+                                android:text="29.07"
                                 style="@style/txtNunitoregular24" tools:text="@string/lbl_41_205616"/>
 
                             <View
@@ -166,13 +168,38 @@
                         </LinearLayout>
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:id="@+id/multiSelectButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginTop="@dimen/_20pxh"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Şehirleri Seç:"
+                            android:layout_marginEnd="8dp"
+                            android:textSize="16sp" /> <!--Change the text size according to your need-->
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/magnified_glass"
+                            />
+                    </LinearLayout>
+
+
                     <TextView android:ellipsize="end"
                         android:id="@+id/txtNceliinizne"
                         android:layout_gravity="center_horizontal"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/_12pxh"
                         android:layout_marginStart="@dimen/_12pxh"
-                        android:layout_marginTop="@dimen/_53pxv"
+                        android:layout_marginTop="@dimen/_30pxv"
                         android:layout_width="wrap_content"
                         android:singleLine="true"
                         android:text="@string/lbl_nceli_iniz_ne"
@@ -214,28 +241,36 @@
                             android:ellipsize="end"
                             android:singleLine="false"
                             android:text="@string/msg_en_yak_ndaki_in"
+                            android:textAlignment="center"
                             tools:text="@string/msg_en_yak_ndaki_in" />
 
-                        <TextView android:ellipsize="end"
+                        <TextView
                             android:id="@+id/txtKiside"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/_19pxv"
-                            android:layout_marginStart="@dimen/_39pxh"
-                            android:layout_weight="0.15"
+                            style="@style/txtNunitobold16"
                             android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_39pxh"
+                            android:layout_marginBottom="@dimen/_19pxv"
+                            android:layout_weight="0.15"
+                            android:ellipsize="end"
                             android:singleLine="false"
                             android:text="@string/lbl_kisi_de"
-                            style="@style/txtNunitobold16" tools:text="@string/lbl_kisi_de"/>
-                        <TextView android:ellipsize="end"
+                            android:textAlignment="center"
+                            tools:text="@string/lbl_kisi_de" />
+
+                        <TextView
                             android:id="@+id/txtOlabildiince"
+                            style="@style/txtNunitobold14_1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_23pxh"
                             android:layout_marginTop="@dimen/_1pxv"
                             android:layout_weight="0.44"
-                            android:layout_width="0dp"
+                            android:ellipsize="end"
                             android:singleLine="false"
                             android:text="@string/msg_olabildi_ince"
-                            style="@style/txtNunitobold14_1" tools:text="@string/msg_olabildi_ince"/>
+                            android:textAlignment="center"
+                            tools:text="@string/msg_olabildi_ince" />
                     </LinearLayout>
 
                     <FrameLayout

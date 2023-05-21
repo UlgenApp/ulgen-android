@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data />
+
 
     <LinearLayout
         android:id="@+id/linearColumndownload"
@@ -74,7 +74,7 @@
                                 <FrameLayout
                                     android:id="@+id/frameStacklanguage"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="@dimen/_39pxv">
+                                    android:layout_height="wrap_content">
 
                                     <TextView
                                         android:id="@+id/txtLanguage"
@@ -257,7 +257,7 @@
                                         android:id="@+id/txtAlarmddkses"
                                         style="@style/txtNunitoregular12"
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
+                                        android:layout_height="wrap_content"
                                         android:layout_marginStart="@dimen/_9pxh"
                                         android:layout_marginTop="@dimen/_12pxv"
                                         android:layout_marginEnd="@dimen/_12pxh"
@@ -266,7 +266,15 @@
                                         android:singleLine="false"
                                         android:text="@string/msg_alarm_d_d_k_ses"
                                         tools:text="@string/msg_alarm_d_d_k_ses" />
+
+                                    <ImageView
+                                        android:id="@+id/logoutButton"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/logout_icon" />
                                 </LinearLayout>
+
                             </LinearLayout>
                         </LinearLayout>
 

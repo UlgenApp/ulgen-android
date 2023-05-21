@@ -8,7 +8,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -34,6 +38,7 @@ import tr.edu.ku.ulgen.model.routingmapdatastructure.Depot
 import tr.edu.ku.ulgen.model.routingmapdatastructure.RoutingMapRequest
 
 class RoutingMapFragment : Fragment(), OnMapReadyCallback {
+    private lateinit var loadingFrame: FrameLayout
     private lateinit var mMap: GoogleMap
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,12 +46,23 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_routing_map, container, false)
 
+        loadingFrame = view.findViewById(R.id.loading_frame)
+
         val mapFragment = childFragmentManager
             .findFragmentById(R.id.routingMapFragment) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+
+        if (!::mMap.isInitialized) {
+            mapFragment.getMapAsync(this)
+        }
+
+        val imageViewButton = view.findViewById<ImageView>(R.id.backButton)
+        imageViewButton.setOnClickListener {
+            findNavController().navigate(R.id.action_routingMapFragment_to_vehicleInfoScreenFragment)
+        }
 
         return view
     }
+
 
     private fun drawRouteOnMap(map: GoogleMap, start: LatLng, end: LatLng, color: Int) {
         val apiKey = BuildConfig.MAPS_API_KEY
@@ -75,10 +91,11 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
         val longitude = arguments?.getString("longitude")?.toDoubleOrNull() ?: 37.361600
         val seekBarProgress = arguments?.getDouble("seekBarProgress") ?: 0.0
         val distanceCoefficient = 1 - seekBarProgress
+        val cityList = arguments?.getStringArrayList("cityList") ?: listOf()
 
-        println("AAAAAAAAAA")
-        println(distanceCoefficient)
-        println(seekBarProgress)
+
+
+
 
         val depot = Depot(latitude = latitude, longitude = longitude)
         val request = RoutingMapRequest(
@@ -87,10 +104,14 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
             distance_coefficient = distanceCoefficient,
             vehicleCount = vehicleCount,
             depot = depot,
-            cities = listOf("Adana", "Hatay")
+            cities = cityList
         )
+        print("aaaaaaaaaaaa")
+        print(cityList)
         UlgenAPIDataSource.init(requireContext())
         val routingMapData = UlgenAPIDataSource.getUlgenAPIData()
+
+        loadingFrame.visibility = View.VISIBLE
 
         routingMapData.getUserRoute(request).enqueue(object : Callback<RoutingMapResponse> {
             override fun onResponse(call: Call<RoutingMapResponse>, response: Response<RoutingMapResponse>) {
@@ -150,10 +171,12 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
                     println("Response failed with status code: ${response.code()}")
                     println("Body: ${response.body()}")
                 }
+                loadingFrame.visibility = View.GONE
             }
 
             override fun onFailure(call: Call<RoutingMapResponse>, t: Throwable) {
                 println("Failed to get data: ${t.message}")
+                loadingFrame.visibility = View.GONE
             }
         })
     }

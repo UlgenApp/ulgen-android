@@ -46,5 +46,9 @@ class SharedPreferencesUtil(context: Context) {
     fun clearUserProfile() {
         prefs.edit().remove(USER_PROFILE).apply()
     }
+    // Function to clear all data
+    fun clearAllData() {
+        prefs.edit().clear().apply()
+    }
 }
 

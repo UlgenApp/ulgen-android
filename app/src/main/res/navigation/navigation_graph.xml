@@ -15,7 +15,11 @@
         android:id="@+id/routingMapFragment"
         android:name="tr.edu.ku.ulgen.uiviews.RoutingMapFragment"
         android:label="Map"
-        tools:layout="@layout/fragment_routing_map" />
+        tools:layout="@layout/fragment_routing_map" >
+        <action
+            android:id="@+id/action_routingMapFragment_to_vehicleInfoScreenFragment"
+            app:destination="@id/vehicleInfoScreenFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/kandilliTableFragment"
@@ -73,7 +77,11 @@
         android:id="@+id/homeScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.HomeScreenFragment"
         android:label="HomeScreenFragment"
-        tools:layout="@layout/fragment_home_screen"/>
+        tools:layout="@layout/fragment_home_screen">
+        <action
+            android:id="@+id/action_homeScreenFragment_to_startScreenFragment"
+            app:destination="@id/startScreenFragment" />
+    </fragment>
     <fragment
         android:id="@+id/vehicleInfoScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.VehicleInfoScreenFragment"

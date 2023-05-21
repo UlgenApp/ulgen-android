@@ -5,93 +5,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    >
 
-
+    <!-- Region -->
     <TextView
-        android:id="@+id/region"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="region"
-        android:textColor="@color/black"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="@+id/regionText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/regionText"
-        app:layout_constraintTop_toTopOf="@+id/regionText" />
-
-    <TextView
-        android:id="@+id/magnitude"
-
-        android:layout_width="0dp"
-        android:layout_height="19dp"
-
-        android:layout_marginStart="12dp"
-        android:text="magnitude"
-        android:textColor="@color/black"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="@+id/magnitudeText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/magnitudeText"
-        app:layout_constraintTop_toTopOf="@+id/magnitudeText" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_margin="8dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="24dp"
-        android:background="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/magnitude" />
-
-    <TextView
+        style="@style/txtkandilliItemText"
         android:id="@+id/regionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="Region:"
-        android:textColor="#BF4E4E"
+
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        style="@style/txtkandilliItemvalue"
+        android:id="@+id/region"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="region"
+        app:layout_constraintStart_toEndOf="@+id/regionText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/regionText" />
+
+    <!-- Date -->
+    <TextView
+        style="@style/txtkandilliItemText"
         android:id="@+id/dateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Date:"
-        android:textColor="#BF4E4E"
-
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/regionText"
         app:layout_constraintTop_toBottomOf="@+id/regionText" />
 
-
     <TextView
+        style="@style/txtkandilliItemvalue"
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="date"
+        app:layout_constraintStart_toEndOf="@+id/dateText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dateText" />
+
+    <!-- Magnitude -->
+    <TextView
+        style="@style/txtkandilliItemText"
         android:id="@+id/magnitudeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Magnitude:"
-        android:textColor="#BF4E4E"
-
         app:layout_constraintStart_toStartOf="@+id/dateText"
         app:layout_constraintTop_toBottomOf="@+id/dateText" />
 
     <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
+        style="@style/txtkandilliItemvalue"
+        android:id="@+id/magnitude"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="date"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/dateText"
+        android:layout_marginStart="10dp"
+        android:text="magnitude"
+        app:layout_constraintStart_toEndOf="@+id/magnitudeText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/dateText"
-        app:layout_constraintTop_toTopOf="@+id/dateText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/magnitudeText" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="8dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/magnitude" />
 </androidx.constraintlayout.widget.ConstraintLayout>

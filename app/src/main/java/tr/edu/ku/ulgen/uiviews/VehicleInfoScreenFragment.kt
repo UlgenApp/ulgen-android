@@ -1,19 +1,29 @@
 package tr.edu.ku.ulgen.uiviews
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.SeekBar
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import tr.edu.ku.ulgen.R
+import tr.edu.ku.ulgen.datasource.AffectedCitiesDataSource
+import tr.edu.ku.ulgen.model.SharedPreferencesUtil
+import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
 
 class VehicleInfoScreenFragment : Fragment() {
 
     private lateinit var seekBar: SeekBar
+    var items = arrayOf<String>()
+    var checkedItems = BooleanArray(items.size)
+    var selectedItems = arrayListOf<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,23 +32,57 @@ class VehicleInfoScreenFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_vehicle_info_screen, container, false)
 
+        val apiInterface = DataSource.getApiInterface()
+        val sharedPreferencesUtil = SharedPreferencesUtil(requireContext())
+        val dataSource = AffectedCitiesDataSource(apiInterface, sharedPreferencesUtil)
+
+        dataSource.getAffectedCities(
+            onSuccess = { affectedCities ->
+                items = affectedCities.toTypedArray()
+
+                // Refresh the checkedItems array to match the new size of items
+                checkedItems = BooleanArray(items.size)
+
+                Log.d("affectedcities", affectedCities.toString())
+                Log.d("selecteditems", selectedItems.toString())
+            },
+            onError = { errorMessage ->
+                Log.d("affectedcities", "error")
+            }
+        )
+
+        val multiSelectButton: LinearLayout = view.findViewById(R.id.multiSelectButton)
+
+        multiSelectButton.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Şehirleri Seç")
+                .setMultiChoiceItems(items, checkedItems) { _, which, isChecked ->
+                    if(isChecked) {
+                        selectedItems.add(items[which])
+                    } else if (selectedItems.contains(items[which])) {
+                        selectedItems.remove(items[which])
+                    }
+                }
+                .setPositiveButton("Tamam") { _, _ ->
+
+                }
+                .setNeutralButton("İptal") { _, _ ->
+                    selectedItems.clear()
+                }
+                .show()
+        }
+
         val vehicleCount = view.findViewById<EditText>(R.id.vehicleCount)
         val latitude = view.findViewById<EditText>(R.id.latitude)
         val longitude = view.findViewById<EditText>(R.id.longitude)
 
         seekBar = view.findViewById(R.id.linearControl)
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                // Handle the seek bar progress change event
-            }
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {}
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                // Handle the seek bar touch event
-            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
 
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                // Handle the seek bar release event
-            }
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
         val button = view.findViewById<Button>(R.id.btnTamam)
@@ -49,21 +93,43 @@ class VehicleInfoScreenFragment : Fragment() {
             val longitudeStr = longitude.text.toString()
             val seekBarProgress = seekBar.progress.toDouble() / seekBar.max
 
-            val bundle = Bundle().apply {
-                putString("vehicleCount", vehicleCountStr)
-                putString("latitude", latitudeStr)
-                putString("longitude", longitudeStr)
-                putDouble("seekBarProgress", seekBarProgress)
+            var errorMessage = ""
+
+            // check if any field is empty
+            if (vehicleCountStr.isEmpty() || latitudeStr.isEmpty() || longitudeStr.isEmpty()) {
+                errorMessage = "Lütfen tüm alanları doldurunuz."
+            }
+            // check if vehicle count is less than or equal to 1
+            else if ((vehicleCountStr.toIntOrNull() ?: 0) <= 1) {
+                errorMessage = "Araç sayısı 1'den büyük olmalıdır."
+            }
+            // check if latitude or longitude are invalid (not in correct range)
+            else if (latitudeStr.toDoubleOrNull()!! !in -90.0..90.0 || longitudeStr.toDoubleOrNull()!! !in -180.0..180.0) {
+                errorMessage = "Geçersiz enlem veya boylam."
+            }
+            // check if no cities were selected
+            else if (selectedItems.isEmpty()) {
+                errorMessage = "En az bir şehir seçiniz."
             }
 
-            findNavController().navigate(R.id.action_vehicleInfoScreenFragment_to_routingMapFragment, bundle)
+            if (errorMessage.isNotEmpty()) {
+                CustomSnackbar.showError(view, errorMessage)
+            } else {
+                val bundle = Bundle().apply {
+                    putString("vehicleCount", vehicleCountStr)
+                    putString("latitude", latitudeStr)
+                    putString("longitude", longitudeStr)
+                    putDouble("seekBarProgress", seekBarProgress)
+                    putSerializable("cityList", selectedItems)
+                }
+
+                findNavController().navigate(R.id.action_vehicleInfoScreenFragment_to_routingMapFragment, bundle)
+            }
         }
+
+
 
 
         return view
     }
-
-
-
-
 }
