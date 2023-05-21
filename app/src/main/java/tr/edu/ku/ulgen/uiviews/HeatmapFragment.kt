@@ -50,8 +50,7 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
     private fun getSampleData() {
         val list = ArrayList<WeightedLatLng>()
 
-        //TODO Take cities and epsilon from previous page
-        val request = HeatMapRequest(0.002, listOf("Adana", "Hatay"))
+        val request = HeatMapRequest(0.002)
 
         UlgenAPIDataSource.init(requireContext())
         val heatMapData = UlgenAPIDataSource.getUlgenAPIData()

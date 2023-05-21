@@ -5,7 +5,7 @@
     <string name="no_internet_connection">No internet connection!</string>
     <string name="msg_ba_lant_y_g_nd">Bağlantıyı gönder</string>
     <string name="msg">_________________             _________________</string>
-    <string name="msg_hesap_olu_turar">Hesap oluşturarak Ülgen Kullanım Şartlarını kabul ediyorum ve Gizlilik Beyanını onaylıyorum.  </string>
+    <string name="msg_hesap_olu_turar">Hesap oluşturarak <a href="">Ülgen Kullanım Şartlarını</a> kabul ediyorum ve <a href="">Gizlilik Beyanını</a> onaylıyorum.</string>
     <string name="msg_lgen_e_ho_gel">Ülgen\u2019e hoş geldin!</string>
     <string name="lbl_giri_yap"> Giriş yap</string>
     <string name="msg_lgen_hesab_na">Ülgen hesabına giriş yap</string>
@@ -42,7 +42,7 @@
 
     <string name="msg_kullan_c_genel">Kullanıcı genel bilgiler kutusu</string>
 
-    <string name="msg_hesab_n_tamaml">hesabını tamamlamak için tıkla!</string>
+    <string name="msg_hesab_n_tamaml">Hesabını tamamlamak için tıkla!</string>
     <string name="login_failed">Geçersiz email veya şifre.</string>
     <string name="sign_up_failed">Hesap oluşturma başarısız oldu.</string>
     <string name="sign_up_succesfull">Hesabınız başarıyla oluşturuldu.</string>
@@ -60,5 +60,14 @@
     <string name="lbl_enlem">Enlem</string>
     <string name="lbl_41_205616">41.205616</string>
 
+    <string name="ulgen_agreement">Kullanım Koşulları\n\n1. Kabul:\n\nÜlgen uygulamasını ("Uygulama") kullanımınız bu Kullanım Koşullarını kabul ettiğinizi gösterir. Eğer bu koşulları kabul etmiyorsanız, lütfen uygulamayı kullanmayınız.\n\n2. Uygulama:\n\nUygulama, kullanıcılarına doğal afet durumlarında yardımcı olmak için tasarlanmıştır. Uygulama, aktif kullanıcıları belirler, yerlerini tespit eder ve bu bilgileri güvenli bir şekilde sunucularımıza iletir. Doğal afet durumunda, uygulama acil durum modunu aktive eder ve yardım etmek isteyen kullanıcılara yönlendirmeler sağlar.\n\n3. Veri Kullanımı:\n\nKullanıcılar, uygulamanın, cihazlarını tespit etmek ve hizmetlerini sunmak için belirli verileri toplamasına izin verir. Bu veriler, hizmetlerimizin sağlanması ve geliştirilmesi için kullanılır.\n\n4. Kullanıcı Sorumlulukları:\n\nUygulamanın kullanımı tamamen kullanıcının sorumluluğundadır. Kullanıcılar, uygulamayı kötüye kullanmamalı ve başkalarının haklarına zarar vermemelidir.\n\n6. Telif Hakkı, Fikri Mülkiyet ve Açık Kaynak Kullanımı:\n\nÜlgen, uygulamanın ve içeriğinin telif hakkı ve fikri mülkiyet haklarını saklı tutar. Bu uygulama kar amacı gütmeyen bir projedir ve kodu açık kaynak olarak sunulmuştur. Kullanıcılar, uygulamayı kişisel veya topluluk amaçlı kullanabilir ve geliştirebilirler. Ancak, uygulamanın, içeriğinin, veya açık kaynak kodunun, izinsiz şekilde pazarlanması kesinlikle yasaktır.\n\n6. Değişiklikler:\n\nÜlgen, bu Kullanım Koşullarını herhangi bir zamanda değiştirme hakkını saklı tutar. Kullanıcılar, düzenli olarak Kullanım Koşullarını gözden geçirmeli ve herhangi bir değişiklikten haberdar olmalıdır.\n\n7. Hukuk ve Yetki:\n\nBu Kullanım Koşulları, Türkiye Cumhuriyeti yasalarına tabidir ve bu yasalarla yorumlanacaktır. Kullanıcılar, bu Kullanım Koşullarının uygulanması veya yorumlanması ile ilgili her türlü ihtilafın çözümünde Türkiye Cumhuriyeti mahkemelerinin yetkili olduğunu kabul eder.</string>
+    <string name="privacy_policy">Gizlilik Bildirimi\n\n1. Veri Sorumlusu:\n\nÜlgen, Türkiye Cumhuriyeti Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca, kişisel verilerinizin sorumlusudur.\n\n2. Toplanan Veriler:\n\nUygulama, kullanıcılarının mobil cihazlarını tespit etmek ve hizmetlerini sunmak için belirli kişisel verileri toplar. Bu veriler yer, şehir ve lokal ağınızda bulunan cihazların bilgilerini içerir.\n\n3. Veri Kullanımı:\n\nTopladığımız veriler, yardım sunmak amacıyla kullanılır. Uygulamanın herhangi bir kâr gütme amacı yoktur. Verilerin toplanması ve kullanılması KVKK\'ya uygundur.\n\n4. Veri Paylaşımı:\n\nVerileriniz, depremden etkilenen bir şehirde olduğunuz taktirde yardım etmek insanlarla paylaşılacaktır. Bu paylaşım kullanıcı kimliğinizden bağımsız olarak yapılacak olup anonim kalacağınızdan emin olunacaktır.\n\n5. Veri Silme Talebi:\n\nKullanıcılar, Ülgen\'e başvurarak kişisel verilerinin silinmesini talep edebilir. Talebiniz, kanuni yükümlülüklerimiz ve mevcut teknolojik imkanlar dahilinde en kısa sürede işleme alınacak ve kişisel verileriniz silinecektir.\n\n6. Değişiklikler:\n\nBu Gizlilik Bildirimi, Ülgen tarafından herhangi bir zamanda değiştirilebilir. Kullanıcılarımız, düzenli olarak Gizlilik Bildirimimizi incelemeli ve herhangi bir değişiklikten haberdar olmalıdır.</string>
+
+
+    <string name="lbl_dowload_and_forget_header">İndir ve Unut 🥳</string>
+    <string name="lbl_dowload_and_forget_body">Artık güvendesiniz! Lokasyonunuz ve evinizde bulunan kişi sayısı sunucumuza şifreli bir biçimde aktarılmaktadır. Bundan sonra bu uygulamanın varlığını unutabilirsiniz, biz sizi güvende tutmak için gerekli aktarımları arka planda yapıyor olacağız. Herhangi bir âfet durumunda kendi imkanlarınızla kurtulabilirseniz, "Güvendeyim" butonuna tıklayıp arama kurtarma ekiplerinin daha verimli çalışmasını sağlayabilirsiniz.</string>
+
+    <string name="lbl_route_and_help_header">Rota Çiz ve Yardım Et 😇</string>
+    <string name="lbl_route_and_help_body">Herhangi bir âfet yaşandığında, en kısa sürede sunucularımızdan gerekli bölgeleri işaretleyip yardım modunu aktif edeceğiz. Biz bu aksiyonu aldıktan sonra, etkilenen alanlara rota çizebilecek ve kullanıcı yoğunluğunu izleyebileceksiniz. Bu özellikler sadece etkilenen bölgelerde aktif olup âfet olmayan zamanlarda kullanıma kapalı olacaktır. </string>
 
 </resources>

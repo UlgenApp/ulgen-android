@@ -71,44 +71,34 @@
                                 android:gravity="start"
                                 android:orientation="vertical">
 
-                                <FrameLayout
+                                <LinearLayout
                                     android:id="@+id/frameStacklanguage"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
 
                                     <TextView
                                         android:id="@+id/txtLanguage"
                                         style="@style/txtNunitobold14"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_gravity="top|start"
                                         android:layout_marginEnd="@dimen/_10pxh"
-                                        android:layout_marginBottom="@dimen/_10pxv"
                                         android:ellipsize="end"
                                         android:singleLine="true"
-                                         />
+                                        tools:text="Merhaba Ulgen!" />
 
-                                    <LinearLayout
-                                        android:id="@+id/linearColumnrectanglethirtynine"
-                                        style="@style/groupStyleindigo_700_1"
+                                    <ProgressBar
+                                        android:id="@+id/progressBar"
+                                        style="?android:attr/progressBarStyleHorizontal"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_gravity="bottom|start"
-                                        android:layout_marginTop="@dimen/_10pxv"
-                                        android:orientation="vertical">
+                                        android:indeterminate="false"
+                                        android:progress="50"
+                                        android:progressDrawable="@drawable/progress_bar" />
 
-                                        <View
-                                            android:id="@+id/viewRectangleThirtyNine"
-                                            android:layout_width="@dimen/_142pxh"
-                                            android:layout_height="@dimen/_13pxv"
-                                            android:layout_gravity="start"
-                                            android:layout_marginStart="@dimen/_2pxh"
-                                            android:layout_marginTop="@dimen/_2pxv"
-                                            android:layout_marginEnd="@dimen/_127pxh"
-                                            android:layout_marginBottom="@dimen/_2pxv"
-                                            android:background="@drawable/rectangle_bg_indigo_700_radius_6_76" />
-                                    </LinearLayout>
-                                </FrameLayout>
+
+                                </LinearLayout>
+
 
                                 <TextView
                                     android:id="@+id/txtLgenhesabdo"
@@ -151,132 +141,66 @@
                             style="@style/groupStyleyellow_51cornerRadius"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_24pxh"
+                            android:layout_marginStart="@dimen/_20pxh"
                             android:layout_marginTop="@dimen/_30pxv"
-                            android:layout_marginEnd="@dimen/_24pxh"
+                            android:layout_marginEnd="@dimen/_20pxh"
                             android:gravity="center_horizontal"
-                            android:layout_weight="2"
+                            android:layout_weight="1"
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/txtKullancgenel"
+                                android:id="@+id/txtKullancgenelHeader"
+                                style="@style/txtNunitoSansregular12Bold"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_10pxh"
+                                android:text="@string/lbl_dowload_and_forget_header" />
+
+                            <TextView
+                                android:id="@+id/txtKullancgenelBody"
                                 style="@style/txtNunitoSansregular12"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="@dimen/_9pxh"
-                                android:layout_marginTop="@dimen/_13pxv"
-                                android:layout_marginEnd="@dimen/_9pxh"
-                                android:layout_marginBottom="@dimen/_9pxh"
+                                android:layout_height="wrap_content"
                                 android:ellipsize="end"
-                                android:gravity="start"
-                                android:singleLine="false"
-                                android:text="@string/msg_kullan_c_genel"
-                                tools:text="@string/msg_kullan_c_genel" />
+                                android:gravity="start|center_vertical"
+                                android:maxLines="10"
+                                android:layout_margin="@dimen/_10pxh"
+                                android:text="@string/lbl_dowload_and_forget_body" />
                         </LinearLayout>
 
                         <LinearLayout
+                            style="@style/groupStyleyellow_51cornerRadius"
                             android:id="@+id/linearRowdeprembilgilen"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_24pxh"
-                            android:layout_marginTop="@dimen/_33pxv"
-                            android:layout_marginEnd="@dimen/_24pxh"
-                            android:layout_marginBottom="@dimen/_10pxv"
-                            android:layout_weight="3"
-                            android:orientation="horizontal">
+                            android:layout_marginStart="@dimen/_20pxh"
+                            android:layout_marginTop="@dimen/_20pxv"
+                            android:layout_marginEnd="@dimen/_20pxh"
+                            android:layout_marginBottom="@dimen/_20pxv"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                            <LinearLayout
-                                android:id="@+id/linearColumndeprembilgilen"
-                                style="@style/groupStyleyellow_51cornerRadius"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.5"
-                                android:gravity="center_horizontal"
-                                android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/txtRotaVeYardimHeader"
+                                style="@style/txtNunitoSansregular12Bold"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_10pxh"
+                                android:text="@string/lbl_route_and_help_header" />
 
-                                <TextView
-                                    android:id="@+id/txtDeprembilgilen"
-                                    style="@style/txtNunitoSansregular12"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginStart="@dimen/_9pxh"
-                                    android:layout_marginTop="@dimen/_11pxv"
-                                    android:layout_marginEnd="@dimen/_11pxh"
-                                    android:layout_marginBottom="@dimen/_9pxh"
-                                    android:ellipsize="end"
-                                    android:gravity="center_horizontal"
-                                    android:singleLine="false"
-                                    android:text="@string/msg_deprem_bilgilen"
-                                    tools:text="@string/msg_deprem_bilgilen" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/linearColumn"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="@dimen/_27pxh"
-                                android:layout_weight="0.5"
-                                android:gravity="start"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:id="@+id/linearColumngnlkierikk"
-                                    style="@style/groupStyleyellow_51cornerRadius"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center_horizontal"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/txtGnlkierikk"
-                                        style="@style/txtNunitoregular12"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginStart="@dimen/_9pxh"
-                                        android:layout_marginTop="@dimen/_10pxv"
-                                        android:layout_marginEnd="@dimen/_13pxh"
-                                        android:layout_marginBottom="@dimen/_9pxh"
-                                        android:gravity="center_horizontal"
-                                        android:singleLine="false"
-                                        android:text="@string/msg_g_nl_k_i_erik_k"
-                                        tools:text="@string/msg_g_nl_k_i_erik_k" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:id="@+id/linearColumnalarmddkses"
-                                    style="@style/groupStyleyellow_51cornerRadius"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="@dimen/_31pxv"
-                                    android:gravity="center_horizontal"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/txtAlarmddkses"
-                                        style="@style/txtNunitoregular12"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="@dimen/_9pxh"
-                                        android:layout_marginTop="@dimen/_12pxv"
-                                        android:layout_marginEnd="@dimen/_12pxh"
-                                        android:layout_marginBottom="@dimen/_9pxh"
-                                        android:gravity="start"
-                                        android:singleLine="false"
-                                        android:text="@string/msg_alarm_d_d_k_ses"
-                                        tools:text="@string/msg_alarm_d_d_k_ses" />
-
-                                    <ImageView
-                                        android:id="@+id/logoutButton"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        android:src="@drawable/logout_icon" />
-                                </LinearLayout>
-
-                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/txtRotaVeYardimBody"
+                                style="@style/txtNunitoSansregular12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:gravity="start|center_vertical"
+                                android:maxLines="10"
+                                android:layout_margin="@dimen/_10pxh"
+                                android:text="@string/lbl_route_and_help_body" />
                         </LinearLayout>
+
+
 
                     </LinearLayout>
 
@@ -306,7 +230,7 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/img_blankprofilep"
                         tools:ignore="ContentDescription"
-                        tools:src="@drawable/img_blankprofilep" />
+                        tools:src="@drawable/thumbs_example" />
                 </LinearLayout>
             </FrameLayout>
         </ScrollView>

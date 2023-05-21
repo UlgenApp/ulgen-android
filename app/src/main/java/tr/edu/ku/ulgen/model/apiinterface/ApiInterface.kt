@@ -41,4 +41,7 @@ interface ApiInterface {
     @GET("api/v1/user/affected-cities")
     fun getAffectedCities(@Header("Authorization") token: String): Call<Map<String, List<String>>>
 
+    @GET("6.x/thumbs/png")
+    fun getUserImage(@Query("seed") email: String): Call<ResponseBody>
+
 }
