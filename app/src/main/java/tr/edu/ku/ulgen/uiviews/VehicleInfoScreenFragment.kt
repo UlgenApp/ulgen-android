@@ -47,6 +47,7 @@ class VehicleInfoScreenFragment : Fragment() {
             },
             onError = { errorMessage ->
                 Log.d("affectedcities", "error")
+                CustomSnackbar.showError(view, "Şu an için herhangi bir afet bildirilmedi.")
             }
         )
 

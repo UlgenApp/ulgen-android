@@ -6,18 +6,18 @@
         android:title="Earthquake Table" />
     <item
         android:id="@+id/vehicleInfoScreenFragment"
-        android:icon="@drawable/baseline_map_24"
-        android:title="Map" />
+        android:icon="@drawable/gps_bottom_bar"
+        android:title="Routing" />
     <item
         android:id="@+id/homeScreenFragment"
         android:icon="@drawable/baseline_home_24"
         android:title="Home" />
     <item
         android:id="@+id/heatmapFragment"
-        android:icon="@drawable/baseline_person_24"
-        android:title="Profile" />
+        android:icon="@drawable/baseline_map_24"
+        android:title="Heatmap" />
     <item
         android:id="@id/emptyFragment"
-        android:icon="@drawable/baseline_settings_24"
-        android:title="Settings" />
+        android:icon="@drawable/shield_bottom_bar"
+        android:title="I Am Safe" />
 </menu>
