@@ -4,13 +4,12 @@ import android.content.Context
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import tr.edu.ku.ulgen.BuildConfig
 import tr.edu.ku.ulgen.model.SharedPreferencesUtil
 import tr.edu.ku.ulgen.model.apiinterface.ApiInterface
 
 class UlgenAPIDataSource {
     companion object {
-        private const val BASE_URL = BuildConfig.ULGEN_BASE_URL
+        private const val BASE_URL = "https://api.ulgen.app/"
         private lateinit var sharedPreferencesUtil: SharedPreferencesUtil
         private lateinit var client: OkHttpClient
 
@@ -18,12 +17,19 @@ class UlgenAPIDataSource {
             sharedPreferencesUtil = SharedPreferencesUtil(context)
 
             val authInterceptor = okhttp3.Interceptor { chain ->
-                val newRequest = chain.request().newBuilder()
-                    .addHeader("Authorization", "Bearer ${sharedPreferencesUtil.getApiToken()}")
-                    .build()
+                val originalRequest = chain.request()
 
-                chain.proceed(newRequest)
+                if (!originalRequest.url.toString().endsWith("api/v1/auth/authenticate")) {
+                    val newRequest = originalRequest.newBuilder()
+                        .addHeader("Authorization", "Bearer ${sharedPreferencesUtil.getApiToken()}")
+                        .build()
+
+                    chain.proceed(newRequest)
+                } else {
+                    chain.proceed(originalRequest)
+                }
             }
+
 
             client = OkHttpClient.Builder()
                 .addInterceptor(authInterceptor)
@@ -42,5 +48,6 @@ class UlgenAPIDataSource {
                 .create(ApiInterface::class.java)
         }
     }
+
 }
 

@@ -34,8 +34,11 @@ interface ApiInterface {
     ): retrofit2.Call<ResponseBody>
 
     @GET("api/v1/user/profile")
-    fun getUserProfile(@Header("Authorization") token: String): Call<UserProfile>
+    fun getUserProfile(): Call<UserProfile>
     @POST("api/v1/producer/produce")
     fun sendMACAddresses(@Body requestBody: MACScannerRequest): Call<MACScannerResponse>
+
+    @GET("api/v1/user/affected-cities")
+    fun getAffectedCities(@Header("Authorization") token: String): Call<Map<String, List<String>>>
 
 }

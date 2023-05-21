@@ -115,7 +115,7 @@
                             android:paddingEnd="@dimen/_30pxh"
                             android:paddingBottom="@dimen/_11pxv"
                             android:singleLine="true"
-
+                            android:text="test@ulgen.app"
                             tools:ignore="Autofill" />
 
                         <TextView
@@ -148,6 +148,7 @@
                             android:paddingEnd="@dimen/_30pxh"
                             android:paddingBottom="@dimen/_11pxv"
                             android:singleLine="true"
+                            android:text="123456"
                             tools:ignore="Autofill" />
 
                         <TextView

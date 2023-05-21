@@ -28,6 +28,7 @@ import tr.edu.ku.ulgen.model.datasource.AuthenticationDataSource
 import org.json.JSONObject
 import org.json.JSONException
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
+import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.networkscanner.scanner.LocalMACScanner
 import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
 import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
@@ -83,7 +84,7 @@ class LoginScreenFragment : Fragment() {
     }
 
     private fun signIn(email: String, password: String, view: View) {
-        val retIn = AuthenticationDataSource.getRetrofitInstance().create(ApiInterface::class.java)
+        val retIn = UlgenAPIDataSource.getUlgenAPIData()
         val signInInfo = SignInBody(email, password)
         retIn.signin(signInInfo).enqueue(object : Callback<ResponseBody> {
             @RequiresApi(Build.VERSION_CODES.Q)
@@ -101,7 +102,7 @@ class LoginScreenFragment : Fragment() {
                                 sharedPreferencesUtil.getApiToken().toString()
                             )
                             requestLocationPermissions()
-                            getUserProfile(apiToken)
+                            getUserProfile()
                             findNavController().navigate(R.id.action_loginScreenFragment_to_homeScreenFragment)
                         } catch (e: JSONException) {
                             e.printStackTrace()
@@ -148,9 +149,9 @@ class LoginScreenFragment : Fragment() {
         }
     }
 
-    private fun getUserProfile(token: String) {
-        val retIn = AuthenticationDataSource.getRetrofitInstance().create(ApiInterface::class.java)
-        retIn.getUserProfile("Bearer $token").enqueue(object : Callback<UserProfile> {
+    private fun getUserProfile() {
+        val retIn = UlgenAPIDataSource.getUlgenAPIData()
+        retIn.getUserProfile().enqueue(object : Callback<UserProfile> {
             override fun onResponse(call: Call<UserProfile>, response: Response<UserProfile>) {
                 if (response.isSuccessful) {
                     val userProfile = response.body()
