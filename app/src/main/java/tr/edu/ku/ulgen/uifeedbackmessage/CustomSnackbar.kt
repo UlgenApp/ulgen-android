@@ -1,11 +1,11 @@
 package tr.edu.ku.ulgen.uifeedbackmessage
 
-import android.view.View
-import android.widget.TextView
 import android.graphics.Color
+import android.view.View
 import android.view.ViewGroup
-import com.google.android.material.snackbar.Snackbar
+import android.widget.TextView
 import com.google.android.material.R.id.snackbar_text
+import com.google.android.material.snackbar.Snackbar
 
 class CustomSnackbar {
     companion object {
@@ -14,7 +14,7 @@ class CustomSnackbar {
             val snackbarView = snackbar.view
             val textView = snackbarView.findViewById<TextView>(snackbar_text)
 
-            // Customize the Snackbar here
+
             snackbarView.setBackgroundColor(Color.RED)
             val params = textView.layoutParams as ViewGroup.MarginLayoutParams
             params.setMargins(0, 0, 0, 0)
@@ -24,12 +24,13 @@ class CustomSnackbar {
 
             snackbar.show()
         }
+
         fun showSignUp(view: View, message: String) {
             val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT)
             val snackbarView = snackbar.view
             val textView = snackbarView.findViewById<TextView>(snackbar_text)
 
-            // Customize the Snackbar here
+
             val params = textView.layoutParams as ViewGroup.MarginLayoutParams
             params.setMargins(0, 0, 0, 0)
             textView.layoutParams = params

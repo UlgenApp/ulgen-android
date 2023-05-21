@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-
     <LinearLayout
         android:id="@+id/linearColumndownload"
         android:layout_width="match_parent"
@@ -144,8 +143,8 @@
                             android:layout_marginStart="@dimen/_20pxh"
                             android:layout_marginTop="@dimen/_30pxv"
                             android:layout_marginEnd="@dimen/_20pxh"
-                            android:gravity="center_horizontal"
                             android:layout_weight="1"
+                            android:gravity="center_horizontal"
                             android:orientation="vertical">
 
                             <TextView
@@ -161,16 +160,16 @@
                                 style="@style/txtNunitoSansregular12"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_10pxh"
                                 android:ellipsize="end"
                                 android:gravity="start|center_vertical"
                                 android:maxLines="10"
-                                android:layout_margin="@dimen/_10pxh"
                                 android:text="@string/lbl_dowload_and_forget_body" />
                         </LinearLayout>
 
                         <LinearLayout
-                            style="@style/groupStyleyellow_51cornerRadius"
                             android:id="@+id/linearRowdeprembilgilen"
+                            style="@style/groupStyleyellow_51cornerRadius"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_20pxh"
@@ -193,13 +192,12 @@
                                 style="@style/txtNunitoSansregular12"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_10pxh"
                                 android:ellipsize="end"
                                 android:gravity="start|center_vertical"
                                 android:maxLines="10"
-                                android:layout_margin="@dimen/_10pxh"
                                 android:text="@string/lbl_route_and_help_body" />
                         </LinearLayout>
-
 
 
                     </LinearLayout>
@@ -229,8 +227,7 @@
                         android:layout_marginBottom="@dimen/_6pxv"
                         android:scaleType="centerCrop"
                         android:src="@drawable/img_blankprofilep"
-                        tools:ignore="ContentDescription"
-                        tools:src="@drawable/thumbs_example" />
+                        tools:ignore="ContentDescription" />
                 </LinearLayout>
             </FrameLayout>
         </ScrollView>

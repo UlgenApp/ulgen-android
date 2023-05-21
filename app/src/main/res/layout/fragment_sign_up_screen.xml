@@ -1,22 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
-    <data/>
-    <LinearLayout android:gravity="center_horizontal"
-        android:id="@+id/linearColumn"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:orientation="vertical" style="@style/groupStyleyellow_51">
-        <ScrollView android:clipToPadding="false"
-            android:fillViewport="true" android:gravity="start"
-            android:id="@+id/scrollViewScrollview"
-            android:layout_height="0dp" android:layout_weight="1" android:layout_width="match_parent">
-            <LinearLayout android:gravity="bottom|center"
-                android:id="@+id/linearColumnfiftyone"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:orientation="vertical"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-                style="@style/groupStyleyellow_50">
+    <data />
+
+    <LinearLayout
+        android:id="@+id/linearColumn"
+        style="@style/groupStyleyellow_51"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/scrollViewScrollview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:gravity="start">
+
+            <LinearLayout
+                android:id="@+id/linearColumnfiftyone"
+                style="@style/groupStyleyellow_50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom|center"
+
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/frameStackfiftyone"
@@ -40,15 +52,14 @@
                         tools:src="@drawable/ulgen_handshake" />
 
 
-
                     <TextView
                         android:id="@+id/txtLgenhesabn"
                         style="@style/txtMontserratromanmedium30"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10pxh"
-                        android:layout_marginEnd="@dimen/_10pxh"
                         android:layout_marginTop="10dp"
+                        android:layout_marginEnd="@dimen/_10pxh"
                         android:layout_marginBottom="10dp"
                         android:ellipsize="none"
                         android:gravity="center"
@@ -61,104 +72,123 @@
 
                 </LinearLayout>
 
-                <LinearLayout android:gravity="start"
+                <LinearLayout
                     android:id="@+id/linearColumnadsoyad"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_34pxh"
-                    android:layout_marginStart="@dimen/_34pxh"
                     android:layout_width="match_parent"
-                    android:orientation="vertical" >
-                    <TextView android:ellipsize="end"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_34pxh"
+                    android:layout_marginEnd="@dimen/_34pxh"
+                    android:gravity="start"
+                    android:orientation="vertical">
+
+                    <TextView
                         android:id="@+id/txtAdsoyad"
+                        style="@style/txtNunitoregular18"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_29pxh"
                         android:layout_marginStart="@dimen/_29pxh"
                         android:layout_marginTop="@dimen/_14pxv"
-                        android:layout_width="wrap_content"
+                        android:layout_marginEnd="@dimen/_29pxh"
+                        android:ellipsize="end"
                         android:singleLine="true"
                         android:text="@string/lbl_ad_soyad"
-                        style="@style/txtNunitoregular18" tools:text="@string/lbl_ad_soyad"/>
+                        tools:text="@string/lbl_ad_soyad" />
+
                     <EditText
 
-                        android:ellipsize="end"
-                        android:background="@drawable/underline"
                         android:id="@+id/etGroupNine"
-                        android:inputType="text"
+                        style="@style/etSolidRounded"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_18pxh"
                         android:layout_marginStart="@dimen/_18pxh"
                         android:layout_marginTop="@dimen/_4pxv"
-                        android:layout_width="match_parent"
-                        android:paddingBottom="@dimen/_11pxv"
-                        android:paddingEnd="@dimen/_30pxh"
+                        android:layout_marginEnd="@dimen/_18pxh"
+                        android:background="@drawable/underline"
+                        android:ellipsize="end"
+                        android:inputType="text"
                         android:paddingStart="@dimen/_17pxh"
                         android:paddingTop="@dimen/_12pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingBottom="@dimen/_11pxv"
                         android:singleLine="true"
                         android:textColorHint="@color/gray_50"
-                        style="@style/etSolidRounded" tools:ignore="Autofill"/>
-                    <TextView android:ellipsize="end"
+                        tools:ignore="Autofill" />
+
+                    <TextView
                         android:id="@+id/txtEmail"
+                        style="@style/txtNunitoregular18"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_27pxh"
                         android:layout_marginStart="@dimen/_27pxh"
                         android:layout_marginTop="@dimen/_12pxv"
-                        android:layout_width="wrap_content"
+                        android:layout_marginEnd="@dimen/_27pxh"
+                        android:ellipsize="end"
                         android:singleLine="true"
                         android:text="@string/lbl_e_mail"
-                        style="@style/txtNunitoregular18" tools:text="@string/lbl_e_mail"/>
+                        tools:text="@string/lbl_e_mail" />
+
                     <EditText
-                        android:background="@drawable/underline"
-                        android:ellipsize="end"
                         android:id="@+id/etEmailOne"
-                        android:inputType="textEmailAddress"
+                        style="@style/etSolidRounded"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_18pxh"
                         android:layout_marginStart="@dimen/_18pxh"
                         android:layout_marginTop="@dimen/_5pxv"
-                        android:layout_width="match_parent"
-                        android:paddingBottom="@dimen/_11pxv"
-                        android:paddingEnd="@dimen/_30pxh"
-                        android:paddingStart="@dimen/_11pxh"
-                        android:paddingTop="@dimen/_12pxv"
-                        android:singleLine="true"
-                        android:textColorHint="@color/gray_50"
-                        style="@style/etSolidRounded" tools:ignore="Autofill"/>
-                    <TextView android:ellipsize="end"
-                        android:id="@+id/txtIfre"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_27pxh"
-                        android:layout_marginStart="@dimen/_27pxh"
-                        android:layout_marginTop="@dimen/_13pxv"
-                        android:layout_width="wrap_content"
-                        android:singleLine="true"
-                        android:text="@string/lbl_ifre"
-                        style="@style/txtNunitoregular18" tools:text="@string/lbl_ifre"/>
-                    <EditText
+                        android:layout_marginEnd="@dimen/_18pxh"
                         android:background="@drawable/underline"
                         android:ellipsize="end"
-                        android:id="@+id/etPassword"
-                        android:inputType="textPassword"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_17pxv"
-                        android:layout_marginEnd="@dimen/_18pxh"
-                        android:layout_marginStart="@dimen/_18pxh"
-                        android:layout_marginTop="@dimen/_6pxv"
-                        android:layout_width="match_parent"
-                        android:paddingBottom="@dimen/_11pxv"
-                        android:paddingEnd="@dimen/_30pxh"
+                        android:inputType="textEmailAddress"
                         android:paddingStart="@dimen/_11pxh"
                         android:paddingTop="@dimen/_12pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingBottom="@dimen/_11pxv"
                         android:singleLine="true"
                         android:textColorHint="@color/gray_50"
-                        style="@style/etSolidRounded" tools:ignore="Autofill"/>
+                        tools:ignore="Autofill" />
+
+                    <TextView
+                        android:id="@+id/txtIfre"
+                        style="@style/txtNunitoregular18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_27pxh"
+                        android:layout_marginTop="@dimen/_13pxv"
+                        android:layout_marginEnd="@dimen/_27pxh"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@string/lbl_ifre"
+                        tools:text="@string/lbl_ifre" />
+
+                    <EditText
+                        android:id="@+id/etPassword"
+                        style="@style/etSolidRounded"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_18pxh"
+                        android:layout_marginTop="@dimen/_6pxv"
+                        android:layout_marginEnd="@dimen/_18pxh"
+                        android:layout_marginBottom="@dimen/_17pxv"
+                        android:background="@drawable/underline"
+                        android:ellipsize="end"
+                        android:inputType="textPassword"
+                        android:paddingStart="@dimen/_11pxh"
+                        android:paddingTop="@dimen/_12pxv"
+                        android:paddingEnd="@dimen/_30pxh"
+                        android:paddingBottom="@dimen/_11pxv"
+                        android:singleLine="true"
+                        android:textColorHint="@color/gray_50"
+                        tools:ignore="Autofill" />
                 </LinearLayout>
-                <LinearLayout android:gravity="center_vertical"
+
+                <LinearLayout
                     android:id="@+id/linearRowrectanglesixtyseven"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_34pxh"
                     android:layout_marginStart="@dimen/_34pxh"
                     android:layout_marginTop="@dimen/_2pxv"
-                    android:layout_width="match_parent" android:orientation="horizontal">
+                    android:layout_marginEnd="@dimen/_34pxh"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <CheckBox
                         android:id="@+id/viewRectangleSixtySeven"
@@ -166,8 +196,7 @@
                         android:layout_height="@dimen/_34pxh"
                         android:layout_marginTop="@dimen/_9pxv"
                         android:layout_marginBottom="@dimen/_8pxv"
-                        android:buttonTint="@color/indigo_700_8c"
-                        />
+                        android:buttonTint="@color/indigo_700_8c" />
 
                     <TextView
                         android:id="@+id/txtLanguage"
@@ -183,34 +212,40 @@
                         tools:text="@string/msg_hesap_olu_turar" />
 
                 </LinearLayout>
+
                 <androidx.appcompat.widget.AppCompatButton
-                    android:ellipsize="end" android:gravity="center"
                     android:id="@+id/btnHesapOlutur"
+                    style="@style/btnSolidRounded"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_34pxh"
                     android:layout_marginStart="@dimen/_34pxh"
                     android:layout_marginTop="@dimen/_5pxv"
-                    android:layout_width="match_parent"
-                    android:paddingBottom="@dimen/_17pxv"
-                    android:paddingEnd="@dimen/_30pxh"
+                    android:layout_marginEnd="@dimen/_34pxh"
+                    android:ellipsize="end"
+                    android:gravity="center"
                     android:paddingStart="@dimen/_30pxh"
                     android:paddingTop="@dimen/_17pxv"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingBottom="@dimen/_17pxv"
                     android:singleLine="true"
                     android:text="@string/lbl_hesap_olu_tur"
                     android:textAllCaps="false"
-                    style="@style/btnSolidRounded" tools:text="@string/lbl_hesap_olu_tur"/>
-                <TextView android:ellipsize="end"
-                    android:gravity="center_horizontal"
+                    tools:text="@string/lbl_hesap_olu_tur" />
+
+                <TextView
                     android:id="@+id/txtZatenhesabnv"
+                    style="@style/txtNunitomedium20"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_20pxv"
-                    android:layout_marginEnd="@dimen/_34pxh"
                     android:layout_marginStart="@dimen/_34pxh"
                     android:layout_marginTop="@dimen/_10pxv"
-                    android:layout_width="match_parent"
+                    android:layout_marginEnd="@dimen/_34pxh"
+                    android:layout_marginBottom="@dimen/_20pxv"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
                     android:singleLine="true"
                     android:text="@string/msg_zaten_hesab_n_v"
-                    style="@style/txtNunitomedium20" tools:text="@string/msg_zaten_hesab_n_v"/>
+                    tools:text="@string/msg_zaten_hesab_n_v" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

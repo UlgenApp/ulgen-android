@@ -5,8 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -38,11 +38,16 @@ class HomeScreenFragment : Fragment() {
 
         fetchUserImage()
 
+        val toolbar = view.findViewById<Toolbar>(R.id.toolbarToolbar)
+        toolbar.setOnClickListener {
+            findNavController().navigate(R.id.action_homeScreenFragment_to_userProfileScreenFragment)
+        }
 
 
         val nameText = view.findViewById<TextView>(R.id.txtLanguage)
 
-        nameText.text = "Merhaba " + sharedPreferencesUtil.getUserProfile()?.firstName.toString() + "!"
+        nameText.text =
+            "Merhaba " + sharedPreferencesUtil.getUserProfile()?.firstName.toString() + "!"
 
         /*val logoutImageButton = view.findViewById<ImageView>(R.id.logoutButton)
         logoutImageButton.setOnClickListener {
@@ -51,6 +56,7 @@ class HomeScreenFragment : Fragment() {
 
         return view
     }
+
     private fun fetchUserImage() {
         val userImageDataSource = UserImageDataSource(requireContext())
         val userImageUrlCall = userImageDataSource.getUserImage()
@@ -68,10 +74,10 @@ class HomeScreenFragment : Fragment() {
             }
         })
     }
+
     private fun displayUserImage(imageUrl: String) {
         Glide.with(requireContext()).load(imageUrl).into(userImageView)
     }
-
 
 
     /*private fun logout() {

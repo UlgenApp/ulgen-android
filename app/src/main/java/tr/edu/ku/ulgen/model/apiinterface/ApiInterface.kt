@@ -18,8 +18,10 @@ interface ApiInterface {
     @Headers("Accept: application/json")
     @GET("deprem/kandilli/live")
     fun getData(): Call<KandilliEarthquakeLiveData>
+
     @POST("api/v1/user/heatmap")
     fun getUserHeatMap(@Body request: HeatMapRequest): Call<HeatMapResponse>
+
     @POST("api/v1/user/route")
     fun getUserRoute(@Body body: RoutingMapRequest): Call<RoutingMapResponse>
 
@@ -35,6 +37,7 @@ interface ApiInterface {
 
     @GET("api/v1/user/profile")
     fun getUserProfile(): Call<UserProfile>
+
     @POST("api/v1/producer/produce")
     fun sendMACAddresses(@Body requestBody: MACScannerRequest): Call<MACScannerResponse>
 

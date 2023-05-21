@@ -1,5 +1,6 @@
 package tr.edu.ku.ulgen.uiviews
 
+import DataSource
 import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +11,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.SeekBar
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import tr.edu.ku.ulgen.R
@@ -40,11 +40,10 @@ class VehicleInfoScreenFragment : Fragment() {
             onSuccess = { affectedCities ->
                 items = affectedCities.toTypedArray()
 
-                // Refresh the checkedItems array to match the new size of items
+
                 checkedItems = BooleanArray(items.size)
 
-                Log.d("affectedcities", affectedCities.toString())
-                Log.d("selecteditems", selectedItems.toString())
+
             },
             onError = { errorMessage ->
                 Log.d("affectedcities", "error")
@@ -57,7 +56,7 @@ class VehicleInfoScreenFragment : Fragment() {
             AlertDialog.Builder(requireContext())
                 .setTitle("Şehirleri Seç")
                 .setMultiChoiceItems(items, checkedItems) { _, which, isChecked ->
-                    if(isChecked) {
+                    if (isChecked) {
                         selectedItems.add(items[which])
                     } else if (selectedItems.contains(items[which])) {
                         selectedItems.remove(items[which])
@@ -95,20 +94,14 @@ class VehicleInfoScreenFragment : Fragment() {
 
             var errorMessage = ""
 
-            // check if any field is empty
+
             if (vehicleCountStr.isEmpty() || latitudeStr.isEmpty() || longitudeStr.isEmpty()) {
                 errorMessage = "Lütfen tüm alanları doldurunuz."
-            }
-            // check if vehicle count is less than or equal to 1
-            else if ((vehicleCountStr.toIntOrNull() ?: 0) <= 1) {
+            } else if ((vehicleCountStr.toIntOrNull() ?: 0) <= 1) {
                 errorMessage = "Araç sayısı 1'den büyük olmalıdır."
-            }
-            // check if latitude or longitude are invalid (not in correct range)
-            else if (latitudeStr.toDoubleOrNull()!! !in -90.0..90.0 || longitudeStr.toDoubleOrNull()!! !in -180.0..180.0) {
+            } else if (latitudeStr.toDoubleOrNull()!! !in -90.0..90.0 || longitudeStr.toDoubleOrNull()!! !in -180.0..180.0) {
                 errorMessage = "Geçersiz enlem veya boylam."
-            }
-            // check if no cities were selected
-            else if (selectedItems.isEmpty()) {
+            } else if (selectedItems.isEmpty()) {
                 errorMessage = "En az bir şehir seçiniz."
             }
 
@@ -123,7 +116,10 @@ class VehicleInfoScreenFragment : Fragment() {
                     putSerializable("cityList", selectedItems)
                 }
 
-                findNavController().navigate(R.id.action_vehicleInfoScreenFragment_to_routingMapFragment, bundle)
+                findNavController().navigate(
+                    R.id.action_vehicleInfoScreenFragment_to_routingMapFragment,
+                    bundle
+                )
             }
         }
 

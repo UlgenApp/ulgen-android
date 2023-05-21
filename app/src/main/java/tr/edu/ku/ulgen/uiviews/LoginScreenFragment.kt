@@ -18,16 +18,14 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import okhttp3.ResponseBody
+import org.json.JSONException
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import tr.edu.ku.ulgen.R
 import tr.edu.ku.ulgen.model.SharedPreferencesUtil
 import tr.edu.ku.ulgen.model.apibodies.SignInBody
-import tr.edu.ku.ulgen.model.apiinterface.ApiInterface
-import tr.edu.ku.ulgen.model.datasource.AuthenticationDataSource
-import org.json.JSONObject
-import org.json.JSONException
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.networkscanner.scanner.LocalMACScanner
@@ -48,16 +46,13 @@ class LoginScreenFragment : Fragment() {
         val backgroundGranted = permissions[Manifest.permission.ACCESS_BACKGROUND_LOCATION] ?: false
 
         if (foregroundGranted && !backgroundGranted) {
-            // Only Foreground location permission was granted
-            // Check if both permissions are granted and send MAC addresses if necessary
             val macAddresses = LocalMACScanner.getMacAddresses().values.map { it.address }
             LocalMACScanner.sendMACAddresses(macAddresses.toMutableList(), requireContext())
         } else if (foregroundGranted && backgroundGranted) {
-            // Background location permission was granted
             MACScanWorker.schedule(requireContext())
         } else {
             // Permission denied
-            // Show the user a message about the importance of this permission
+
         }
     }
 
@@ -106,13 +101,10 @@ class LoginScreenFragment : Fragment() {
                             val json = JSONObject(responseBodyString)
                             val apiToken = json.getString("token")
                             sharedPreferencesUtil.saveApiToken(apiToken)
-                            Log.d(
-                                "Shared_preferences",
-                                sharedPreferencesUtil.getApiToken().toString()
-                            )
+
                             requestLocationPermissions()
                             getUserProfile()
-                            findNavController().navigate(R.id.action_loginScreenFragment_to_homeScreenFragment)
+
                         } catch (e: JSONException) {
                             e.printStackTrace()
                         }
@@ -153,7 +145,6 @@ class LoginScreenFragment : Fragment() {
                 )
             )
         } else {
-            // Permissions already granted
             MACScanWorker.schedule(requireContext())
         }
     }
@@ -166,10 +157,6 @@ class LoginScreenFragment : Fragment() {
                     val userProfile = response.body()
                     Log.d("GET_PROFILE_S", userProfile.toString())
                     userProfile?.let {
-                        val firstName = it.firstName
-                        val lastName = it.lastName
-                        val email = it.email
-                        val additionalInfo = it.additionalInfo
 
                         val sharedPreferencesUtil = SharedPreferencesUtil(requireContext())
                         sharedPreferencesUtil.saveUserProfile(userProfile)
@@ -178,14 +165,13 @@ class LoginScreenFragment : Fragment() {
                             sharedPreferencesUtil.getUserProfile().toString()
                         )
                     }
+                    findNavController().navigate(R.id.action_loginScreenFragment_to_homeScreenFragment)
                 } else {
-                    // Handle unsuccessful response
                     Log.d("GET_PROFILE_F", response.message().toString())
                 }
             }
 
             override fun onFailure(call: Call<UserProfile>, t: Throwable) {
-                // Handle failure
                 Log.d("GET_PROFILE", "onFailure: ${t.message}")
             }
         })

@@ -1,8 +1,8 @@
 package tr.edu.ku.ulgen
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -14,7 +14,6 @@ import retrofit2.Response
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
 import tr.edu.ku.ulgen.model.apiinterface.ApiInterface
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
-import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 
         setupWithNavController(bottomNavigationView, navController)
-        // always show selected Bottom Navigation item as selected (return true)
+
         bottomNavigationView.setOnItemSelectedListener { item ->
             NavigationUI.onNavDestinationSelected(item, navController)
 
@@ -60,20 +59,21 @@ class MainActivity : AppCompatActivity() {
         }
         checkUserLoginStatus()
     }
+
     private fun checkUserLoginStatus() {
         apiInterface.getUserProfile().enqueue(object : Callback<UserProfile> {
             override fun onResponse(call: Call<UserProfile>, response: Response<UserProfile>) {
                 if (response.isSuccessful) {
-                    // If the response is successful, navigate to home screen.
+
                     navController.navigate(R.id.homeScreenFragment)
                 } else {
-                    // If the response is not successful, navigate to start screen.
+
                     navController.navigate(R.id.startScreenFragment)
                 }
             }
 
             override fun onFailure(call: Call<UserProfile>, t: Throwable) {
-                // If there is any error, navigate to start screen.
+
                 navController.navigate(R.id.startScreenFragment)
             }
         })

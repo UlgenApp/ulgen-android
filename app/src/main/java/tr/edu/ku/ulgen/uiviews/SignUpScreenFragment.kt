@@ -38,7 +38,7 @@ class SignUpScreenFragment : Fragment() {
         val signUpButton = view.findViewById<Button>(R.id.btnHesapOlutur)
 
         signUpButton.setOnClickListener {
-            if(view.findViewById<CheckBox>(R.id.viewRectangleSixtySeven).isChecked) {
+            if (view.findViewById<CheckBox>(R.id.viewRectangleSixtySeven).isChecked) {
                 val email = view.findViewById<EditText>(R.id.etEmailOne).text.toString()
                 val fullName = view.findViewById<EditText>(R.id.etGroupNine).text.toString()
                 val password = view.findViewById<EditText>(R.id.etPassword).text.toString()
@@ -91,10 +91,13 @@ class SignUpScreenFragment : Fragment() {
 
         return view
     }
-    private fun signUp(email: String, name: String,
-                       surname: String, password: String, view: View){
+
+    private fun signUp(
+        email: String, name: String,
+        surname: String, password: String, view: View
+    ) {
         val retIn = AuthenticationDataSource.getRetrofitInstance().create(ApiInterface::class.java)
-        val registerInfo = UserBody(email,name, surname,password)
+        val registerInfo = UserBody(email, name, surname, password)
 
         retIn.registerUser(registerInfo).enqueue(object :
             Callback<ResponseBody> {
@@ -102,24 +105,23 @@ class SignUpScreenFragment : Fragment() {
                 if (response.code() == 200) {
                     CustomSnackbar.showSignUp(view, getString(R.string.sign_up_succesfull))
 
-                }
-                else{
+                } else {
                     Log.d("SIGN_F", response.message().toString())
                     CustomSnackbar.showError(view, getString(R.string.sign_up_failed))
                 }
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                Log.d("SIGN_F",  "onFailure " + t.message)
+                Log.d("SIGN_F", "onFailure " + t.message)
                 CustomSnackbar.showError(view, getString(R.string.sign_up_failed))
             }
 
 
         })
     }
+
     fun parseName(fullName: String?): Pair<String, String> {
         if (fullName.isNullOrEmpty()) {
-            // No name
             return Pair("", "")
         }
 
@@ -127,22 +129,19 @@ class SignUpScreenFragment : Fragment() {
 
         return when {
             nameParts.size >= 2 -> {
-                // More than one name and one surname
                 val names = nameParts.subList(0, nameParts.size - 1).joinToString(" ")
                 val surname = nameParts.last()
                 Pair(names, surname)
             }
             nameParts.size == 1 -> {
-                // Only one name
+
                 Pair(nameParts[0], "")
             }
             else -> {
-                // No name
                 Pair("", "")
             }
         }
     }
-
 
 
 }
