@@ -7,7 +7,8 @@ import tr.edu.ku.ulgen.model.apibodies.UserProfile
 
 class SharedPreferencesUtil(context: Context) {
 
-    private val prefs: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+    private val prefs: SharedPreferences =
+        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
     companion object {
         private const val PREFS_NAME = "my_prefs"
@@ -46,6 +47,7 @@ class SharedPreferencesUtil(context: Context) {
     fun clearUserProfile() {
         prefs.edit().remove(USER_PROFILE).apply()
     }
+
     //  clear all data
     fun clearAllData() {
         prefs.edit().clear().apply()

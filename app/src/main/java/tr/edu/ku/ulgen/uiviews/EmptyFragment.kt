@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import tr.edu.ku.ulgen.R
 
-class EmptyFragment : Fragment()  {
+class EmptyFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

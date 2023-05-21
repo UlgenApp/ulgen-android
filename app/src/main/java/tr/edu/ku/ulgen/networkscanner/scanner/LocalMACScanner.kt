@@ -9,7 +9,6 @@ import android.location.Address
 import android.location.Geocoder
 import android.util.Log
 import androidx.core.content.ContextCompat
-import androidx.work.ListenableWorker
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.CoroutineScope
@@ -55,12 +54,22 @@ object LocalMACScanner {
             emptyMap()
         }
     }
-    fun sendMACAddresses(macAddressList: MutableList<String>, applicationContext: Context): Boolean {
+
+    fun sendMACAddresses(
+        macAddressList: MutableList<String>,
+        applicationContext: Context
+    ): Boolean {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(applicationContext)
 
-        if (ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ContextCompat.checkSelfPermission(
+                applicationContext,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
             != PackageManager.PERMISSION_GRANTED ||
-            ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.ACCESS_COARSE_LOCATION)
+            ContextCompat.checkSelfPermission(
+                applicationContext,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            )
             != PackageManager.PERMISSION_GRANTED
         ) {
 
@@ -70,16 +79,20 @@ object LocalMACScanner {
         fusedLocationClient.lastLocation.addOnSuccessListener { androidLocation: android.location.Location? ->
             androidLocation?.let { location ->
                 val geocoder = Geocoder(applicationContext, Locale.ENGLISH)
-                val addresses: List<Address> = geocoder.getFromLocation(location.latitude, location.longitude, 1)
+                val addresses: List<Address> =
+                    geocoder.getFromLocation(location.latitude, location.longitude, 1)
                 val cityName = addresses[0].adminArea
 
                 println(convertTurkishToEnglish(cityName))
                 println(location.latitude)
                 println(location.longitude)
 
-                if(cityName != null) {
+                if (cityName != null) {
                     val requestBody = MACScannerRequest(
-                        location = Location(latitude = location.latitude, longitude = location.longitude),
+                        location = Location(
+                            latitude = location.latitude,
+                            longitude = location.longitude
+                        ),
                         macAddresses = macAddressList,
                         userCity = convertTurkishToEnglish(cityName)
                     )
@@ -89,8 +102,11 @@ object LocalMACScanner {
                             val macScannerData = UlgenAPIDataSource.getUlgenAPIData()
                             macScannerData.sendMACAddresses(requestBody).enqueue(object :
                                 Callback<MACScannerResponse> {
-                                override fun onResponse(call: Call<MACScannerResponse>, response: Response<MACScannerResponse>) {
-                                    if(response.isSuccessful) {
+                                override fun onResponse(
+                                    call: Call<MACScannerResponse>,
+                                    response: Response<MACScannerResponse>
+                                ) {
+                                    if (response.isSuccessful) {
                                         println("MAC addresses sent successfully")
                                     } else {
                                         println("Response failed with status code: ${response.code()}")
@@ -98,7 +114,10 @@ object LocalMACScanner {
                                     }
                                 }
 
-                                override fun onFailure(call: Call<MACScannerResponse>, t: Throwable) {
+                                override fun onFailure(
+                                    call: Call<MACScannerResponse>,
+                                    t: Throwable
+                                ) {
                                     println("Failed to get data: ${t.message}")
                                 }
                             })
@@ -125,5 +144,6 @@ object LocalMACScanner {
         }
         return result
     }
+
     data class MacAddress(val address: String)
 }

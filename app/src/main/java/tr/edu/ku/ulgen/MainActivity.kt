@@ -1,8 +1,8 @@
 package tr.edu.ku.ulgen
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -14,7 +14,6 @@ import retrofit2.Response
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
 import tr.edu.ku.ulgen.model.apiinterface.ApiInterface
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
-import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
 
 
 class MainActivity : AppCompatActivity() {
@@ -60,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         }
         checkUserLoginStatus()
     }
+
     private fun checkUserLoginStatus() {
         apiInterface.getUserProfile().enqueue(object : Callback<UserProfile> {
             override fun onResponse(call: Call<UserProfile>, response: Response<UserProfile>) {

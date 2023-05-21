@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
-    <data/>
-    <LinearLayout android:gravity="center_horizontal"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data />
+
+    <LinearLayout
         android:id="@+id/linearColumn"
+        style="@style/groupStyleyellow_50"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="0dp"
-        android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
-        android:layout_width="match_parent"
-        android:orientation="vertical" style="@style/groupStyleyellow_50">
-        <ScrollView android:clipToPadding="false"
-            android:fillViewport="true" android:gravity="start"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ScrollView
             android:id="@+id/scrollViewScrollview"
-            android:layout_height="0dp" android:layout_weight="1" android:layout_width="match_parent">
-            <LinearLayout android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:gravity="start">
+
+            <LinearLayout
                 android:id="@+id/linearColumnfiftyone"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent" android:orientation="vertical">
-                <FrameLayout android:gravity="start"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <FrameLayout
                     android:id="@+id/frameStackfiftyone"
-                    android:layout_height="@dimen/_442pxv" android:layout_width="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_442pxv"
+                    android:gravity="start">
 
                     <ImageView
                         android:id="@+id/imageFiftyOne"
@@ -32,56 +48,68 @@
                         android:src="@drawable/ulgen_logo"
                         tools:ignore="ContentDescription"
                         tools:src="@drawable/ulgen_logo" />
-                    <TextView android:ellipsize="end"
-                        android:gravity="center_horizontal"
+
+                    <TextView
                         android:id="@+id/txtLgenehogel"
-                        android:layout_gravity="bottom|center"
+                        style="@style/txtMontserratromanmedium35"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_42pxh"
+                        android:layout_gravity="bottom|center"
                         android:layout_marginStart="@dimen/_42pxh"
                         android:layout_marginTop="@dimen/_10pxv"
-                        android:layout_width="wrap_content"
+                        android:layout_marginEnd="@dimen/_42pxh"
+                        android:ellipsize="end"
+                        android:gravity="center_horizontal"
                         android:singleLine="false"
                         android:text="@string/msg_lgen_e_ho_gel"
-                        style="@style/txtMontserratromanmedium35" tools:text="@string/msg_lgen_e_ho_gel"/>
+                        tools:text="@string/msg_lgen_e_ho_gel" />
                 </FrameLayout>
-                <TextView android:gravity="center_horizontal"
+
+                <TextView
                     android:id="@+id/txtDescription"
+                    style="@style/txtMontserratromanmedium22"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_31pxh"
                     android:layout_marginStart="@dimen/_31pxh"
                     android:layout_marginTop="@dimen/_41pxv"
-                    android:layout_width="match_parent"
-                    android:text="@string/msg_olas_afet_duru"
-                    style="@style/txtMontserratromanmedium22" tools:text="@string/msg_olas_afet_duru"/>
-                <androidx.appcompat.widget.AppCompatButton
-                    android:ellipsize="end" android:gravity="center"
-                    android:id="@+id/btnHesapOlutur"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_height="@dimen/_68pxv"
                     android:layout_marginEnd="@dimen/_31pxh"
+                    android:gravity="center_horizontal"
+                    android:text="@string/msg_olas_afet_duru"
+                    tools:text="@string/msg_olas_afet_duru" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnHesapOlutur"
+                    style="@style/btnSolidRounded"
+                    android:layout_width="@dimen/_322pxh"
+                    android:layout_height="@dimen/_68pxv"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginStart="@dimen/_31pxh"
                     android:layout_marginTop="@dimen/_59pxv"
-                    android:layout_width="@dimen/_322pxh"
-                    android:paddingBottom="1dp"
-                    android:paddingEnd="@dimen/_30pxh"
+                    android:layout_marginEnd="@dimen/_31pxh"
+                    android:ellipsize="end"
+                    android:gravity="center"
                     android:paddingStart="@dimen/_30pxh"
                     android:paddingTop="1dp"
+                    android:paddingEnd="@dimen/_30pxh"
+                    android:paddingBottom="1dp"
                     android:singleLine="true"
                     android:text="@string/lbl_hesap_olu_tur"
                     android:textAllCaps="false"
-                    style="@style/btnSolidRounded" tools:text="@string/lbl_hesap_olu_tur"/>
-                <TextView android:ellipsize="end"
-                    android:gravity="center_horizontal"
+                    tools:text="@string/lbl_hesap_olu_tur" />
+
+                <TextView
                     android:id="@+id/txtZatenhesabnv"
+                    style="@style/txtNunitomedium20"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_31pxh"
                     android:layout_marginStart="@dimen/_31pxh"
                     android:layout_marginTop="@dimen/_66pxv"
-                    android:layout_width="match_parent"
+                    android:layout_marginEnd="@dimen/_31pxh"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
                     android:singleLine="true"
                     android:text="@string/msg_zaten_hesab_n_v"
-                    style="@style/txtNunitomedium20" tools:text="@string/msg_zaten_hesab_n_v"/>
+                    tools:text="@string/msg_zaten_hesab_n_v" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

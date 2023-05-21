@@ -17,15 +17,16 @@ class MACScanWorker(appContext: Context, workerParams: WorkerParameters) :
         val macAddressList = mutableListOf<String>()
         for (elem in macAddresses) {
             println(elem)
-            macAddressList.add(elem.value.address.subSequence(0,8).toString())
+            macAddressList.add(elem.value.address.subSequence(0, 8).toString())
         }
 
-        return if (LocalMACScanner.sendMACAddresses(macAddressList, applicationContext)){
+        return if (LocalMACScanner.sendMACAddresses(macAddressList, applicationContext)) {
             Result.success()
         } else {
             Result.failure()
         }
     }
+
     companion object {
         private const val TAG = "UlgenMACScanWorker-7c9db77kf"
 

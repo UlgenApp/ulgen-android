@@ -1,55 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout android:gravity="center_horizontal"
+    <LinearLayout
         android:id="@+id/linearColumndownload"
-        android:layout_height="match_parent"
-
+        style="@style/groupStyleyellow_51"
         android:layout_width="match_parent"
-        android:orientation="vertical" style="@style/groupStyleyellow_51">
+
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
         <androidx.core.widget.NestedScrollView
-            android:clipToPadding="false" android:fillViewport="true"
-            android:gravity="start"
             android:id="@+id/scrollViewScrollview"
-            android:layout_height="0dp" android:layout_weight="1" android:layout_width="match_parent">
-            <LinearLayout android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:gravity="start">
+
+            <LinearLayout
                 android:id="@+id/linearVehicleInfoSc"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent" android:orientation="vertical">
-                <ImageView android:id="@+id/imageDownload"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_height="@dimen/_47pxh"
-                    android:layout_marginTop="@dimen/_40pxv"
+                android:gravity="start"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageDownload"
                     android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_47pxh"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_40pxv"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_download"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_download"/>
-                <LinearLayout android:gravity="center_horizontal"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_download" />
+
+                <LinearLayout
                     android:id="@+id/linearColumntatsays"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_7pxh"
                     android:layout_marginStart="@dimen/_5pxh"
                     android:layout_marginTop="@dimen/_20pxv"
+                    android:layout_marginEnd="@dimen/_7pxh"
                     android:layout_marginBottom="@dimen/_20pxv"
-                    android:layout_width="match_parent" android:orientation="vertical">
-                    <TextView android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
                         android:id="@+id/txtTatsays"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_12pxh"
-                        android:layout_marginStart="@dimen/_12pxh"
+                        style="@style/txtNunitobold24"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_12pxh"
+                        android:layout_marginEnd="@dimen/_12pxh"
+                        android:ellipsize="end"
                         android:singleLine="true"
                         android:text="@string/lbl_ta_t_say_s"
-                        style="@style/txtNunitobold24" tools:text="@string/lbl_ta_t_say_s"/>
-                    <LinearLayout android:id="@+id/frameStacktwo"
-                        android:layout_gravity="center_horizontal"
+                        tools:text="@string/lbl_ta_t_say_s" />
+
+                    <LinearLayout
+                        android:id="@+id/frameStacktwo"
+                        android:layout_width="@dimen/_322pxh"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_12pxh"
+                        android:layout_gravity="center_horizontal"
                         android:layout_marginStart="@dimen/_12pxh"
                         android:layout_marginTop="@dimen/_6pxv"
-                        android:layout_width="@dimen/_322pxh"
+                        android:layout_marginEnd="@dimen/_12pxh"
                         android:orientation="vertical">
 
                         <EditText
@@ -58,32 +78,35 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:ellipsize="end"
-                            android:singleLine="true"
                             android:background="@null"
+                            android:ellipsize="end"
                             android:hint="1"
+                            android:singleLine="true"
                             android:text="2"
                             tools:text="@string/lbl_2" />
 
                         <View
-                            android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1"
                             android:id="@+id/lineVehicletextfi"
-                            android:layout_gravity="bottom|start"
+                            android:layout_width="@dimen/_322pxh"
                             android:layout_height="@dimen/_1pxv"
+                            android:layout_gravity="bottom|start"
 
-                             android:layout_width="@dimen/_322pxh"/>
+                            android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1" />
                     </LinearLayout>
-                    <TextView android:ellipsize="end"
-                        android:gravity="center_horizontal"
+
+                    <TextView
                         android:id="@+id/txtTatnznbul"
+                        style="@style/txtNunitobold24"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_12pxh"
                         android:layout_marginStart="@dimen/_12pxh"
                         android:layout_marginTop="@dimen/_47pxv"
-                        android:layout_width="match_parent"
+                        android:layout_marginEnd="@dimen/_12pxh"
+                        android:ellipsize="end"
+                        android:gravity="center_horizontal"
                         android:singleLine="true"
                         android:text="@string/msg_ta_t_n_z_n_bul"
-                        style="@style/txtNunitobold24" tools:text="@string/msg_ta_t_n_z_n_bul"/>
+                        tools:text="@string/msg_ta_t_n_z_n_bul" />
 
                     <LinearLayout
                         android:id="@+id/linearLayoutLinearLayouts"
@@ -98,73 +121,87 @@
                         <!-- First LinearLayout -->
                         <LinearLayout
                             android:id="@+id/linearEnlem1"
-                            android:layout_height="wrap_content"
                             android:layout_width="0dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <EditText android:ellipsize="end" android:gravity="center"
+                            <EditText
                                 android:id="@+id/latitude"
+                                style="@style/txtNunitoregular24"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="@dimen/_10pxv"
-                                android:layout_width="match_parent"
-                                android:singleLine="true"
                                 android:background="@null"
+                                android:ellipsize="end"
+                                android:gravity="center"
                                 android:hint="41.207115"
+                                android:singleLine="true"
                                 android:text="41.20"
-                                style="@style/txtNunitoregular24" tools:text="@string/lbl_41_205616"/>
+                                tools:text="@string/lbl_41_205616" />
 
                             <View
-                                android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1"
                                 android:id="@+id/lineEmailusername1"
-                                android:layout_gravity="center"
+                                android:layout_width="@dimen/_159pxh"
                                 android:layout_height="@dimen/_1pxv"
-                                android:layout_width="@dimen/_159pxh"/>
+                                android:layout_gravity="center"
+                                android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1" />
 
-                            <TextView android:ellipsize="end" android:gravity="center" android:id="@+id/txtEnlem1"
+                            <TextView
+                                android:id="@+id/txtEnlem1"
+                                style="@style/txtNunitobold16"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_10pxv"
-                                android:layout_width="wrap_content"
+                                android:ellipsize="end"
+                                android:gravity="center"
                                 android:singleLine="true"
                                 android:text="Enlem"
-                                style="@style/txtNunitobold16" tools:text="@string/lbl_enlem"/>
+                                tools:text="@string/lbl_enlem" />
                         </LinearLayout>
 
                         <!-- Second LinearLayout -->
                         <LinearLayout
                             android:id="@+id/linearEnlem2"
-                            android:layout_height="wrap_content"
                             android:layout_width="0dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <EditText android:ellipsize="end" android:gravity="center"
+                            <EditText
                                 android:id="@+id/longitude"
+                                style="@style/txtNunitoregular24"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="@dimen/_10pxv"
-                                android:layout_width="match_parent"
-                                android:singleLine="true"
                                 android:background="@null"
+                                android:ellipsize="end"
+                                android:gravity="center"
                                 android:hint="29.075848"
+                                android:singleLine="true"
                                 android:text="29.07"
-                                style="@style/txtNunitoregular24" tools:text="@string/lbl_41_205616"/>
+                                tools:text="@string/lbl_41_205616" />
 
                             <View
-                                android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1"
                                 android:id="@+id/lineEmailusername2"
-                                android:layout_gravity="center"
+                                android:layout_width="@dimen/_159pxh"
                                 android:layout_height="@dimen/_1pxv"
-                                android:layout_width="@dimen/_159pxh"/>
+                                android:layout_gravity="center"
+                                android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1" />
 
-                            <TextView android:ellipsize="end" android:gravity="center" android:id="@+id/txtEnlem2"
+                            <TextView
+                                android:id="@+id/txtEnlem2"
+                                style="@style/txtNunitobold16"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_10pxv"
-                                android:layout_width="wrap_content"
+                                android:ellipsize="end"
+                                android:gravity="center"
                                 android:singleLine="true"
                                 android:text="Boylam"
-                                style="@style/txtNunitobold16" tools:text="Boylam"/>
+                                tools:text="Boylam" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -172,64 +209,70 @@
                         android:id="@+id/multiSelectButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_20pxh"
                         android:clickable="true"
                         android:focusable="true"
-                        android:layout_marginTop="@dimen/_20pxh"
+                        android:gravity="center_vertical"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Şehirleri Seç:"
                             android:layout_marginEnd="8dp"
+                            android:text="Şehirleri Seç:"
                             android:textSize="16sp" /> <!--Change the text size according to your need-->
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/magnified_glass"
-                            />
+                            android:src="@drawable/magnified_glass" />
                     </LinearLayout>
 
 
-                    <TextView android:ellipsize="end"
+                    <TextView
                         android:id="@+id/txtNceliinizne"
-                        android:layout_gravity="center_horizontal"
+                        style="@style/txtNunitobold18"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_12pxh"
+                        android:layout_gravity="center_horizontal"
                         android:layout_marginStart="@dimen/_12pxh"
                         android:layout_marginTop="@dimen/_30pxv"
-                        android:layout_width="wrap_content"
+                        android:layout_marginEnd="@dimen/_12pxh"
+                        android:ellipsize="end"
                         android:singleLine="true"
                         android:text="@string/lbl_nceli_iniz_ne"
-                        style="@style/txtNunitobold18" tools:text="@string/lbl_nceli_iniz_ne"/>
-                    <LinearLayout android:gravity="center_horizontal"
+                        tools:text="@string/lbl_nceli_iniz_ne" />
+
+                    <LinearLayout
                         android:id="@+id/linearSlider"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_1pxh"
                         android:layout_marginStart="@dimen/_4pxh"
                         android:layout_marginTop="@dimen/_11pxv"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical" >
+                        android:layout_marginEnd="@dimen/_1pxh"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
                         <SeekBar
-                            android:gravity="center_horizontal"
                             android:id="@+id/linearControl"
-                            android:layout_height="wrap_content"
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
                             android:max="4"
                             android:progress="2"
                             android:progressDrawable="@drawable/seekbar_progress_drawable"
-                            android:thumb="@drawable/white_thumb"
-                            android:splitTrack="false">
+                            android:splitTrack="false"
+                            android:thumb="@drawable/white_thumb">
 
                         </SeekBar>
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/linearRowenyakndakiin"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_8pxv"
-                        android:layout_width="match_parent" android:orientation="horizontal">
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/txtEnyakndakiin"
@@ -274,8 +317,8 @@
                     </LinearLayout>
 
                     <FrameLayout
-                        android:layout_height="match_parent"
-                        android:layout_width="match_parent">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btnTamam"

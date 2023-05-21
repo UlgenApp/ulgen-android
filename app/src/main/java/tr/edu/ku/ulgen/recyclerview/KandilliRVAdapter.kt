@@ -5,15 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import tr.edu.ku.ulgen.model.kandillilivedatastructure.KandilliEarthquakeLiveData
 import tr.edu.ku.ulgen.R
+import tr.edu.ku.ulgen.model.kandillilivedatastructure.KandilliEarthquakeLiveData
 
 
-class KandilliRecyclerviewAdapter(private val earthquakeList: KandilliEarthquakeLiveData) : RecyclerView.Adapter<KandilliRecyclerviewAdapter.MyViewHolder>() {
+class KandilliRecyclerviewAdapter(private val earthquakeList: KandilliEarthquakeLiveData) :
+    RecyclerView.Adapter<KandilliRecyclerviewAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.kandilli_recyclerview_item, parent, false)
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.kandilli_recyclerview_item, parent, false)
         return MyViewHolder(itemView)
     }
 
@@ -29,7 +31,7 @@ class KandilliRecyclerviewAdapter(private val earthquakeList: KandilliEarthquake
 
     }
 
-    class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val date: TextView = itemView.findViewById(R.id.date)
         val region: TextView = itemView.findViewById(R.id.region)
         val magnitude: TextView = itemView.findViewById(R.id.magnitude)

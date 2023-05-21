@@ -1,10 +1,10 @@
 package tr.edu.ku.ulgen.uiviews
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -13,14 +13,13 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.TileOverlayOptions
 import com.google.maps.android.heatmaps.HeatmapTileProvider
 import com.google.maps.android.heatmaps.WeightedLatLng
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import tr.edu.ku.ulgen.R
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapRequest
-import java.util.ArrayList
-import retrofit2.Callback
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapResponse
-import retrofit2.Call
-import retrofit2.Response
 
 class HeatmapFragment : Fragment(), OnMapReadyCallback {
 
@@ -54,12 +53,20 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
 
         UlgenAPIDataSource.init(requireContext())
         val heatMapData = UlgenAPIDataSource.getUlgenAPIData()
-        heatMapData.getUserHeatMap(request).enqueue(object: Callback<HeatMapResponse> {
-            override fun onResponse(call: Call<HeatMapResponse>, response: Response<HeatMapResponse>) {
-                if(response.isSuccessful) {
+        heatMapData.getUserHeatMap(request).enqueue(object : Callback<HeatMapResponse> {
+            override fun onResponse(
+                call: Call<HeatMapResponse>,
+                response: Response<HeatMapResponse>
+            ) {
+                if (response.isSuccessful) {
                     val centroids = response.body()?.body?.result?.centroids
                     centroids?.forEach {
-                        list.add(WeightedLatLng(LatLng(it.latitude, it.longitude), it.priority.toDouble()))
+                        list.add(
+                            WeightedLatLng(
+                                LatLng(it.latitude, it.longitude),
+                                it.priority.toDouble()
+                            )
+                        )
                     }
                     addHeatMap(list)
                 } else {

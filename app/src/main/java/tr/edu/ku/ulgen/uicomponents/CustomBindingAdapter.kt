@@ -49,13 +49,14 @@ fun setVisibility(view: View, isVisible: Boolean, isInvisible: Boolean) {
  * @param cornerRadius Float type value which used to curve the rectangle as much as passed value.
  */
 @BindingAdapter(
-    value = ["imageUrl", "placeHolder", "placeHolderError", "cornerRadius","circular"], requireAll = false
+    value = ["imageUrl", "placeHolder", "placeHolderError", "cornerRadius", "circular"],
+    requireAll = false
 )
 fun loadImageFromNetwork(
     imageView: ImageView, url: String?, placeHolder: Drawable?,
     placeHolderError: Drawable?,
     cornerRadius: Float,
-    circular:Boolean
+    circular: Boolean
 ) {
     var imageURL = url
 
@@ -76,7 +77,7 @@ fun loadImageFromNetwork(
             options.circleCrop()
 
         if (cornerRadius > 0)
-            options.transform(CenterCrop(),RoundedCorners(cornerRadius.toInt()))
+            options.transform(CenterCrop(), RoundedCorners(cornerRadius.toInt()))
 
         Glide.with(imageView).load(imageURL).apply(options).into(imageView)
     } else {
@@ -105,7 +106,7 @@ fun loadImageFromResource(
         if (circular)
             options.circleCrop()
         if (cornerRadius > 0)
-            options.transform(CenterCrop(),RoundedCorners(cornerRadius.toInt()))
+            options.transform(CenterCrop(), RoundedCorners(cornerRadius.toInt()))
         Glide.with(imageView).load(imageRes).apply(options).into(imageView)
     }
 }
@@ -116,14 +117,14 @@ fun loadImageFromResource(
  * @param recyclerView the recycler list view
  * @param itemSpace the double value to providing space between items
  */
-@BindingAdapter(value = ["itemSpace","includeEdge"], requireAll = false)
+@BindingAdapter(value = ["itemSpace", "includeEdge"], requireAll = false)
 fun addSpaceBetweenRecyclerItem(
     recyclerView: RecyclerView,
     itemSpace: Double,
-    includeEdge:Boolean
+    includeEdge: Boolean
 ) {
     recyclerView.addItemDecoration(
-       RecyclerItemDecoration(itemSpace.toInt(),includeEdge)
+        RecyclerItemDecoration(itemSpace.toInt(), includeEdge)
     )
 }
 

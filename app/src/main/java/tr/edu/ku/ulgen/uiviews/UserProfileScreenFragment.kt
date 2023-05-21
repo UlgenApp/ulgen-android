@@ -33,6 +33,7 @@ class UserProfileScreenFragment : Fragment() {
         }
         return view
     }
+
     private fun logout() {
         sharedPreferencesUtil.clearAllData()
         findNavController().navigate(R.id.action_userProfileScreenFragment_to_startScreenFragment)

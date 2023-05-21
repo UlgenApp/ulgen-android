@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -25,17 +24,17 @@ import com.google.maps.DirectionsApi
 import com.google.maps.GeoApiContext
 import com.google.maps.android.PolyUtil
 import com.google.maps.model.TravelMode
-import tr.edu.ku.ulgen.BuildConfig
-import tr.edu.ku.ulgen.R
-import tr.edu.ku.ulgen.uicomponents.CustomInfoWindowAdapter
-import java.util.*
-import tr.edu.ku.ulgen.model.routingmapdatastructure.RoutingMapResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import tr.edu.ku.ulgen.BuildConfig
+import tr.edu.ku.ulgen.R
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.routingmapdatastructure.Depot
 import tr.edu.ku.ulgen.model.routingmapdatastructure.RoutingMapRequest
+import tr.edu.ku.ulgen.model.routingmapdatastructure.RoutingMapResponse
+import tr.edu.ku.ulgen.uicomponents.CustomInfoWindowAdapter
+import java.util.*
 
 class RoutingMapFragment : Fragment(), OnMapReadyCallback {
     private lateinit var loadingFrame: FrameLayout
@@ -78,7 +77,9 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
             .destination(endCoord)
             .await()
 
-        val polylineOptions = PolylineOptions().addAll(PolyUtil.decode(directions.routes[0].overviewPolyline.encodedPath)).color(color)
+        val polylineOptions =
+            PolylineOptions().addAll(PolyUtil.decode(directions.routes[0].overviewPolyline.encodedPath))
+                .color(color)
         map.addPolyline(polylineOptions)
     }
 
@@ -108,7 +109,10 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
         loadingFrame.visibility = View.VISIBLE
 
         routingMapData.getUserRoute(request).enqueue(object : Callback<RoutingMapResponse> {
-            override fun onResponse(call: Call<RoutingMapResponse>, response: Response<RoutingMapResponse>) {
+            override fun onResponse(
+                call: Call<RoutingMapResponse>,
+                response: Response<RoutingMapResponse>
+            ) {
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     val result = responseBody?.body?.result
@@ -117,11 +121,14 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
 
 
                     val depot = LatLng(depot.latitude, depot.longitude)
-                    val customMarkerBitmap = BitmapFactory.decodeResource(resources, R.drawable.depot)
+                    val customMarkerBitmap =
+                        BitmapFactory.decodeResource(resources, R.drawable.depot)
                     val scaledBitmap = scaleBitmap(customMarkerBitmap, 100, 100)
                     val customMarkerIcon = BitmapDescriptorFactory.fromBitmap(scaledBitmap)
 
-                    mMap.addMarker(MarkerOptions().position(depot).title("Depot").icon(customMarkerIcon))
+                    mMap.addMarker(
+                        MarkerOptions().position(depot).title("Depot").icon(customMarkerIcon)
+                    )
 
                     val locations = ArrayList<LatLng>()
                     locations.add(depot)
@@ -135,7 +142,10 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
 
                             val currentLocation = LatLng(latitude, longitude)
                             locations.add(currentLocation)
-                            mMap.addMarker(MarkerOptions().position(currentLocation).title("Priority: $priority\nLatitude: $latitude\nLongitude: $longitude"))
+                            mMap.addMarker(
+                                MarkerOptions().position(currentLocation)
+                                    .title("Priority: $priority\nLatitude: $latitude\nLongitude: $longitude")
+                            )
                         }
                     }
 
@@ -143,10 +153,15 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
                         for ((vehicleName, vehicleData) in routeData) {
                             val currentRoutes = vehicleData.route
                             val rnd = Random()
-                            val color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+                            val color = Color.argb(
+                                255,
+                                rnd.nextInt(256),
+                                rnd.nextInt(256),
+                                rnd.nextInt(256)
+                            )
 
                             for (k in 0 until currentRoutes.size - 1) {
-                                val checkIndex = currentRoutes[k+1]
+                                val checkIndex = currentRoutes[k + 1]
                                 if (checkIndex == 0) {
                                     break
                                 }
@@ -174,6 +189,7 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
             }
         })
     }
+
     private fun scaleBitmap(bitmap: Bitmap, width: Int, height: Int): Bitmap {
         return Bitmap.createScaledBitmap(bitmap, width, height, false)
     }

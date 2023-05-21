@@ -13,7 +13,6 @@ import tr.edu.ku.ulgen.R
 class StartScreenFragment : Fragment() {
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
