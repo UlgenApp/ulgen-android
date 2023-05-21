@@ -119,7 +119,6 @@ class SignUpScreenFragment : Fragment() {
     }
     fun parseName(fullName: String?): Pair<String, String> {
         if (fullName.isNullOrEmpty()) {
-            // No name
             return Pair("", "")
         }
 
@@ -127,17 +126,15 @@ class SignUpScreenFragment : Fragment() {
 
         return when {
             nameParts.size >= 2 -> {
-                // More than one name and one surname
                 val names = nameParts.subList(0, nameParts.size - 1).joinToString(" ")
                 val surname = nameParts.last()
                 Pair(names, surname)
             }
             nameParts.size == 1 -> {
-                // Only one name
+
                 Pair(nameParts[0], "")
             }
             else -> {
-                // No name
                 Pair("", "")
             }
         }

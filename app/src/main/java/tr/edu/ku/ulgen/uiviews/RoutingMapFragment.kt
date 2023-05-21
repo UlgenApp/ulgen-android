@@ -85,17 +85,12 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
     @SuppressLint("PotentialBehaviorOverride")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        // Getting values from previous fragment
         val vehicleCount = arguments?.getString("vehicleCount")?.toIntOrNull() ?: 4
         val latitude = arguments?.getString("latitude")?.toDoubleOrNull() ?: 37.041452
         val longitude = arguments?.getString("longitude")?.toDoubleOrNull() ?: 37.361600
         val seekBarProgress = arguments?.getDouble("seekBarProgress") ?: 0.0
         val distanceCoefficient = 1 - seekBarProgress
         val cityList = arguments?.getStringArrayList("cityList") ?: listOf()
-
-
-
-
 
         val depot = Depot(latitude = latitude, longitude = longitude)
         val request = RoutingMapRequest(
@@ -106,8 +101,7 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
             depot = depot,
             cities = cityList
         )
-        print("aaaaaaaaaaaa")
-        print(cityList)
+
         UlgenAPIDataSource.init(requireContext())
         val routingMapData = UlgenAPIDataSource.getUlgenAPIData()
 
@@ -121,14 +115,14 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
                     val centroidData = result?.centroids
                     val routeData = result?.route
 
-                    // Add your route points
-                    val depot = LatLng(depot.latitude, depot.longitude) // Will be taken from prev page
+
+                    val depot = LatLng(depot.latitude, depot.longitude)
                     val customMarkerBitmap = BitmapFactory.decodeResource(resources, R.drawable.depot)
                     val scaledBitmap = scaleBitmap(customMarkerBitmap, 100, 100)
                     val customMarkerIcon = BitmapDescriptorFactory.fromBitmap(scaledBitmap)
 
                     mMap.addMarker(MarkerOptions().position(depot).title("Depot").icon(customMarkerIcon))
-                    //Will be filled from API call
+
                     val locations = ArrayList<LatLng>()
                     locations.add(depot)
                     mMap.setInfoWindowAdapter(CustomInfoWindowAdapter(requireContext()))
@@ -165,7 +159,7 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
                         }
                     }
 
-                    // Move the camera to the depot
+
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(depot, 5f))
                 } else {
                     println("Response failed with status code: ${response.code()}")

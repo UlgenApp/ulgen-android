@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 
         setupWithNavController(bottomNavigationView, navController)
-        // always show selected Bottom Navigation item as selected (return true)
+
         bottomNavigationView.setOnItemSelectedListener { item ->
             NavigationUI.onNavDestinationSelected(item, navController)
 
@@ -64,16 +64,16 @@ class MainActivity : AppCompatActivity() {
         apiInterface.getUserProfile().enqueue(object : Callback<UserProfile> {
             override fun onResponse(call: Call<UserProfile>, response: Response<UserProfile>) {
                 if (response.isSuccessful) {
-                    // If the response is successful, navigate to home screen.
+
                     navController.navigate(R.id.homeScreenFragment)
                 } else {
-                    // If the response is not successful, navigate to start screen.
+
                     navController.navigate(R.id.startScreenFragment)
                 }
             }
 
             override fun onFailure(call: Call<UserProfile>, t: Throwable) {
-                // If there is any error, navigate to start screen.
+
                 navController.navigate(R.id.startScreenFragment)
             }
         })

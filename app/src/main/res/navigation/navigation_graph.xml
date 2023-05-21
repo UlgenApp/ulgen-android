@@ -81,6 +81,9 @@
         <action
             android:id="@+id/action_homeScreenFragment_to_startScreenFragment"
             app:destination="@id/startScreenFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_userProfileScreenFragment"
+            app:destination="@id/userProfileScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/vehicleInfoScreenFragment"
@@ -90,5 +93,13 @@
         <action
             android:id="@+id/action_vehicleInfoScreenFragment_to_routingMapFragment"
             app:destination="@id/routingMapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfileScreenFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.UserProfileScreenFragment"
+        android:label="UserProfileScreenFragment" >
+        <action
+            android:id="@+id/action_userProfileScreenFragment_to_startScreenFragment"
+            app:destination="@id/startScreenFragment" />
     </fragment>
 </navigation>

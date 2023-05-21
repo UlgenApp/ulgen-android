@@ -14,7 +14,7 @@ class CustomSnackbar {
             val snackbarView = snackbar.view
             val textView = snackbarView.findViewById<TextView>(snackbar_text)
 
-            // Customize the Snackbar here
+
             snackbarView.setBackgroundColor(Color.RED)
             val params = textView.layoutParams as ViewGroup.MarginLayoutParams
             params.setMargins(0, 0, 0, 0)
@@ -29,7 +29,7 @@ class CustomSnackbar {
             val snackbarView = snackbar.view
             val textView = snackbarView.findViewById<TextView>(snackbar_text)
 
-            // Customize the Snackbar here
+
             val params = textView.layoutParams as ViewGroup.MarginLayoutParams
             params.setMargins(0, 0, 0, 0)
             textView.layoutParams = params

@@ -40,7 +40,7 @@ class VehicleInfoScreenFragment : Fragment() {
             onSuccess = { affectedCities ->
                 items = affectedCities.toTypedArray()
 
-                // Refresh the checkedItems array to match the new size of items
+
                 checkedItems = BooleanArray(items.size)
 
                 Log.d("affectedcities", affectedCities.toString())
@@ -95,19 +95,19 @@ class VehicleInfoScreenFragment : Fragment() {
 
             var errorMessage = ""
 
-            // check if any field is empty
+
             if (vehicleCountStr.isEmpty() || latitudeStr.isEmpty() || longitudeStr.isEmpty()) {
                 errorMessage = "Lütfen tüm alanları doldurunuz."
             }
-            // check if vehicle count is less than or equal to 1
+
             else if ((vehicleCountStr.toIntOrNull() ?: 0) <= 1) {
                 errorMessage = "Araç sayısı 1'den büyük olmalıdır."
             }
-            // check if latitude or longitude are invalid (not in correct range)
+
             else if (latitudeStr.toDoubleOrNull()!! !in -90.0..90.0 || longitudeStr.toDoubleOrNull()!! !in -180.0..180.0) {
                 errorMessage = "Geçersiz enlem veya boylam."
             }
-            // check if no cities were selected
+
             else if (selectedItems.isEmpty()) {
                 errorMessage = "En az bir şehir seçiniz."
             }

@@ -63,7 +63,7 @@ object LocalMACScanner {
             ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.ACCESS_COARSE_LOCATION)
             != PackageManager.PERMISSION_GRANTED
         ) {
-            // Location permission is not granted, cannot get the location
+
             Log.e("UlgenMACScanWorker", "Location permission not granted")
             return false
         }
@@ -81,7 +81,7 @@ object LocalMACScanner {
                     val requestBody = MACScannerRequest(
                         location = Location(latitude = location.latitude, longitude = location.longitude),
                         macAddresses = macAddressList,
-                        userCity = convertTurkishToEnglish(cityName)  // Updated to use the city name from reverse geocoding
+                        userCity = convertTurkishToEnglish(cityName)
                     )
 
                     CoroutineScope(Dispatchers.IO).launch {

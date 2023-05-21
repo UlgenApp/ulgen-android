@@ -25,12 +25,12 @@ class KandilliRecyclerViewFragment : Fragment(), IObserver {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         val view = inflater.inflate(R.layout.fragment_kandilli_table, container, false)
 
         swipeContainer = view.findViewById(R.id.swipeContainer)
 
-        //supportActionBar?.hide()
+
 
         val dataSource = KandilliDataSource()
 
@@ -42,9 +42,6 @@ class KandilliRecyclerViewFragment : Fragment(), IObserver {
         newRecyclerView.setHasFixedSize(true)
 
         swipeContainer.setOnRefreshListener {
-            // Your code to refresh the list here.
-            // Make sure you call swipeContainer.setRefreshing(false)
-            // once the network request has completed successfully.
             dataSource.getMyData()
             swipeContainer.isRefreshing = false
         }

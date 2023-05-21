@@ -230,7 +230,7 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/img_blankprofilep"
                         tools:ignore="ContentDescription"
-                        tools:src="@drawable/thumbs_example" />
+                        />
                 </LinearLayout>
             </FrameLayout>
         </ScrollView>

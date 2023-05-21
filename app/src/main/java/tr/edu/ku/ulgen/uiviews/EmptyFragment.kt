@@ -16,6 +16,7 @@ class EmptyFragment : Fragment()  {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_empty, container, false)
 
+
         return view
     }
 }
