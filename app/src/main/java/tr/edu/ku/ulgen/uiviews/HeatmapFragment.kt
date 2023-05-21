@@ -1,9 +1,12 @@
 package tr.edu.ku.ulgen.uiviews
 
+import DataSource
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -17,19 +20,47 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import tr.edu.ku.ulgen.R
+import tr.edu.ku.ulgen.datasource.AffectedCitiesDataSource
+import tr.edu.ku.ulgen.model.SharedPreferencesUtil
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapRequest
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapResponse
+import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
 
 class HeatmapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    private lateinit var seekBar: SeekBar
+    var items = arrayOf<String>()
+    var checkedItems = BooleanArray(items.size)
+    var selectedItems = arrayListOf<String>()
+    private var dataReceivedSuccessfully = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_heatmap, container, false)
+        val view = inflater.inflate(R.layout.fragment_heatmap, container, false)
+
+        val apiInterface = DataSource.getApiInterface()
+        val sharedPreferencesUtil = SharedPreferencesUtil(requireContext())
+        val dataSource = AffectedCitiesDataSource(apiInterface, sharedPreferencesUtil)
+
+        dataSource.getAffectedCities(
+            onSuccess = { affectedCities ->
+                items = affectedCities.toTypedArray()
+                checkedItems = BooleanArray(items.size)
+                dataReceivedSuccessfully = true
+            },
+            onError = { errorMessage ->
+                Log.d("affectedcities", "error")
+                CustomSnackbar.showError(view, "Şu an için herhangi bir afet bildirilmedi.")
+                dataReceivedSuccessfully = false
+            }
+        )
+
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,7 +74,9 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
         mMap = googleMap
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(39.359832, 35.473356), 5f))
 
-        getSampleData()
+        if (dataReceivedSuccessfully) {
+            getSampleData()
+        }
     }
 
     private fun getSampleData() {
