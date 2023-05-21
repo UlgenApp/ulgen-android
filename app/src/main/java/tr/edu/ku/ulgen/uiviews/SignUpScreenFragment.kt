@@ -1,6 +1,11 @@
 package tr.edu.ku.ulgen.uiviews
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -48,6 +53,35 @@ class SignUpScreenFragment : Fragment() {
                 CustomSnackbar.showError(view, getString(R.string.checkbox_not_checked))
             }
         }
+        val agreementText = view.findViewById<TextView>(R.id.txtLanguage)
+        agreementText.movementMethod = LinkMovementMethod.getInstance()
+
+        val ss = SpannableString(agreementText.text)
+        val ulgenStart = agreementText.text.indexOf("Ülgen Kullanım Şartlarını")
+        val ulgenEnd = ulgenStart + "Ülgen Kullanım Şartlarını".length
+        val privacyStart = agreementText.text.indexOf("Gizlilik Beyanını")
+        val privacyEnd = privacyStart + "Gizlilik Beyanını".length
+
+        ss.setSpan(object : ClickableSpan() {
+            override fun onClick(widget: View) {
+
+                AlertDialog.Builder(requireContext())
+                    .setMessage(getString(R.string.ulgen_agreement))
+                    .setPositiveButton("Tamam", null)
+                    .show()
+            }
+        }, ulgenStart, ulgenEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        ss.setSpan(object : ClickableSpan() {
+            override fun onClick(widget: View) {
+                AlertDialog.Builder(requireContext())
+                    .setMessage(getString(R.string.privacy_policy))
+                    .setPositiveButton("Tamam", null)
+                    .show()
+            }
+        }, privacyStart, privacyEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        agreementText.text = ss
 
 
         val loginTextView = view.findViewById<TextView>(R.id.txtZatenhesabnv)

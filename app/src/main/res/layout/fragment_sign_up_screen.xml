@@ -169,13 +169,19 @@
                         android:buttonTint="@color/indigo_700_8c"
                         />
 
-                    <TextView android:id="@+id/txtLanguage"
+                    <TextView
+                        android:id="@+id/txtLanguage"
+                        style="@style/txtNunitoregular14"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_6pxh"
                         android:layout_weight="0.93"
-                        android:layout_width="0dp"
+                        android:autoLink="all"
+                        android:clickable="true"
+                        android:linksClickable="true"
                         android:text="@string/msg_hesap_olu_turar"
-                        style="@style/txtNunitoregular14" tools:text="@string/msg_hesap_olu_turar"/>
+                        tools:text="@string/msg_hesap_olu_turar" />
+
                 </LinearLayout>
                 <androidx.appcompat.widget.AppCompatButton
                     android:ellipsize="end" android:gravity="center"

@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -37,6 +38,7 @@ import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
 class LoginScreenFragment : Fragment() {
 
     private lateinit var sharedPreferencesUtil: SharedPreferencesUtil
+    private lateinit var loadingFrame: FrameLayout
 
     @RequiresApi(Build.VERSION_CODES.Q)
     private val requestPermissionsLauncher = registerForActivityResult(
@@ -67,6 +69,8 @@ class LoginScreenFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_login_screen, container, false)
         sharedPreferencesUtil = SharedPreferencesUtil(requireContext())
 
+        loadingFrame = view.findViewById(R.id.loading_frame)
+
         val resetPasswordTextView = view.findViewById<TextView>(R.id.txtIfrenimiunut)
         resetPasswordTextView.setOnClickListener {
             findNavController().navigate(R.id.action_loginScreenFragment_to_resetPasswordFragment)
@@ -77,10 +81,15 @@ class LoginScreenFragment : Fragment() {
 
             val email = view.findViewById<EditText>(R.id.etEmailOne).text.toString()
             val password = view.findViewById<EditText>(R.id.etPassword).text.toString()
+            showLoading(true)
             signIn(email, password, view)
         }
 
         return view
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        loadingFrame.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     private fun signIn(email: String, password: String, view: View) {
@@ -113,13 +122,13 @@ class LoginScreenFragment : Fragment() {
                     CustomSnackbar.showError(view, getString(R.string.login_failed))
 
                 }
-
+                showLoading(false)
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 Log.d("LOGIN_F", "onFailure " + t.message)
                 CustomSnackbar.showError(view, getString(R.string.login_failed))
-
+                showLoading(false)
             }
 
         })

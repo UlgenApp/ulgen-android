@@ -164,10 +164,16 @@
     </style>
 
     <style name="txtNunitoSansregular12">
-        <item name="android:textSize">@dimen/_12pxh</item>
-        <item name="android:textColor">@color/gray_600</item>
+        <item name="android:textSize">@dimen/_14pxh</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/nunito_sans</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+    <style name="txtNunitoSansregular12Bold">
+        <item name="android:textSize">@dimen/_20pxh</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/nunito_sans</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
     </style>
 
     <style name="txtNunitoregular18_2">
@@ -195,6 +201,9 @@
     </style>
     <style name="groupStyleyellow_1">
         <item name="android:background">@drawable/rectangle_bg_yellow_51_radius_50</item>
+    </style>
+    <style name="background_blue">
+        <item name="android:background">@drawable/profile_picture_circle_background</item>
     </style>
     <style name="txtNunitobold24">
         <item name="android:textSize">@dimen/_24pxh</item>
