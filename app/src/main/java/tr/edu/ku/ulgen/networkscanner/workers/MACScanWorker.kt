@@ -1,7 +1,6 @@
 package tr.edu.ku.ulgen.networkscanner.workers
 
 import android.content.Context
-import android.util.Log
 import androidx.work.*
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.networkscanner.scanner.LocalMACScanner
@@ -11,12 +10,11 @@ class MACScanWorker(appContext: Context, workerParams: WorkerParameters) :
     Worker(appContext, workerParams) {
 
     override fun doWork(): Result {
-        Log.d("UlgenMACScanWorker", "doWork started")
+
 
         val macAddresses = LocalMACScanner.getMacAddresses()
         val macAddressList = mutableListOf<String>()
         for (elem in macAddresses) {
-            println(elem)
             macAddressList.add(elem.value.address.subSequence(0, 8).toString())
         }
 

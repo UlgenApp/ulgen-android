@@ -45,7 +45,6 @@ class KandilliDataSource : IObservable {
                 sendUpdateEvent(kandilliEarthquakeLiveData)
 
 
-                Log.d("TAG", kandilliEarthquakeLiveData.result[1].title)
             }
 
             override fun onFailure(call: Call<KandilliEarthquakeLiveData?>, t: Throwable) {

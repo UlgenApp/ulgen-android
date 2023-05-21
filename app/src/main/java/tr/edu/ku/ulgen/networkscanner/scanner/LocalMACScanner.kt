@@ -83,10 +83,6 @@ object LocalMACScanner {
                     geocoder.getFromLocation(location.latitude, location.longitude, 1)
                 val cityName = addresses[0].adminArea
 
-                println(convertTurkishToEnglish(cityName))
-                println(location.latitude)
-                println(location.longitude)
-
                 if (cityName != null) {
                     val requestBody = MACScannerRequest(
                         location = Location(
@@ -122,7 +118,7 @@ object LocalMACScanner {
                                 }
                             })
                         } catch (e: Exception) {
-                            // TODO: Handle the error
+
                             println(e)
                         }
                     }

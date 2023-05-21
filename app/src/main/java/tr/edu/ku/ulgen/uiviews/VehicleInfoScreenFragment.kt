@@ -43,8 +43,7 @@ class VehicleInfoScreenFragment : Fragment() {
 
                 checkedItems = BooleanArray(items.size)
 
-                Log.d("affectedcities", affectedCities.toString())
-                Log.d("selecteditems", selectedItems.toString())
+
             },
             onError = { errorMessage ->
                 Log.d("affectedcities", "error")

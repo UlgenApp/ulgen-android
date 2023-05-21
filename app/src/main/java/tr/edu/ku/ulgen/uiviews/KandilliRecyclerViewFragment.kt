@@ -1,7 +1,6 @@
 package tr.edu.ku.ulgen.uiviews
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,7 +58,7 @@ class KandilliRecyclerViewFragment : Fragment(), IObserver {
     override fun update(kandilliEarthquakeLiveData: KandilliEarthquakeLiveData) {
         newRecyclerView.adapter = KandilliRecyclerviewAdapter(kandilliEarthquakeLiveData)
 
-        Log.d("OBSERVER", "Kandilli list updated")
+
     }
 
 }

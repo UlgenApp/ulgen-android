@@ -101,10 +101,7 @@ class LoginScreenFragment : Fragment() {
                             val json = JSONObject(responseBodyString)
                             val apiToken = json.getString("token")
                             sharedPreferencesUtil.saveApiToken(apiToken)
-                            Log.d(
-                                "Shared_preferences",
-                                sharedPreferencesUtil.getApiToken().toString()
-                            )
+
                             requestLocationPermissions()
                             getUserProfile()
 
