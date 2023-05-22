@@ -71,12 +71,12 @@
     <string name="lbl_route_and_help_body">Herhangi bir âfet yaşandığında, en kısa sürede sunucularımızdan gerekli bölgeleri işaretleyip yardım modunu aktif edeceğiz. Biz bu aksiyonu aldıktan sonra, etkilenen alanlara rota çizebilecek ve kullanıcı yoğunluğunu izleyebileceksiniz. Bu özellikler sadece etkilenen bölgelerde aktif olup âfet olmayan zamanlarda kullanıma kapalı olacaktır. </string>
 
     <string name="msg_g_vende_misiniz">Güvende misiniz?</string>
-    <string name="msg_g_vendeyseniz">Güvendeyseniz üstteki butona tıklayarak bildirin, bu şekilde yetkililerin ve diğerlerinin güvende olmama ihtimali olan vatandaşlara ulaşımını kolaylaştırırsınız.</string>
+    <string name="msg_g_vendeyseniz">Eğer etkilenen şehirlerden birindeyseniz, güvende olduğunuzu bize bildirerek arama kurtarma ekiplerinin daha verimli çalışmasını sağlayabilirsiniz.</string>
     <string name="msg_hesab_na_ho_ge">Hesabına Hoş Geldin!</string>
     <string name="lbl_ad">Ad</string>
     <string name="lbl_soyad">Soyad</string>
-    <string name="lbl_e_mail_adresi">e-mail adresi </string>
-    <string name="msg_yetkililere_bil">yetkililere bildirmek istediğiniz bir şey var mı?\u2028(örn. evcil hayvanım var.)</string>
+    <string name="lbl_e_mail_adresi">E-mail Adresi </string>
+    <string name="msg_yetkililere_bil">Yetkililere bildirmek istediğiniz bir şey var mı?</string>
     <string name="msg_bilgilerimi_g_n">Bilgilerimi güncelle</string>
     <string name="lbl_k_yap">Çıkış Yap</string>
 

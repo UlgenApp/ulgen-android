@@ -24,6 +24,19 @@ class CustomSnackbar {
 
             snackbar.show()
         }
+        fun showInfo(view: View, message: String) {
+            val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT)
+            val snackbarView = snackbar.view
+            val textView = snackbarView.findViewById<TextView>(snackbar_text)
+
+            snackbarView.setBackgroundColor(Color.GREEN)
+            val params = textView.layoutParams as ViewGroup.MarginLayoutParams
+            params.setMargins(0, 0, 0, 0)
+            textView.layoutParams = params
+            textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
+
+            snackbar.show()
+        }
 
         fun showSignUp(view: View, message: String) {
             val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT)

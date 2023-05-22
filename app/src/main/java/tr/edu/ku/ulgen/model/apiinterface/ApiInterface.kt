@@ -3,6 +3,7 @@ package tr.edu.ku.ulgen.model.apiinterface
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
+import tr.edu.ku.ulgen.model.apibodies.AdditionalInfoBody
 import tr.edu.ku.ulgen.model.apibodies.SignInBody
 import tr.edu.ku.ulgen.model.apibodies.UserBody
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
@@ -46,5 +47,13 @@ interface ApiInterface {
 
     @GET("6.x/thumbs/png")
     fun getUserImage(@Query("seed") email: String): Call<ResponseBody>
+
+    @Headers("Content-Type:application/json")
+    @POST("api/v1/user/update/additional-info")
+    fun updateUserAdditionalInfo(@Body body: AdditionalInfoBody): Call<ResponseBody>
+
+    @POST("api/v1/user/safe")
+    fun markUserSafe(): Call<Void>
+
 
 }
