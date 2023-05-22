@@ -3,10 +3,7 @@ package tr.edu.ku.ulgen.model.apiinterface
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
-import tr.edu.ku.ulgen.model.apibodies.AdditionalInfoBody
-import tr.edu.ku.ulgen.model.apibodies.SignInBody
-import tr.edu.ku.ulgen.model.apibodies.UserBody
-import tr.edu.ku.ulgen.model.apibodies.UserProfile
+import tr.edu.ku.ulgen.model.apibodies.*
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapRequest
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapResponse
 import tr.edu.ku.ulgen.model.kandillilivedatastructure.KandilliEarthquakeLiveData
@@ -55,5 +52,8 @@ interface ApiInterface {
     @POST("api/v1/user/safe")
     fun markUserSafe(): Call<Void>
 
+    @Headers("Content-Type:application/json")
+    @POST("forgot-password")
+    fun forgotPassword(@Body body: ForgotPasswordBody): Call<ResponseBody>
 
 }

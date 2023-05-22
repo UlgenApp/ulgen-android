@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -33,11 +34,17 @@ import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.LocationSettingsStates
 import com.google.android.gms.location.LocationSettingsStatusCodes
 import com.google.android.gms.common.api.ResolvableApiException
+import tr.edu.ku.ulgen.model.apibodies.UserProfile
+import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 
 class HomeScreenFragment : Fragment() {
 
     private lateinit var sharedPreferencesUtil: SharedPreferencesUtil
     private lateinit var userImageView: CircleImageView
+    private lateinit var nameText: TextView
+    private lateinit var progressBar: ProgressBar
+    private lateinit var progressText: TextView
+    private lateinit var clickOnAccount: TextView
 
     @RequiresApi(Build.VERSION_CODES.Q)
     private val requestPermissionsLauncher = registerForActivityResult(
@@ -52,7 +59,7 @@ class HomeScreenFragment : Fragment() {
         } else if (foregroundGranted && backgroundGranted) {
             checkLocationSettingsAndTurnOn()
         } else {
-            // Permission denied
+
 
         }
     }
@@ -90,7 +97,7 @@ class HomeScreenFragment : Fragment() {
         val task = client.checkLocationSettings(builder.build())
 
         task.addOnSuccessListener { _ ->
-            // All location settings are satisfied. The client can initialize location requests here.
+
             if(SharedPreferencesUtil(requireContext()).getUserSafetyStatus()?.isSafe == false){
                 MACScanWorker.schedule(requireContext())
             }
@@ -98,12 +105,12 @@ class HomeScreenFragment : Fragment() {
 
         task.addOnFailureListener { exception ->
             if (exception is ResolvableApiException) {
-                // Location settings are not satisfied, but this can be fixed by showing the user a dialog.
+
                 try {
-                    // Show the dialog by calling startResolutionForResult(), and check the result in onActivityResult().
+
                     exception.startResolutionForResult(requireActivity(), 1234)
                 } catch (sendEx: IntentSender.SendIntentException) {
-                    // Ignore the error.
+
                 }
             }
         }
@@ -120,6 +127,8 @@ class HomeScreenFragment : Fragment() {
         sharedPreferencesUtil = SharedPreferencesUtil(requireContext())
 
         userImageView = view.findViewById(R.id.imageBlankprofilep)
+        progressText = view.findViewById(R.id.txtLgenhesabdo)
+        clickOnAccount = view.findViewById(R.id.txtHesabntamaml)
 
         fetchUserImage()
 
@@ -128,11 +137,13 @@ class HomeScreenFragment : Fragment() {
             findNavController().navigate(R.id.action_homeScreenFragment_to_profileScreenFragment)
         }
 
+        progressBar = view.findViewById(R.id.progressBar)
 
-        val nameText = view.findViewById<TextView>(R.id.txtLanguage)
+        nameText = view.findViewById<TextView>(R.id.txtLanguage)
 
-        nameText.text =
-            "Merhaba " + sharedPreferencesUtil.getUserProfile()?.firstName.toString() + "!"
+        getUserProfileData()
+
+
 
         /*val logoutImageButton = view.findViewById<ImageView>(R.id.logoutButton)
         logoutImageButton.setOnClickListener {
@@ -142,6 +153,46 @@ class HomeScreenFragment : Fragment() {
         requestLocationPermissions()
 
         return view
+    }
+
+    private fun getUserProfileData() {
+        val apiInterface = UlgenAPIDataSource.getUlgenAPIData()
+
+        apiInterface.getUserProfile().enqueue(object : Callback<UserProfile> {
+            override fun onResponse(call: Call<UserProfile>, response: Response<UserProfile>) {
+                if (response.isSuccessful) {
+                    val userProfile = response.body()
+
+
+                    userProfile?.let {
+                        sharedPreferencesUtil.saveUserProfile(it)
+                    }
+                    nameText.text = "Merhaba " + (userProfile?.firstName ?: "") + "!"
+
+                    if (userProfile != null) {
+                        if ((userProfile.additionalInfo != null) && (userProfile.additionalInfo != "")) {
+                            progressBar.progress = progressBar.max
+                            progressText.text = "Ülgen hesabı doluluk oranı: %100"
+                            clickOnAccount.text = "Hesabını görmek için tıkla!"
+
+                        } else {
+                            progressBar.progress = 50
+                            progressText.text = "Ülgen hesabı doluluk oranı: %50"
+                            clickOnAccount.text = "Hesabını tamamlamak için tıkla!"
+                        }
+                    }
+
+
+
+                } else {
+
+                }
+            }
+
+            override fun onFailure(call: Call<UserProfile>, t: Throwable) {
+
+            }
+        })
     }
 
     private fun fetchUserImage() {

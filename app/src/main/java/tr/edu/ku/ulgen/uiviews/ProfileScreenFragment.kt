@@ -23,6 +23,7 @@ import tr.edu.ku.ulgen.model.apiinterface.ApiInterface
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
 import tr.edu.ku.ulgen.model.datasource.UserImageDataSource
+import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
 import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
 
 class ProfileScreenFragment : Fragment() {
@@ -125,8 +126,8 @@ class ProfileScreenFragment : Fragment() {
         apiInterface.updateUserAdditionalInfo(body).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
-
                     CustomSnackbar.showInfo(view!!, "Bilgileriniz Kaydedildi.")
+
                 } else {
 
                     CustomSnackbar.showError(view!!, "Bir hata oluştu.")
@@ -143,6 +144,7 @@ class ProfileScreenFragment : Fragment() {
 
     private fun logout() {
         sharedPreferencesUtil.clearAllData()
+        MACScanWorker.cancel(requireContext())
         findNavController().navigate(R.id.action_profileScreenFragment_to_startScreenFragment)
     }
 }

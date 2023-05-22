@@ -19,7 +19,8 @@ class UlgenAPIDataSource {
             val authInterceptor = okhttp3.Interceptor { chain ->
                 val originalRequest = chain.request()
 
-                if (!originalRequest.url.toString().endsWith("api/v1/auth/authenticate")) {
+                if (!originalRequest.url.toString().endsWith("api/v1/auth/authenticate") &&
+                    !originalRequest.url.toString().endsWith("forgot-password")) {
                     val newRequest = originalRequest.newBuilder()
                         .addHeader("Authorization", "Bearer ${sharedPreferencesUtil.getApiToken()}")
                         .build()

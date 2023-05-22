@@ -2,6 +2,8 @@ package tr.edu.ku.ulgen.uiviews
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
@@ -112,6 +114,9 @@ class SignUpScreenFragment : Fragment() {
                 override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                     if (response.code() == 200) {
                         CustomSnackbar.showSignUp(view, getString(R.string.sign_up_succesfull))
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            findNavController().navigate(R.id.action_signUpScreenFragment_to_startScreenFragment)
+                        }, 2000)
 
                     } else {
                         Log.d("SIGN_F", response.message().toString())

@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -31,16 +32,35 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var seekBar: SeekBar
+    private lateinit var view: View
     var items = arrayOf<String>()
     var checkedItems = BooleanArray(items.size)
     var selectedItems = arrayListOf<String>()
     private var dataReceivedSuccessfully = false
+    private lateinit var loadingFrame: FrameLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_heatmap, container, false)
+        view = inflater.inflate(R.layout.fragment_heatmap, container, false)
+
+
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadingFrame = view.findViewById(R.id.loading_frame)
+        val mapFragment = childFragmentManager
+            .findFragmentById(R.id.heatmapFragment) as SupportMapFragment?
+        mapFragment?.getMapAsync(this)
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        loadingFrame.visibility = View.VISIBLE
+        mMap = googleMap
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(39.359832, 35.473356), 5f))
 
         val apiInterface = DataSource.getApiInterface()
         val sharedPreferencesUtil = SharedPreferencesUtil(requireContext())
@@ -50,36 +70,20 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
             onSuccess = { affectedCities ->
                 items = affectedCities.toTypedArray()
                 checkedItems = BooleanArray(items.size)
-                dataReceivedSuccessfully = true
+
+                if (checkedItems.size != 0) {
+                    getSampleData()
+                }
             },
             onError = { errorMessage ->
                 Log.d("affectedcities", "error")
                 CustomSnackbar.showError(view, "Şu an için herhangi bir afet bildirilmedi.")
-                dataReceivedSuccessfully = false
             }
         )
-
-
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val mapFragment = childFragmentManager
-            .findFragmentById(R.id.heatmapFragment) as SupportMapFragment?
-        mapFragment?.getMapAsync(this)
-    }
-
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(39.359832, 35.473356), 5f))
-
-        if (dataReceivedSuccessfully) {
-            getSampleData()
-        }
     }
 
     private fun getSampleData() {
+        loadingFrame.visibility = View.VISIBLE
         val list = ArrayList<WeightedLatLng>()
 
         val request = HeatMapRequest(0.002)
@@ -110,6 +114,7 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
 
             override fun onFailure(call: Call<HeatMapResponse>, t: Throwable) {
                 println("Failed to get data: ${t.message}")
+                hideLoading()
             }
         })
     }
@@ -121,6 +126,10 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
             .build()
 
         mMap.addTileOverlay(TileOverlayOptions().tileProvider(provider))
+        hideLoading()
+    }
+    private fun hideLoading() {
+        loadingFrame.visibility = View.GONE
     }
 
 }
