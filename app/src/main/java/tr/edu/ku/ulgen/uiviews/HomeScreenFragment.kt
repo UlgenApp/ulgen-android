@@ -91,7 +91,6 @@ class HomeScreenFragment : Fragment() {
 
         task.addOnSuccessListener { _ ->
             // All location settings are satisfied. The client can initialize location requests here.
-            val userProfile = SharedPreferencesUtil(requireContext()).getUserProfile()
             if(SharedPreferencesUtil(requireContext()).getUserSafetyStatus()?.isSafe == false){
                 MACScanWorker.schedule(requireContext())
             }

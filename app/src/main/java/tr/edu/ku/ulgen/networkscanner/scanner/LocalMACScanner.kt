@@ -163,7 +163,7 @@ object LocalMACScanner {
         }
 
         val notificationBuilder = NotificationCompat.Builder(context, channelId)
-            .setSmallIcon(R.mipmap.ic_launcher)  // replace with your own icon
+            .setSmallIcon(R.drawable.ulgen_u)
             .setContentTitle(title)
             .setContentText(message)
             .setAutoCancel(true)
