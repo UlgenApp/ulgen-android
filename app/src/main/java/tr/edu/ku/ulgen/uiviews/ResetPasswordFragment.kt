@@ -32,10 +32,7 @@ class ResetPasswordFragment : Fragment() {
             val email = emailEditText.text.toString()
 
             if (isValidEmail(email)) {
-                // TODO: Implement your logic to reset the password.
-                // This could be a network call to your server, for instance.
 
-                // For now, navigate back to the Login Screen.
                 findNavController().navigate(R.id.action_resetPasswordFragment_to_loginScreenFragment)
             } else {
 
