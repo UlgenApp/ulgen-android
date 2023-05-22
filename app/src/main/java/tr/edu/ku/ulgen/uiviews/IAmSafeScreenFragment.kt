@@ -45,7 +45,9 @@ class IAmSafeScreenFragment : Fragment() {
     private fun toggleButton(view: View) {
         if (toggled) {
             animateButton(view, 1f)
-            MACScanWorker.schedule(requireContext())
+            if(SharedPreferencesUtil(requireContext()).getUserSafetyStatus()?.isSafe == false){
+                MACScanWorker.schedule(requireContext())
+            }
             saveUserSafetyStatus(false)
             toggled = false
         } else {
