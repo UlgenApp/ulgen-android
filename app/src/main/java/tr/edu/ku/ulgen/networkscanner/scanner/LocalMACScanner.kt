@@ -24,6 +24,11 @@ import tr.edu.ku.ulgen.model.macscannerdatastructure.MACScannerResponse
 import java.net.Inet4Address
 import java.net.NetworkInterface
 import java.util.*
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.graphics.Color
+import androidx.core.app.NotificationCompat
+import tr.edu.ku.ulgen.R
 
 
 object LocalMACScanner {
@@ -60,7 +65,6 @@ object LocalMACScanner {
         applicationContext: Context
     ): Boolean {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(applicationContext)
-
         if (ContextCompat.checkSelfPermission(
                 applicationContext,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -72,7 +76,6 @@ object LocalMACScanner {
             )
             != PackageManager.PERMISSION_GRANTED
         ) {
-
             Log.e("UlgenMACScanWorker", "Location permission not granted")
             return false
         }
@@ -82,7 +85,6 @@ object LocalMACScanner {
                 val addresses: List<Address> =
                     geocoder.getFromLocation(location.latitude, location.longitude, 1)
                 val cityName = addresses[0].adminArea
-
                 if (cityName != null) {
                     val requestBody = MACScannerRequest(
                         location = Location(
@@ -104,7 +106,11 @@ object LocalMACScanner {
                                 ) {
                                     if (response.isSuccessful) {
                                         println("MAC addresses sent successfully")
-                                    } else {
+                                    }
+                                    else if(response.code() == 403) {
+                                        showNotification(applicationContext, "Oturumunun süresi doldu", "Lütfen uygulamayı kullanmak için giriş yap", 403)
+                                    }
+                                    else {
                                         println("Response failed with status code: ${response.code()}")
                                         println("Body: ${response.body()}")
                                     }
@@ -126,6 +132,8 @@ object LocalMACScanner {
                     Log.e("UlgenMACScanWorker", "Could not get city name from Geocoder")
                 }
             }
+        }.addOnFailureListener { exception ->
+            Log.e("UlgenMACScanWorker", "Failed to get last location", exception)
         }
         return true
     }
@@ -139,6 +147,28 @@ object LocalMACScanner {
             result = result.replace(turkishChars[i], englishChars[i])
         }
         return result
+    }
+
+    fun showNotification(context: Context, title: String, message: String, notificationId: Int) {
+        val channelId = "UlgenMACScanner_channel_01"
+        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val notificationChannel = NotificationChannel(channelId, "Ulgen MACScanner Notification", importance)
+            notificationChannel.enableLights(true)
+            notificationChannel.lightColor = Color.RED
+            notificationChannel.enableVibration(true)
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
+
+        val notificationBuilder = NotificationCompat.Builder(context, channelId)
+            .setSmallIcon(R.mipmap.ic_launcher)  // replace with your own icon
+            .setContentTitle(title)
+            .setContentText(message)
+            .setAutoCancel(true)
+
+        notificationManager.notify(notificationId, notificationBuilder.build())
     }
 
     data class MacAddress(val address: String)

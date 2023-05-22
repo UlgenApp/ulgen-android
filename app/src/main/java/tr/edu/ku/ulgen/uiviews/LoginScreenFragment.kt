@@ -39,24 +39,6 @@ class LoginScreenFragment : Fragment() {
     private lateinit var sharedPreferencesUtil: SharedPreferencesUtil
     private lateinit var loadingFrame: FrameLayout
 
-    @RequiresApi(Build.VERSION_CODES.Q)
-    private val requestPermissionsLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestMultiplePermissions()
-    ) { permissions: Map<String, Boolean> ->
-        val foregroundGranted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] ?: false
-        val backgroundGranted = permissions[Manifest.permission.ACCESS_BACKGROUND_LOCATION] ?: false
-
-        if (foregroundGranted && !backgroundGranted) {
-            val macAddresses = LocalMACScanner.getMacAddresses().values.map { it.address }
-            LocalMACScanner.sendMACAddresses(macAddresses.toMutableList(), requireContext())
-        } else if (foregroundGranted && backgroundGranted) {
-            MACScanWorker.schedule(requireContext())
-        } else {
-            // Permission denied
-
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -102,10 +84,7 @@ class LoginScreenFragment : Fragment() {
                             val json = JSONObject(responseBodyString)
                             val apiToken = json.getString("token")
                             sharedPreferencesUtil.saveApiToken(apiToken)
-
-                            requestLocationPermissions()
                             getUserProfile()
-
                         } catch (e: JSONException) {
                             e.printStackTrace()
                         }
@@ -125,29 +104,6 @@ class LoginScreenFragment : Fragment() {
             }
 
         })
-    }
-
-    @RequiresApi(Build.VERSION_CODES.Q)
-    private fun requestLocationPermissions() {
-        val foregroundGranted = ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-        val backgroundGranted = ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.ACCESS_BACKGROUND_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-
-        if (!foregroundGranted || !backgroundGranted) {
-            requestPermissionsLauncher.launch(
-                arrayOf(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_BACKGROUND_LOCATION
-                )
-            )
-        } else {
-            MACScanWorker.schedule(requireContext())
-        }
     }
 
     private fun getUserProfile() {

@@ -17,7 +17,6 @@ class MACScanWorker(appContext: Context, workerParams: WorkerParameters) :
         for (elem in macAddresses) {
             macAddressList.add(elem.value.address.subSequence(0, 8).toString())
         }
-
         return if (LocalMACScanner.sendMACAddresses(macAddressList, applicationContext)) {
             Result.success()
         } else {
