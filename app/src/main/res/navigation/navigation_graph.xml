@@ -63,7 +63,7 @@
         android:id="@+id/resetPasswordFragment"
         android:name="tr.edu.ku.ulgen.uiviews.ResetPasswordFragment"
         android:label="ResetPasswordFragment"
-        tools:layout="@layout/activity_reset_password_screen">
+        tools:layout="@layout/fragment_reset_password_screen">
         <action
             android:id="@+id/action_resetPasswordFragment_to_loginScreenFragment"
             app:destination="@id/loginScreenFragment" />
@@ -102,4 +102,12 @@
             android:id="@+id/action_userProfileScreenFragment_to_startScreenFragment"
             app:destination="@id/startScreenFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileScreenFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.ProfileScreenFragment"
+        android:label="ProfileScreenFragment" />
+    <fragment
+        android:id="@+id/IAmSafeScreenFragment"
+        android:name="tr.edu.ku.ulgen.uiviews.IAmSafeScreenFragment"
+        android:label="IAmSafeScreenFragment" />
 </navigation>

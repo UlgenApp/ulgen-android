@@ -17,7 +17,7 @@ class ResetPasswordFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.activity_reset_password_screen, container, false)
+        val view = inflater.inflate(R.layout.fragment_reset_password_screen, container, false)
 
         val resetPasswordButton = view.findViewById<Button>(R.id.btnBalantyGnder)
 
