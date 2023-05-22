@@ -9,7 +9,8 @@
         android:id="@+id/heatmapFragment"
         android:name="tr.edu.ku.ulgen.uiviews.HeatmapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_heatmap"/>
 
     <fragment
         android:id="@+id/routingMapFragment"
@@ -82,8 +83,8 @@
             android:id="@+id/action_homeScreenFragment_to_startScreenFragment"
             app:destination="@id/startScreenFragment" />
         <action
-            android:id="@+id/action_homeScreenFragment_to_userProfileScreenFragment"
-            app:destination="@id/userProfileScreenFragment" />
+            android:id="@+id/action_homeScreenFragment_to_profileScreenFragment"
+            app:destination="@id/profileScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/vehicleInfoScreenFragment"
@@ -97,17 +98,20 @@
     <fragment
         android:id="@+id/userProfileScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.UserProfileScreenFragment"
-        android:label="UserProfileScreenFragment">
-        <action
-            android:id="@+id/action_userProfileScreenFragment_to_startScreenFragment"
-            app:destination="@id/startScreenFragment" />
-    </fragment>
+        android:label="UserProfileScreenFragment"
+        tools:layout="@layout/fragment_user_profile_screen"/>
     <fragment
         android:id="@+id/profileScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.ProfileScreenFragment"
-        android:label="ProfileScreenFragment" />
+        android:label="ProfileScreenFragment"
+        tools:layout="@layout/fragment_profile_screen">
+        <action
+            android:id="@+id/action_profileScreenFragment_to_startScreenFragment"
+            app:destination="@id/startScreenFragment" />
+    </fragment>
     <fragment
         android:id="@+id/IAmSafeScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.IAmSafeScreenFragment"
-        android:label="IAmSafeScreenFragment" />
+        android:label="IAmSafeScreenFragment"
+        tools:layout="@layout/fragment_i_am_safe_screen"/>
 </navigation>

@@ -27,6 +27,7 @@ import tr.edu.ku.ulgen.R
 import tr.edu.ku.ulgen.model.SharedPreferencesUtil
 import tr.edu.ku.ulgen.model.apibodies.SignInBody
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
+import tr.edu.ku.ulgen.model.apibodies.UserSafetyStatus
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.networkscanner.scanner.LocalMACScanner
 import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
@@ -160,6 +161,11 @@ class LoginScreenFragment : Fragment() {
 
                         val sharedPreferencesUtil = SharedPreferencesUtil(requireContext())
                         sharedPreferencesUtil.saveUserProfile(userProfile)
+
+
+                        val userSafetyStatus = UserSafetyStatus(userProfile.email, false)
+                        sharedPreferencesUtil.saveUserSafetyStatus(userSafetyStatus)
+
                         Log.d(
                             "Shared_preferences",
                             sharedPreferencesUtil.getUserProfile().toString()
@@ -176,6 +182,7 @@ class LoginScreenFragment : Fragment() {
             }
         })
     }
+
 
 
 }

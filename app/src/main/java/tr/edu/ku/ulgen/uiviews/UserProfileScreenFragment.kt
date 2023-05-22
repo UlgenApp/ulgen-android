@@ -24,18 +24,18 @@ class UserProfileScreenFragment : Fragment() {
         sharedPreferencesUtil = SharedPreferencesUtil(requireContext())
 
 
-        val logoutButton = view.findViewById<Button>(R.id.btnLogout)
+        //val logoutButton = view.findViewById<Button>(R.id.btnLogout)
 
 
 
-        logoutButton.setOnClickListener {
+        /*logoutButton.setOnClickListener {
             logout()
-        }
+        }*/
         return view
     }
 
-    private fun logout() {
+    /*private fun logout() {
         sharedPreferencesUtil.clearAllData()
         findNavController().navigate(R.id.action_userProfileScreenFragment_to_startScreenFragment)
-    }
+    }*/
 }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
+import tr.edu.ku.ulgen.model.apibodies.UserSafetyStatus
 
 class SharedPreferencesUtil(context: Context) {
 
@@ -14,6 +15,7 @@ class SharedPreferencesUtil(context: Context) {
         private const val PREFS_NAME = "my_prefs"
         private const val API_TOKEN = "api_token"
         private const val USER_PROFILE = "user_profile"
+        private const val USER_SAFETY_STATUS = "user_safety_status"
     }
 
     //  save API token
@@ -48,9 +50,28 @@ class SharedPreferencesUtil(context: Context) {
         prefs.edit().remove(USER_PROFILE).apply()
     }
 
-    //  clear all data
+    //  clear all data except USER_SAFETY_STATUS
     fun clearAllData() {
+        val userSafetyStatus = getUserSafetyStatus()
         prefs.edit().clear().apply()
+        userSafetyStatus?.let { saveUserSafetyStatus(it) }
+    }
+
+    // save user safety status
+    fun saveUserSafetyStatus(userSafetyStatus: UserSafetyStatus) {
+        val userSafetyStatusJson = Gson().toJson(userSafetyStatus)
+        prefs.edit().putString(USER_SAFETY_STATUS, userSafetyStatusJson).apply()
+    }
+
+    // fetch user safety status
+    fun getUserSafetyStatus(): UserSafetyStatus? {
+        val userSafetyStatusJson = prefs.getString(USER_SAFETY_STATUS, null)
+        return Gson().fromJson(userSafetyStatusJson, UserSafetyStatus::class.java)
+    }
+
+    // clear user safety status
+    fun clearUserSafetyStatus() {
+        prefs.edit().remove(USER_SAFETY_STATUS).apply()
     }
 }
 

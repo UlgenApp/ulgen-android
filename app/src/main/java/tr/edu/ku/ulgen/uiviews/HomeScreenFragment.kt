@@ -40,7 +40,7 @@ class HomeScreenFragment : Fragment() {
 
         val toolbar = view.findViewById<Toolbar>(R.id.toolbarToolbar)
         toolbar.setOnClickListener {
-            findNavController().navigate(R.id.action_homeScreenFragment_to_userProfileScreenFragment)
+            findNavController().navigate(R.id.action_homeScreenFragment_to_profileScreenFragment)
         }
 
 

@@ -17,7 +17,7 @@
         android:icon="@drawable/baseline_map_24"
         android:title="Heatmap" />
     <item
-        android:id="@id/emptyFragment"
+        android:id="@id/IAmSafeScreenFragment"
         android:icon="@drawable/shield_bottom_bar"
         android:title="I Am Safe" />
 </menu>
