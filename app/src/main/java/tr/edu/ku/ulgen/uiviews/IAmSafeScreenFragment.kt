@@ -22,6 +22,7 @@ import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
 class IAmSafeScreenFragment : Fragment() {
 
     private var toggled = false
+    private lateinit var safeText: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,16 +31,20 @@ class IAmSafeScreenFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_i_am_safe_screen, container, false)
 
-
-        val safeText = view.findViewById<TextView>(R.id.txtGvendemisiniz)
+        safeText = view.findViewById(R.id.txtGvendemisiniz)
+        updateUserSafetyStatusText()
 
         val imageView = view.findViewById<ImageView>(R.id.imageEllipseEleven)
         imageView.setOnClickListener {
             toggleButton(it)
         }
 
-
         return view
+    }
+
+    private fun updateUserSafetyStatusText() {
+        val isSafe = SharedPreferencesUtil(requireContext()).getUserSafetyStatus()?.isSafe ?: false
+        safeText.text = if (isSafe) getString(R.string.lbl_i_am_safe) else getString(R.string.msg_g_vende_misiniz)
     }
 
     private fun toggleButton(view: View) {
@@ -50,6 +55,7 @@ class IAmSafeScreenFragment : Fragment() {
             }
             saveUserSafetyStatus(false)
             toggled = false
+            updateUserSafetyStatusText()
         } else {
             markUserAsSafe(view)
         }
@@ -64,11 +70,11 @@ class IAmSafeScreenFragment : Fragment() {
                     animateButton(view, 1.2f)
                     toggled = true
                     saveUserSafetyStatus(true)
+                    updateUserSafetyStatusText()
                 } else {
                     when (response.code()) {
                         409 -> {
                             CustomSnackbar.showError(view, "Etkilenen bölgelerden birinde değilsiniz.")
-                            print("youre not in danger")
                         }
                         417 -> {
                             CustomSnackbar.showError(view, "Şu an için herhangi bir afet bildirilmedi.")
@@ -82,6 +88,7 @@ class IAmSafeScreenFragment : Fragment() {
             }
         })
     }
+
     private fun saveUserSafetyStatus(isSafe: Boolean) {
         val userProfile = SharedPreferencesUtil(requireContext()).getUserProfile()
         userProfile?.let {
@@ -89,7 +96,6 @@ class IAmSafeScreenFragment : Fragment() {
             SharedPreferencesUtil(requireContext()).saveUserSafetyStatus(userSafetyStatus)
         }
     }
-
 
     private fun animateButton(view: View, scale: Float) {
         val animatorSet = AnimatorSet()
@@ -101,8 +107,4 @@ class IAmSafeScreenFragment : Fragment() {
         animatorSet.duration = 500
         animatorSet.start()
     }
-
-
-
-
 }

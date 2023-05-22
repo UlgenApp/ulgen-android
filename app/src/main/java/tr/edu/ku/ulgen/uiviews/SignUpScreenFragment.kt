@@ -7,6 +7,7 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.util.Log
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -96,28 +97,34 @@ class SignUpScreenFragment : Fragment() {
         email: String, name: String,
         surname: String, password: String, view: View
     ) {
-        val retIn = AuthenticationDataSource.getRetrofitInstance().create(ApiInterface::class.java)
-        val registerInfo = UserBody(email, name, surname, password)
+        if (!isValidEmail(email)) {
+            CustomSnackbar.showError(view, "Geçersiz e-posta")
+        } else if (!isValidName(name) || !isValidName(surname)) {
+            CustomSnackbar.showError(view, "Geçersiz isim")
+        } else if (!isValidPassword(password)) {
+            CustomSnackbar.showError(view, "Geçersiz şifre")
+        } else {
+            val retIn = AuthenticationDataSource.getRetrofitInstance().create(ApiInterface::class.java)
+            val registerInfo = UserBody(email, name, surname, password)
 
-        retIn.registerUser(registerInfo).enqueue(object :
-            Callback<ResponseBody> {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                if (response.code() == 200) {
-                    CustomSnackbar.showSignUp(view, getString(R.string.sign_up_succesfull))
+            retIn.registerUser(registerInfo).enqueue(object :
+                Callback<ResponseBody> {
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                    if (response.code() == 200) {
+                        CustomSnackbar.showSignUp(view, getString(R.string.sign_up_succesfull))
 
-                } else {
-                    Log.d("SIGN_F", response.message().toString())
+                    } else {
+                        Log.d("SIGN_F", response.message().toString())
+                        CustomSnackbar.showError(view, getString(R.string.sign_up_failed))
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    Log.d("SIGN_F", "onFailure " + t.message)
                     CustomSnackbar.showError(view, getString(R.string.sign_up_failed))
                 }
-            }
-
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                Log.d("SIGN_F", "onFailure " + t.message)
-                CustomSnackbar.showError(view, getString(R.string.sign_up_failed))
-            }
-
-
-        })
+            })
+        }
     }
 
     fun parseName(fullName: String?): Pair<String, String> {
@@ -142,6 +149,23 @@ class SignUpScreenFragment : Fragment() {
             }
         }
     }
+
+    private fun isValidEmail(email: String): Boolean {
+        val pattern = Patterns.EMAIL_ADDRESS
+        return pattern.matcher(email).matches()
+    }
+
+    private fun isValidName(name: String): Boolean {
+
+        val pattern = Regex("^[a-zA-Z\\s]*$")
+        return pattern.matches(name)
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+
+        return password.length >= 8
+    }
+
 
 
 }
