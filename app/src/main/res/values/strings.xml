@@ -44,7 +44,7 @@
 
     <string name="msg_hesab_n_tamaml">Hesabını tamamlamak için tıkla!</string>
     <string name="login_failed">Geçersiz email veya şifre.</string>
-    <string name="sign_up_failed">Hesap oluşturma başarısız oldu.</string>
+    <string name="sign_up_failed">Girdiğiniz email sistemimizde kayıtlı.</string>
     <string name="sign_up_succesfull">Mailinize Onay Bağlantısı Gönderildi.</string>
     <string name="checkbox_not_checked"> Hesap oluşturabilmek için kutucuğu işaretleyin.</string>
     <string name="missing_input_error"> Bazı kutucuklarda boşluklar var. Lütfen doldurun.</string>
@@ -79,7 +79,7 @@
     <string name="msg_yetkililere_bil">Yetkililere bildirmek istediğiniz bir şey var mı?</string>
     <string name="msg_bilgilerimi_g_n">Bilgilerimi güncelle</string>
     <string name="lbl_k_yap">Çıkış Yap</string>
-    <string name="lbl_i_am_safe">Güvendeyim✅</string>
+    <string name="lbl_i_am_safe">Güvendeyim.</string>
 
 
 

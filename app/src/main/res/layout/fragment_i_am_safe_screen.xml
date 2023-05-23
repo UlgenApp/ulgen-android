@@ -22,7 +22,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginStart="@dimen/_30pxh"
                     android:layout_marginEnd="@dimen/_30pxh"
-                    android:layout_marginTop="@dimen/_60pxh"
+                    android:layout_marginTop="@dimen/_90pxh"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_ellipse11"
                     tools:ignore="ContentDescription"

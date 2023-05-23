@@ -1,6 +1,7 @@
 package tr.edu.ku.ulgen.uiviews
 
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,14 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import tr.edu.ku.ulgen.R
+
+import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
+import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import tr.edu.ku.ulgen.model.apibodies.ForgotPasswordBody
 
 class ResetPasswordFragment : Fragment() {
 
@@ -32,10 +41,9 @@ class ResetPasswordFragment : Fragment() {
             val email = emailEditText.text.toString()
 
             if (isValidEmail(email)) {
-
-                findNavController().navigate(R.id.action_resetPasswordFragment_to_loginScreenFragment)
+                forgotPassword(email, view)
             } else {
-
+                CustomSnackbar.showError(view, "Lütfen geçerli bir email adresi girin")
             }
         }
 
@@ -43,7 +51,28 @@ class ResetPasswordFragment : Fragment() {
     }
 
     private fun isValidEmail(email: String): Boolean {
-        val emailRegex = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
-        return email.matches(emailRegex.toRegex())
+        val pattern = Patterns.EMAIL_ADDRESS
+        return pattern.matcher(email).matches()
+    }
+
+    private fun forgotPassword(email: String, view: View) {
+        val call = UlgenAPIDataSource.getUlgenAPIData().forgotPassword(ForgotPasswordBody(email))
+
+        call.enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+
+                    CustomSnackbar.showInfo(view, "Şifre sıfırlama e-postası gönderildi")
+                } else {
+
+                    CustomSnackbar.showError(view, "Şifre sıfırlama e-postası gönderilemedi")
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+
+                CustomSnackbar.showError(view, "Şifre sıfırlama e-postası gönderilemedi")
+            }
+        })
     }
 }
