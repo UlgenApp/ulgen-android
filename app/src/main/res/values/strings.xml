@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="app_name">Ülgen</string>
-    <string name="loading">Loading…</string>
-    <string name="no_internet_connection">No internet connection!</string>
     <string name="msg_ba_lant_y_g_nd">Bağlantıyı gönder</string>
-    <string name="msg">_________________             _________________</string>
     <string name="msg_hesap_olu_turar">Hesap oluşturarak <a href="">Ülgen Kullanım Şartlarını</a> kabul ediyorum ve <a href="">Gizlilik Beyanını</a> onaylıyorum.</string>
     <string name="msg_lgen_e_ho_gel">Ülgen\u2019e hoş geldin!</string>
     <string name="lbl_giri_yap"> Giriş yap</string>
@@ -27,28 +24,14 @@
     <string name="msg_zaten_hesab_n_v">Zaten hesabın var mı? Giriş yap</string>
     <string name="msg_kabul_ediyorum"> kabul ediyorum ve </string>
     <string name="msg_ifreni_mi_unut2">Şifreni mi unuttun?</string>
-    <string name="location_permission_denied">Location permission was denied.</string>
-    <string name="location_permission_denied_explanation">Location permission is needed to provide local weather data.</string>
-    <string name="settings">Settings</string>
-
-    <string name="msg_deprem_bilgilen">Deprem bilgilendirme kutusu</string>
-    <string name="msg_g_nl_k_i_erik_k">Günlük içerik kutusu/görsel içerik</string>
-
-    <string name="lbl_merhaba_faruk">Merhaba Faruk! </string>
-
-    <string name="msg_alarm_d_d_k_ses">Alarm/düdük sesi tuşu kutusu(?)</string>
     <string name="msg_lgen_hesab_do">Ülgen hesabı doluluk oranı: %50</string>
-
-
     <string name="msg_kullan_c_genel">Kullanıcı genel bilgiler kutusu</string>
-
     <string name="msg_hesab_n_tamaml">Hesabını tamamlamak için tıkla!</string>
     <string name="login_failed">Geçersiz email veya şifre.</string>
     <string name="sign_up_failed">Girdiğiniz email sistemimizde kayıtlı.</string>
     <string name="sign_up_succesfull">Mailinize Onay Bağlantısı Gönderildi.</string>
     <string name="checkbox_not_checked"> Hesap oluşturabilmek için kutucuğu işaretleyin.</string>
     <string name="missing_input_error"> Bazı kutucuklarda boşluklar var. Lütfen doldurun.</string>
-
     <string name="lbl_ta_t_say_s">Taşıt sayısı</string>
     <string name="lbl_2">2</string>
     <string name="msg_ta_t_n_z_n_bul">Taşıtınızın bulunduğu</string>

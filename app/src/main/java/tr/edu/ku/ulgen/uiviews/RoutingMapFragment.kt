@@ -196,7 +196,12 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
 
     override fun onDetach() {
         super.onDetach()
-        mMap.clear() // This will clear everything from the map
+        if (::mMap.isInitialized) {
+            mMap.clear()
+        }
     }
+
+
+
 
 }
