@@ -73,11 +73,6 @@
             app:destination="@id/loginScreenFragment" />
     </fragment>
     <fragment
-        android:id="@+id/emptyFragment"
-        android:name="tr.edu.ku.ulgen.uiviews.EmptyFragment"
-        android:label="EmptyFragment"
-        tools:layout="@layout/fragment_empty" />
-    <fragment
         android:id="@+id/homeScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.HomeScreenFragment"
         android:label="HomeScreenFragment"

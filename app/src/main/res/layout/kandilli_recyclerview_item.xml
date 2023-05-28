@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <!-- Region -->
+
     <TextView
         android:id="@+id/regionText"
         style="@style/txtkandilliItemText"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:text="Region:"
+        android:text="Yer:"
 
 
         app:layout_constraintStart_toStartOf="parent"
@@ -29,14 +29,14 @@
         app:layout_constraintStart_toEndOf="@+id/regionText"
         app:layout_constraintTop_toTopOf="@+id/regionText" />
 
-    <!-- Date -->
+
     <TextView
         android:id="@+id/dateText"
         style="@style/txtkandilliItemText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Date:"
+        android:text="Tarih / Saat:"
         app:layout_constraintStart_toStartOf="@+id/regionText"
         app:layout_constraintTop_toBottomOf="@+id/regionText" />
 
@@ -51,14 +51,14 @@
         app:layout_constraintStart_toEndOf="@+id/dateText"
         app:layout_constraintTop_toTopOf="@+id/dateText" />
 
-    <!-- Magnitude -->
+
     <TextView
         android:id="@+id/magnitudeText"
         style="@style/txtkandilliItemText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Magnitude:"
+        android:text="Büyüklük:"
         app:layout_constraintStart_toStartOf="@+id/dateText"
         app:layout_constraintTop_toBottomOf="@+id/dateText" />
 

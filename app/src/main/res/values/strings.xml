@@ -65,10 +65,10 @@
 
 
     <string name="lbl_dowload_and_forget_header">İndir ve Unut 🥳</string>
-    <string name="lbl_dowload_and_forget_body">Artık güvendesiniz! Lokasyonunuz ve evinizde bulunan kişi sayısı sunucumuza şifreli bir biçimde aktarılmaktadır. Bundan sonra bu uygulamanın varlığını unutabilirsiniz, biz sizi güvende tutmak için gerekli aktarımları arka planda yapıyor olacağız. Herhangi bir âfet durumunda kendi imkanlarınızla kurtulabilirseniz, "Güvendeyim" butonuna tıklayıp arama kurtarma ekiplerinin daha verimli çalışmasını sağlayabilirsiniz.</string>
+    <string name="lbl_dowload_and_forget_body">Artık güvendesiniz! Lokasyonunuz ve evinizde bulunan kişi sayısı sunucumuza şifreli bir biçimde aktarılmaktadır. Bundan sonra bu uygulamanın varlığını unutabilirsiniz, biz sizi güvende tutmak için gerekli aktarımları arka planda yapıyor olacağız. Herhangi bir afet durumunda kendi imkanlarınızla kurtulabilirseniz, "Güvendeyim" butonuna tıklayıp arama kurtarma ekiplerinin daha verimli çalışmasını sağlayabilirsiniz.</string>
 
     <string name="lbl_route_and_help_header">Rota Çiz ve Yardım Et 😇</string>
-    <string name="lbl_route_and_help_body">Herhangi bir âfet yaşandığında, en kısa sürede sunucularımızdan gerekli bölgeleri işaretleyip yardım modunu aktif edeceğiz. Biz bu aksiyonu aldıktan sonra, etkilenen alanlara rota çizebilecek ve kullanıcı yoğunluğunu izleyebileceksiniz. Bu özellikler sadece etkilenen bölgelerde aktif olup âfet olmayan zamanlarda kullanıma kapalı olacaktır. </string>
+    <string name="lbl_route_and_help_body">Herhangi bir afet yaşandığında, en kısa sürede sunucularımızdan gerekli bölgeleri işaretleyip yardım modunu aktif edeceğiz. Biz bu aksiyonu aldıktan sonra, etkilenen alanlara rota çizebilecek ve kullanıcı yoğunluğunu izleyebileceksiniz. Bu özellikler sadece etkilenen bölgelerde aktif olup afet olmayan zamanlarda kullanıma kapalı olacaktır. </string>
 
     <string name="msg_g_vende_misiniz">Güvende misiniz?</string>
     <string name="msg_g_vendeyseniz">Eğer etkilenen şehirlerden birindeyseniz, güvende olduğunuzu bize bildirerek arama kurtarma ekiplerinin daha verimli çalışmasını sağlayabilirsiniz.</string>

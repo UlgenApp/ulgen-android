@@ -82,7 +82,7 @@
                             android:ellipsize="end"
                             android:hint="1"
                             android:singleLine="true"
-                            android:text="2"
+
                             tools:text="@string/lbl_2" />
 
                         <View
@@ -138,7 +138,7 @@
                                 android:gravity="center"
                                 android:hint="41.207115"
                                 android:singleLine="true"
-                                android:text="41.20"
+
                                 tools:text="@string/lbl_41_205616" />
 
                             <View
@@ -181,7 +181,7 @@
                                 android:gravity="center"
                                 android:hint="29.075848"
                                 android:singleLine="true"
-                                android:text="29.07"
+
                                 tools:text="@string/lbl_41_205616" />
 
                             <View
