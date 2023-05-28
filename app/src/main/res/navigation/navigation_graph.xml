@@ -10,7 +10,7 @@
         android:name="tr.edu.ku.ulgen.uiviews.HeatmapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_heatmap"/>
+        tools:layout="@layout/fragment_heatmap" />
 
     <fragment
         android:id="@+id/routingMapFragment"
@@ -102,7 +102,7 @@
         android:id="@+id/userProfileScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.UserProfileScreenFragment"
         android:label="UserProfileScreenFragment"
-        tools:layout="@layout/fragment_user_profile_screen"/>
+        tools:layout="@layout/fragment_user_profile_screen" />
     <fragment
         android:id="@+id/profileScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.ProfileScreenFragment"
@@ -116,5 +116,5 @@
         android:id="@+id/IAmSafeScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.IAmSafeScreenFragment"
         android:label="IAmSafeScreenFragment"
-        tools:layout="@layout/fragment_i_am_safe_screen"/>
+        tools:layout="@layout/fragment_i_am_safe_screen" />
 </navigation>

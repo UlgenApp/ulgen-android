@@ -10,15 +10,14 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import tr.edu.ku.ulgen.R
-
-import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
-import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import tr.edu.ku.ulgen.R
 import tr.edu.ku.ulgen.model.apibodies.ForgotPasswordBody
+import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
+import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
 
 class ResetPasswordFragment : Fragment() {
 

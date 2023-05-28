@@ -1,7 +1,5 @@
 package tr.edu.ku.ulgen.uiviews
 
-import android.Manifest
-import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -12,9 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.TextView
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import okhttp3.ResponseBody
@@ -29,8 +25,6 @@ import tr.edu.ku.ulgen.model.apibodies.SignInBody
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
 import tr.edu.ku.ulgen.model.apibodies.UserSafetyStatus
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
-import tr.edu.ku.ulgen.networkscanner.scanner.LocalMACScanner
-import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
 import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
 
 
@@ -138,7 +132,6 @@ class LoginScreenFragment : Fragment() {
             }
         })
     }
-
 
 
 }

@@ -48,7 +48,7 @@ class IAmSafeScreenFragment : Fragment() {
     private fun updateUserSafetyStatusText() {
         val isSafe = SharedPreferencesUtil(requireContext()).getUserSafetyStatus()?.isSafe ?: false
         toggled = isSafe
-        animateButton(imageView, if(isSafe) 1.2f else 1f)
+        animateButton(imageView, if (isSafe) 1.2f else 1f)
 
         if (isSafe) {
             safeText.text = getString(R.string.lbl_i_am_safe)
@@ -62,7 +62,7 @@ class IAmSafeScreenFragment : Fragment() {
     private fun toggleButton(view: View) {
         if (toggled) {
             animateButton(view, 1f)
-            if(SharedPreferencesUtil(requireContext()).getUserSafetyStatus()?.isSafe == false){
+            if (SharedPreferencesUtil(requireContext()).getUserSafetyStatus()?.isSafe == false) {
                 MACScanWorker.schedule(requireContext())
             }
             saveUserSafetyStatus(false)
@@ -86,10 +86,16 @@ class IAmSafeScreenFragment : Fragment() {
                 } else {
                     when (response.code()) {
                         409 -> {
-                            CustomSnackbar.showError(view, "Etkilenen bölgelerden birinde değilsiniz.")
+                            CustomSnackbar.showError(
+                                view,
+                                "Etkilenen bölgelerden birinde değilsiniz."
+                            )
                         }
                         417 -> {
-                            CustomSnackbar.showError(view, "Şu an için herhangi bir afet bildirilmedi.")
+                            CustomSnackbar.showError(
+                                view,
+                                "Şu an için herhangi bir afet bildirilmedi."
+                            )
                         }
                         else -> {
                             CustomSnackbar.showError(view, "Bilinmeyen bir hata oluştu.")

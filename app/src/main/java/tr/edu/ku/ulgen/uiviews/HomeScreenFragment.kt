@@ -11,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.Toolbar
@@ -19,6 +18,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.LocationSettingsRequest
 import de.hdodenhof.circleimageview.CircleImageView
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -26,17 +29,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import tr.edu.ku.ulgen.R
 import tr.edu.ku.ulgen.model.SharedPreferencesUtil
+import tr.edu.ku.ulgen.model.apibodies.UserProfile
+import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.datasource.UserImageDataSource
 import tr.edu.ku.ulgen.networkscanner.scanner.LocalMACScanner
 import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.location.LocationSettingsRequest
-import com.google.android.gms.location.LocationSettingsStates
-import com.google.android.gms.location.LocationSettingsStatusCodes
-import com.google.android.gms.common.api.ResolvableApiException
-import tr.edu.ku.ulgen.model.apibodies.UserProfile
-import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 
 class HomeScreenFragment : Fragment() {
 
@@ -99,7 +96,7 @@ class HomeScreenFragment : Fragment() {
 
         task.addOnSuccessListener { _ ->
 
-            if(SharedPreferencesUtil(requireContext()).getUserSafetyStatus()?.isSafe == false){
+            if (SharedPreferencesUtil(requireContext()).getUserSafetyStatus()?.isSafe == false) {
                 MACScanWorker.schedule(requireContext())
             }
         }
@@ -184,7 +181,6 @@ class HomeScreenFragment : Fragment() {
                             clickOnAccount.text = "Hesabını tamamlamak için tıkla!"
                         }
                     }
-
 
 
                 } else {
