@@ -43,6 +43,9 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
 
+        val destinationId = intent.getIntExtra("destinationId", R.id.homeScreenFragment)
+        navController.navigate(destinationId)
+
         val destinationIds = listOf(
             R.id.startScreenFragment,
             R.id.loginScreenFragment,
