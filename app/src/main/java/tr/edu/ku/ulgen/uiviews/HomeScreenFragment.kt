@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.Toolbar
@@ -132,6 +133,11 @@ class HomeScreenFragment : Fragment() {
 
         fetchUserImage()
 
+        /*requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+           Log.d("backbutton", "back button is blocked")
+        }*/
+
+
         val toolbar = view.findViewById<Toolbar>(R.id.toolbarToolbar)
         toolbar.setOnClickListener {
             findNavController().navigate(R.id.action_homeScreenFragment_to_profileScreenFragment)
@@ -145,10 +151,7 @@ class HomeScreenFragment : Fragment() {
 
 
 
-        /*val logoutImageButton = view.findViewById<ImageView>(R.id.logoutButton)
-        logoutImageButton.setOnClickListener {
-            logout()
-        }*/
+
 
         requestLocationPermissions()
 
@@ -217,12 +220,4 @@ class HomeScreenFragment : Fragment() {
         Glide.with(requireContext()).load(imageUrl).into(userImageView)
     }
 
-
-    /*private fun logout() {
-        // Clear user data from SharedPreferences
-        sharedPreferencesUtil.clearAllData()
-
-        // Navigate back to the login screen
-        findNavController().navigate(R.id.action_homeScreenFragment_to_startScreenFragment)
-    }*/
 }

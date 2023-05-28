@@ -1,6 +1,7 @@
 package tr.edu.ku.ulgen
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -14,6 +15,7 @@ import retrofit2.Response
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
 import tr.edu.ku.ulgen.model.apiinterface.ApiInterface
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
+import tr.edu.ku.ulgen.uiviews.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +60,23 @@ class MainActivity : AppCompatActivity() {
 
         }
         checkUserLoginStatus()
+    }
+
+    override fun onBackPressed() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
+        val currentFragment = navHostFragment.childFragmentManager.fragments[0]
+
+        if (currentFragment is KandilliRecyclerViewFragment ||
+            currentFragment is VehicleInfoScreenFragment ||
+            currentFragment is HomeScreenFragment ||
+            currentFragment is HeatmapFragment ||
+            currentFragment is IAmSafeScreenFragment
+        ) {
+            Log.d("Back Button", "Back button is blocked. ")
+        } else {
+            super.onBackPressed()
+        }
     }
 
     private fun checkUserLoginStatus() {

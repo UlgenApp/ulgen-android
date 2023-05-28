@@ -1,5 +1,6 @@
 package tr.edu.ku.ulgen.uiviews
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import tr.edu.ku.ulgen.MainActivity
 import tr.edu.ku.ulgen.R
 import tr.edu.ku.ulgen.model.SharedPreferencesUtil
 import tr.edu.ku.ulgen.model.apibodies.AdditionalInfoBody
@@ -25,6 +27,7 @@ import tr.edu.ku.ulgen.model.apibodies.UserProfile
 import tr.edu.ku.ulgen.model.datasource.UserImageDataSource
 import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
 import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
+import java.io.File
 
 class ProfileScreenFragment : Fragment() {
     private lateinit var name: TextView
@@ -145,6 +148,14 @@ class ProfileScreenFragment : Fragment() {
     private fun logout() {
         sharedPreferencesUtil.clearAllData()
         MACScanWorker.cancel(requireContext())
-        findNavController().navigate(R.id.action_profileScreenFragment_to_startScreenFragment)
+        restartActivity()
     }
+
+    private fun restartActivity() {
+        val intent = requireActivity().intent
+        requireActivity().finish()
+        startActivity(intent)
+    }
+
+
 }
