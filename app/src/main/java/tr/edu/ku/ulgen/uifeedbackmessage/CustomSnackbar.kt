@@ -24,6 +24,7 @@ class CustomSnackbar {
 
             snackbar.show()
         }
+
         fun showInfo(view: View, message: String) {
             val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT)
             val snackbarView = snackbar.view

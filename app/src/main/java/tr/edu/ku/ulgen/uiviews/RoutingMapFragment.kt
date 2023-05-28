@@ -193,4 +193,10 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
     private fun scaleBitmap(bitmap: Bitmap, width: Int, height: Int): Bitmap {
         return Bitmap.createScaledBitmap(bitmap, width, height, false)
     }
+
+    override fun onDetach() {
+        super.onDetach()
+        mMap.clear() // This will clear everything from the map
+    }
+
 }

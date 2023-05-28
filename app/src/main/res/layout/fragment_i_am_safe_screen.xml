@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout android:gravity="center_horizontal"
+    <LinearLayout
         android:id="@+id/linearColumnellipseeleven"
-        android:layout_height="match_parent"
+        style="@style/groupStyleyellow_51"
         android:layout_width="match_parent"
-        android:orientation="vertical" style="@style/groupStyleyellow_51">
-        <ScrollView android:clipToPadding="false"
-            android:fillViewport="true" android:gravity="start"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ScrollView
             android:id="@+id/scrollViewScrollview"
-            android:layout_height="0dp" android:layout_weight="1" android:layout_width="match_parent">
-            <LinearLayout android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:gravity="start">
+
+            <LinearLayout
                 android:id="@+id/linearIamSafeScree"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent" android:orientation="vertical">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/imageEllipseEleven"
@@ -21,24 +32,26 @@
                     android:layout_height="@dimen/_200pxh"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginStart="@dimen/_30pxh"
-                    android:layout_marginEnd="@dimen/_30pxh"
                     android:layout_marginTop="@dimen/_90pxh"
+                    android:layout_marginEnd="@dimen/_30pxh"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_ellipse11"
                     tools:ignore="ContentDescription"
                     tools:src="@drawable/img_ellipse11" />
 
-                <TextView android:ellipsize="end"
-                    android:gravity="center_horizontal"
+                <TextView
                     android:id="@+id/txtGvendemisiniz"
+                    style="@style/txtMontserratromanbold36"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_30pxh"
                     android:layout_marginStart="@dimen/_30pxh"
                     android:layout_marginTop="@dimen/_50pxv"
-                    android:layout_width="match_parent"
+                    android:layout_marginEnd="@dimen/_30pxh"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
                     android:singleLine="true"
                     android:text="@string/msg_g_vende_misiniz"
-                    style="@style/txtMontserratromanbold36" tools:text="@string/msg_g_vende_misiniz"/>
+                    tools:text="@string/msg_g_vende_misiniz" />
 
                 <TextView
                     android:id="@+id/txtDescription"

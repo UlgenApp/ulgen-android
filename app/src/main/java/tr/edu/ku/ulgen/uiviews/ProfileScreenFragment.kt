@@ -10,7 +10,6 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import de.hdodenhof.circleimageview.CircleImageView
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -19,9 +18,8 @@ import retrofit2.Response
 import tr.edu.ku.ulgen.R
 import tr.edu.ku.ulgen.model.SharedPreferencesUtil
 import tr.edu.ku.ulgen.model.apibodies.AdditionalInfoBody
-import tr.edu.ku.ulgen.model.apiinterface.ApiInterface
-import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
+import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.datasource.UserImageDataSource
 import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
 import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
@@ -119,6 +117,7 @@ class ProfileScreenFragment : Fragment() {
             }
         })
     }
+
     private fun updateAdditionalInfo(additionalInfoText: String) {
         val body = AdditionalInfoBody(additionalInfoText)
 
@@ -141,10 +140,17 @@ class ProfileScreenFragment : Fragment() {
     }
 
 
-
     private fun logout() {
         sharedPreferencesUtil.clearAllData()
         MACScanWorker.cancel(requireContext())
-        findNavController().navigate(R.id.action_profileScreenFragment_to_startScreenFragment)
+        restartActivity()
     }
+
+    private fun restartActivity() {
+        val intent = requireActivity().intent
+        requireActivity().finish()
+        startActivity(intent)
+    }
+
+
 }

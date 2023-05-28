@@ -128,6 +128,7 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
         mMap.addTileOverlay(TileOverlayOptions().tileProvider(provider))
         hideLoading()
     }
+
     private fun hideLoading() {
         loadingFrame.visibility = View.GONE
     }

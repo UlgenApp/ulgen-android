@@ -3,11 +3,15 @@ package tr.edu.ku.ulgen.networkscanner.scanner
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
 import android.util.Log
+import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -17,6 +21,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import tr.edu.ku.ulgen.R
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.macscannerdatastructure.Location
 import tr.edu.ku.ulgen.model.macscannerdatastructure.MACScannerRequest
@@ -24,11 +29,6 @@ import tr.edu.ku.ulgen.model.macscannerdatastructure.MACScannerResponse
 import java.net.Inet4Address
 import java.net.NetworkInterface
 import java.util.*
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.graphics.Color
-import androidx.core.app.NotificationCompat
-import tr.edu.ku.ulgen.R
 
 
 object LocalMACScanner {
@@ -106,11 +106,14 @@ object LocalMACScanner {
                                 ) {
                                     if (response.isSuccessful) {
                                         println("MAC addresses sent successfully")
-                                    }
-                                    else if(response.code() == 403) {
-                                        showNotification(applicationContext, "Oturumunun süresi doldu", "Lütfen uygulamayı kullanmak için giriş yap", 403)
-                                    }
-                                    else {
+                                    } else if (response.code() == 403) {
+                                        showNotification(
+                                            applicationContext,
+                                            "Oturumunun süresi doldu",
+                                            "Lütfen uygulamayı kullanmak için giriş yap",
+                                            403
+                                        )
+                                    } else {
                                         println("Response failed with status code: ${response.code()}")
                                         println("Body: ${response.body()}")
                                     }
@@ -151,11 +154,13 @@ object LocalMACScanner {
 
     fun showNotification(context: Context, title: String, message: String, notificationId: Int) {
         val channelId = "UlgenMACScanner_channel_01"
-        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             val importance = NotificationManager.IMPORTANCE_HIGH
-            val notificationChannel = NotificationChannel(channelId, "Ulgen MACScanner Notification", importance)
+            val notificationChannel =
+                NotificationChannel(channelId, "Ulgen MACScanner Notification", importance)
             notificationChannel.enableLights(true)
             notificationChannel.lightColor = Color.RED
             notificationChannel.enableVibration(true)

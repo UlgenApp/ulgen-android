@@ -18,6 +18,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.LocationSettingsRequest
 import de.hdodenhof.circleimageview.CircleImageView
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -25,17 +29,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import tr.edu.ku.ulgen.R
 import tr.edu.ku.ulgen.model.SharedPreferencesUtil
+import tr.edu.ku.ulgen.model.apibodies.UserProfile
+import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.datasource.UserImageDataSource
 import tr.edu.ku.ulgen.networkscanner.scanner.LocalMACScanner
 import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.location.LocationSettingsRequest
-import com.google.android.gms.location.LocationSettingsStates
-import com.google.android.gms.location.LocationSettingsStatusCodes
-import com.google.android.gms.common.api.ResolvableApiException
-import tr.edu.ku.ulgen.model.apibodies.UserProfile
-import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 
 class HomeScreenFragment : Fragment() {
 
@@ -98,7 +96,7 @@ class HomeScreenFragment : Fragment() {
 
         task.addOnSuccessListener { _ ->
 
-            if(SharedPreferencesUtil(requireContext()).getUserSafetyStatus()?.isSafe == false){
+            if (SharedPreferencesUtil(requireContext()).getUserSafetyStatus()?.isSafe == false) {
                 MACScanWorker.schedule(requireContext())
             }
         }
@@ -132,6 +130,11 @@ class HomeScreenFragment : Fragment() {
 
         fetchUserImage()
 
+        /*requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+           Log.d("backbutton", "back button is blocked")
+        }*/
+
+
         val toolbar = view.findViewById<Toolbar>(R.id.toolbarToolbar)
         toolbar.setOnClickListener {
             findNavController().navigate(R.id.action_homeScreenFragment_to_profileScreenFragment)
@@ -145,10 +148,7 @@ class HomeScreenFragment : Fragment() {
 
 
 
-        /*val logoutImageButton = view.findViewById<ImageView>(R.id.logoutButton)
-        logoutImageButton.setOnClickListener {
-            logout()
-        }*/
+
 
         requestLocationPermissions()
 
@@ -181,7 +181,6 @@ class HomeScreenFragment : Fragment() {
                             clickOnAccount.text = "Hesabını tamamlamak için tıkla!"
                         }
                     }
-
 
 
                 } else {
@@ -217,12 +216,4 @@ class HomeScreenFragment : Fragment() {
         Glide.with(requireContext()).load(imageUrl).into(userImageView)
     }
 
-
-    /*private fun logout() {
-        // Clear user data from SharedPreferences
-        sharedPreferencesUtil.clearAllData()
-
-        // Navigate back to the login screen
-        findNavController().navigate(R.id.action_homeScreenFragment_to_startScreenFragment)
-    }*/
 }

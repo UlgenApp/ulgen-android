@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import tr.edu.ku.ulgen.R
 import tr.edu.ku.ulgen.model.SharedPreferencesUtil
 
@@ -25,7 +23,6 @@ class UserProfileScreenFragment : Fragment() {
 
 
         //val logoutButton = view.findViewById<Button>(R.id.btnLogout)
-
 
 
         /*logoutButton.setOnClickListener {

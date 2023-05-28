@@ -106,12 +106,16 @@ class SignUpScreenFragment : Fragment() {
         } else if (!isValidPassword(password)) {
             CustomSnackbar.showError(view, "Geçersiz şifre")
         } else {
-            val retIn = AuthenticationDataSource.getRetrofitInstance().create(ApiInterface::class.java)
+            val retIn =
+                AuthenticationDataSource.getRetrofitInstance().create(ApiInterface::class.java)
             val registerInfo = UserBody(email, name, surname, password)
 
             retIn.registerUser(registerInfo).enqueue(object :
                 Callback<ResponseBody> {
-                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
                     if (response.code() == 200) {
                         CustomSnackbar.showSignUp(view, getString(R.string.sign_up_succesfull))
                         Handler(Looper.getMainLooper()).postDelayed({
@@ -170,7 +174,6 @@ class SignUpScreenFragment : Fragment() {
 
         return password.length >= 8
     }
-
 
 
 }
