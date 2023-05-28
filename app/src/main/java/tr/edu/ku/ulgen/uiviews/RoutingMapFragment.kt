@@ -54,11 +54,6 @@ class RoutingMapFragment : Fragment(), OnMapReadyCallback {
             mapFragment.getMapAsync(this)
         }
 
-        val imageViewButton = view.findViewById<ImageView>(R.id.backButton)
-        imageViewButton.setOnClickListener {
-            findNavController().navigate(R.id.action_routingMapFragment_to_vehicleInfoScreenFragment)
-        }
-
         return view
     }
 
