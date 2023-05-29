@@ -210,6 +210,7 @@
                         android:background="@null"
                         android:gravity="center_horizontal"
                         android:hint="İki kedim var."
+                        android:textColorHint="?android:textColorHint"
                         android:textAlignment="center"
                         android:textSize="@dimen/_16pxh" />
 
