@@ -51,14 +51,12 @@ class HomeScreenFragment : Fragment() {
         val foregroundGranted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] ?: false
         val backgroundGranted = permissions[Manifest.permission.ACCESS_BACKGROUND_LOCATION] ?: false
 
-        if (foregroundGranted && !backgroundGranted) {
+        if (foregroundGranted && !backgroundGranted && !SharedPreferencesUtil(requireContext()).getMACAddressesSent()) {
             val macAddresses = LocalMACScanner.getMacAddresses().values.map { it.address }
             LocalMACScanner.sendMACAddresses(macAddresses.toMutableList(), requireContext())
+            SharedPreferencesUtil(requireContext()).setMACAddressesSent(true)
         } else if (foregroundGranted && backgroundGranted) {
             checkLocationSettingsAndTurnOn()
-        } else {
-
-
         }
     }
 

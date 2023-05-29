@@ -85,7 +85,8 @@ object LocalMACScanner {
                 val addresses: List<Address> =
                     geocoder.getFromLocation(location.latitude, location.longitude, 1)
                 val cityName = addresses[0].adminArea
-                if (cityName != null) {
+
+                if (cityName != null && macAddressList.isNotEmpty()) {
                     val requestBody = MACScannerRequest(
                         location = Location(
                             latitude = location.latitude,

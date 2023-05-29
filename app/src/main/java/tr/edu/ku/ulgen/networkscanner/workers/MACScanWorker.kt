@@ -11,7 +11,6 @@ class MACScanWorker(appContext: Context, workerParams: WorkerParameters) :
 
     override fun doWork(): Result {
 
-
         val macAddresses = LocalMACScanner.getMacAddresses()
         val macAddressList = mutableListOf<String>()
         for (elem in macAddresses) {

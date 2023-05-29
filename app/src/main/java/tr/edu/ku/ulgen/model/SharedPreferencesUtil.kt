@@ -73,5 +73,15 @@ class SharedPreferencesUtil(context: Context) {
     fun clearUserSafetyStatus() {
         prefs.edit().remove(USER_SAFETY_STATUS).apply()
     }
+
+    fun getMACAddressesSent(): Boolean {
+        return prefs.getBoolean("MACAddressesSent", false)
+    }
+
+    fun setMACAddressesSent(isSent: Boolean) {
+        prefs.edit().putBoolean("MACAddressesSent", isSent).apply()
+    }
+
+
 }
 
