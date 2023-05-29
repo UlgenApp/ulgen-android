@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import tr.edu.ku.ulgen.model.SharedPreferencesUtil
 import tr.edu.ku.ulgen.model.apibodies.UserProfile
 import tr.edu.ku.ulgen.model.apiinterface.ApiInterface
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
@@ -63,6 +64,10 @@ class MainActivity : AppCompatActivity() {
 
         }
         checkUserLoginStatus()
+    }
+    override fun onStop() {
+        super.onStop()
+        SharedPreferencesUtil(this).setMACAddressesSent(false)
     }
 
     override fun onBackPressed() {
