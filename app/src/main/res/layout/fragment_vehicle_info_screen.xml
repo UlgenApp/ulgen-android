@@ -81,9 +81,8 @@
                             android:background="@null"
                             android:ellipsize="end"
                             android:hint="1"
-                            android:textColorHint="?android:textColorHint"
+                            android:textColorHint="@color/hint_color"
                             android:singleLine="true"
-
                             tools:text="@string/lbl_2" />
 
                         <View
@@ -139,7 +138,7 @@
                                 android:gravity="center"
                                 android:hint="41.207115"
                                 android:singleLine="true"
-                                android:textColorHint="?android:textColorHint"
+                                android:textColorHint="@color/hint_color"
                                 tools:text="@string/lbl_41_205616" />
 
                             <View
@@ -182,7 +181,7 @@
                                 android:gravity="center"
                                 android:hint="29.075848"
                                 android:singleLine="true"
-                                android:textColorHint="?android:textColorHint"
+                                android:textColorHint="@color/hint_color"
                                 tools:text="@string/lbl_41_205616" />
 
                             <View
