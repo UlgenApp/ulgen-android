@@ -94,11 +94,6 @@
             app:destination="@id/routingMapFragment" />
     </fragment>
     <fragment
-        android:id="@+id/userProfileScreenFragment"
-        android:name="tr.edu.ku.ulgen.uiviews.UserProfileScreenFragment"
-        android:label="UserProfileScreenFragment"
-        tools:layout="@layout/fragment_user_profile_screen" />
-    <fragment
         android:id="@+id/profileScreenFragment"
         android:name="tr.edu.ku.ulgen.uiviews.ProfileScreenFragment"
         android:label="ProfileScreenFragment"
