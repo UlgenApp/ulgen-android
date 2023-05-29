@@ -202,6 +202,7 @@
                         tools:text="@string/lbl_e_mail_adresi" />
 
                     <EditText
+                        style="@style/txtNunitobold16_additional_info"
                         android:id="@+id/additionalInfoText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -213,11 +214,11 @@
                         android:hint="İki kedim var."
                         android:textColorHint="?android:textColorHint"
                         android:textAlignment="center"
-                        android:textSize="@dimen/_16pxh" />
+                         />
 
                     <View
                         android:id="@+id/lineVehicletextfiOne"
-                        android:layout_width="@dimen/_322pxh"
+                        android:layout_width="wrap_content"
                         android:layout_height="@dimen/_1pxv"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginStart="@dimen/_39pxh"
