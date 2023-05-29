@@ -28,6 +28,6 @@
     <color name="white_A700_19">#19ffffff</color>
     <color name="pink_900_ea">#ea730037</color>
     <color name="pastel_green">#77dd77</color>
-
+    <color name="hint_color">#808080</color>
 
 </resources>

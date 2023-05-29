@@ -25,10 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="region"
+        android:singleLine="false"
+        android:maxLines="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/regionText"
         app:layout_constraintTop_toTopOf="@+id/regionText" />
-
 
     <TextView
         android:id="@+id/dateText"
@@ -38,7 +39,7 @@
         android:layout_marginTop="10dp"
         android:text="Tarih / Saat:"
         app:layout_constraintStart_toStartOf="@+id/regionText"
-        app:layout_constraintTop_toBottomOf="@+id/regionText" />
+        app:layout_constraintTop_toBottomOf="@+id/region" />
 
     <TextView
         android:id="@+id/date"
@@ -47,6 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="date"
+        android:singleLine="false"
+        android:maxLines="5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/dateText"
         app:layout_constraintTop_toTopOf="@+id/dateText" />
@@ -60,7 +63,7 @@
         android:layout_marginTop="10dp"
         android:text="Büyüklük:"
         app:layout_constraintStart_toStartOf="@+id/dateText"
-        app:layout_constraintTop_toBottomOf="@+id/dateText" />
+        app:layout_constraintTop_toBottomOf="@+id/date" />
 
     <TextView
         android:id="@+id/magnitude"
@@ -69,6 +72,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="magnitude"
+        android:singleLine="false"
+        android:maxLines="5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/magnitudeText"
         app:layout_constraintTop_toTopOf="@+id/magnitudeText" />
