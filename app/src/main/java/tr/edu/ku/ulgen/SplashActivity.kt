@@ -2,6 +2,7 @@ package tr.edu.ku.ulgen
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -38,25 +39,27 @@ class SplashActivity : AppCompatActivity() {
         apiInterface.getUserProfile().enqueue(object : Callback<UserProfile> {
             override fun onResponse(call: Call<UserProfile>, response: Response<UserProfile>) {
                 if (response.isSuccessful) {
-                    navigateToMainActivity(R.id.homeScreenFragment)
+                    navigateToMainActivity(R.id.homeScreenFragment, true)
                 } else {
-                    navigateToMainActivity(R.id.startScreenFragment)
+                    navigateToMainActivity(R.id.startScreenFragment, false)
                 }
             }
 
             override fun onFailure(call: Call<UserProfile>, t: Throwable) {
-                navigateToMainActivity(R.id.startScreenFragment)
+                navigateToMainActivity(R.id.startScreenFragment, false)
             }
         })
     }
 
-    private fun navigateToMainActivity(destinationId: Int) {
+    private fun navigateToMainActivity(destinationId: Int, isLoggedIn: Boolean) {
         val intent = Intent(this, MainActivity::class.java).apply {
             putExtra("destinationId", destinationId)
+            putExtra("isLoggedIn", isLoggedIn)
         }
         startActivity(intent)
         finish()
     }
+
 }
 
 

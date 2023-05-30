@@ -44,8 +44,8 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
 
-        val destinationId = intent.getIntExtra("destinationId", R.id.homeScreenFragment)
-        navController.navigate(destinationId)
+        val destId = intent.getIntExtra("destinationId", R.id.homeScreenFragment)
+        navController.navigate(destId)
 
         val destinationIds = listOf(
             R.id.startScreenFragment,
@@ -63,7 +63,13 @@ class MainActivity : AppCompatActivity() {
 
 
         }
-        checkUserLoginStatus()
+        val destinationId = intent.getIntExtra("destinationId", R.id.homeScreenFragment)
+        val isLoggedIn = intent.getBooleanExtra("isLoggedIn", false)
+        if (!isLoggedIn) {
+            navController.navigate(R.id.startScreenFragment)
+        } else {
+            navController.navigate(destinationId)
+        }
     }
     override fun onStop() {
         super.onStop()
@@ -87,23 +93,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkUserLoginStatus() {
-        apiInterface.getUserProfile().enqueue(object : Callback<UserProfile> {
-            override fun onResponse(call: Call<UserProfile>, response: Response<UserProfile>) {
-                if (response.isSuccessful) {
 
-                    navController.navigate(R.id.homeScreenFragment)
-                } else {
-
-                    navController.navigate(R.id.startScreenFragment)
-                }
-            }
-
-            override fun onFailure(call: Call<UserProfile>, t: Throwable) {
-
-                navController.navigate(R.id.startScreenFragment)
-            }
-        })
-    }
 
 }
