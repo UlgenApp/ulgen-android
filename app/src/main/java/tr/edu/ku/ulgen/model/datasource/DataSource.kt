@@ -1,3 +1,5 @@
+package tr.edu.ku.ulgen.model.datasource
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import tr.edu.ku.ulgen.model.apiinterface.ApiInterface

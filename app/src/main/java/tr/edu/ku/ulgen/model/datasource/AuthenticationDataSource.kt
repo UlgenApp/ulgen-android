@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class AuthenticationDataSource {
 
     companion object {
-        val BASE_URL: String = "https://api.ulgen.app/"
+        private const val BASE_URL: String = "https://api.ulgen.app/"
 
         val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
             this.level = HttpLoggingInterceptor.Level.BODY

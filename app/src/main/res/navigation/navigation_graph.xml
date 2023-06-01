@@ -16,11 +16,7 @@
         android:id="@+id/routingMapFragment"
         android:name="tr.edu.ku.ulgen.uiviews.RoutingMapFragment"
         android:label="Map"
-        tools:layout="@layout/fragment_routing_map">
-        <action
-            android:id="@+id/action_routingMapFragment_to_vehicleInfoScreenFragment"
-            app:destination="@id/vehicleInfoScreenFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_routing_map" />
 
     <fragment
         android:id="@+id/kandilliTableFragment"

@@ -1,4 +1,4 @@
-package tr.edu.ku.ulgen.datasource
+package tr.edu.ku.ulgen.model.datasource
 
 import retrofit2.Call
 import retrofit2.Callback

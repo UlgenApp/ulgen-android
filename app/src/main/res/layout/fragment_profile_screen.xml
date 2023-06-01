@@ -8,8 +8,8 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            style="@style/groupStyleyellow_50"
             android:id="@+id/linearColumnvehicletextfi"
+            style="@style/groupStyleyellow_50"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center_horizontal"
@@ -29,236 +29,234 @@
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
-
-                <LinearLayout
-                    android:id="@+id/linearProfileScreen"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/imageProfilePicture"
-                        android:layout_width="@dimen/_200pxh"
-                        android:layout_height="@dimen/_200pxh"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="@dimen/_6pxv"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/img_blankprofilep"
-                        app:civ_border_color="@color/indigo_700_cc"
-                        app:civ_border_width="4dp"
-                        tools:ignore="ContentDescription" />
+                    android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:id="@+id/linearColumnhesabnahoge"
+                        android:id="@+id/linearProfileScreen"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_39pxh"
-                        android:layout_marginTop="@dimen/_30pxh"
-                        android:layout_marginEnd="@dimen/_39pxh"
-                        android:layout_marginBottom="@dimen/_30pxh"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/txtHesabnaHoGe"
-                            style="@style/txtNunitobold36"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:singleLine="false"
-                            android:text="@string/msg_hesab_na_ho_ge"
-                            android:textAlignment="center"
-                            tools:text="@string/msg_hesab_na_ho_ge" />
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/imageProfilePicture"
+                            android:layout_width="@dimen/_200pxh"
+                            android:layout_height="@dimen/_200pxh"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="@dimen/_6pxv"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_blankprofilep"
+                            app:civ_border_color="@color/indigo_700_cc"
+                            app:civ_border_width="4dp"
+                            tools:ignore="ContentDescription" />
 
                         <LinearLayout
-                            android:id="@+id/linearRowad"
+                            android:id="@+id/linearColumnhesabnahoge"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_12pxh"
-                            android:layout_marginTop="@dimen/_20pxv"
-                            android:layout_marginEnd="@dimen/_12pxh"
-                            android:gravity="start"
-                            android:orientation="horizontal">
+                            android:layout_marginStart="@dimen/_39pxh"
+                            android:layout_marginTop="@dimen/_30pxh"
+                            android:layout_marginEnd="@dimen/_39pxh"
+                            android:layout_marginBottom="@dimen/_30pxh"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/txtHesabnaHoGe"
+                                style="@style/txtNunitobold36"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:singleLine="false"
+                                android:text="@string/msg_hesab_na_ho_ge"
+                                android:textAlignment="center"
+                                tools:text="@string/msg_hesab_na_ho_ge" />
 
                             <LinearLayout
-                                android:id="@+id/frameStackad"
-                                android:layout_width="@dimen/_159pxh"
+                                android:id="@+id/linearRowad"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/_1pxv"
-                                android:orientation="vertical">
+                                android:layout_marginStart="@dimen/_12pxh"
+                                android:layout_marginTop="@dimen/_20pxv"
+                                android:layout_marginEnd="@dimen/_12pxh"
+                                android:gravity="start"
+                                android:orientation="horizontal">
 
-                                <TextView
-                                    android:id="@+id/TextAd"
-                                    style="@style/etSolidRounded"
-                                    android:layout_width="match_parent"
+                                <LinearLayout
+                                    android:id="@+id/frameStackad"
+                                    android:layout_width="@dimen/_159pxh"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="@dimen/_2pxv"
-                                    android:textAlignment="center"
-                                    android:textSize="@dimen/_16pxh" />
+                                    android:layout_marginBottom="@dimen/_1pxv"
+                                    android:orientation="vertical">
 
-                                <View
-                                    android:id="@+id/lineEmailusername"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/_1pxv"
-                                    android:layout_gravity="start"
+                                    <TextView
+                                        android:id="@+id/TextAd"
+                                        style="@style/etSolidRounded"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/_2pxv"
+                                        android:textAlignment="center"
+                                        android:textSize="@dimen/_16pxh" />
 
-                                    android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1" />
+                                    <View
+                                        android:id="@+id/lineEmailusername"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/_1pxv"
+                                        android:layout_gravity="start"
 
-                                <TextView
-                                    android:id="@+id/txtAd"
-                                    style="@style/txtNunitobold16"
-                                    android:layout_width="wrap_content"
+                                        android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1" />
+
+                                    <TextView
+                                        android:id="@+id/txtAd"
+                                        style="@style/txtNunitobold16"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="@dimen/_2pxv"
+                                        android:ellipsize="end"
+                                        android:singleLine="true"
+                                        android:text="@string/lbl_ad"
+                                        tools:text="@string/lbl_ad" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/linearColumnemailusernameOne"
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_7pxh"
+                                    android:layout_weight="0.5"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical">
 
-                                    android:layout_gravity="center"
-                                    android:layout_marginTop="@dimen/_2pxv"
-                                    android:ellipsize="end"
-                                    android:singleLine="true"
-                                    android:text="@string/lbl_ad"
-                                    tools:text="@string/lbl_ad" />
+                                    <TextView
+                                        android:id="@+id/TextSoyad"
+                                        style="@style/etSolidRounded"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/_2pxv"
+                                        android:textAlignment="center"
 
+                                        android:textSize="@dimen/_16pxh" />
+
+                                    <View
+                                        android:id="@+id/lineEmailusernameOne"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/_1pxv"
+                                        android:layout_gravity="start"
+                                        android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1" />
+
+                                    <TextView
+                                        android:id="@+id/txtSoyad"
+                                        style="@style/txtNunitobold16"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="@dimen/_2pxv"
+                                        android:ellipsize="end"
+                                        android:singleLine="true"
+                                        android:text="@string/lbl_soyad"
+                                        android:textAlignment="center"
+                                        android:textSize="@dimen/_16pxh"
+                                        tools:text="@string/lbl_soyad" />
+
+                                </LinearLayout>
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:id="@+id/linearColumnemailusernameOne"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/_7pxh"
-                                android:layout_weight="0.5"
-                                android:gravity="center_horizontal"
-                                android:orientation="vertical">
 
-                                <TextView
-                                    android:id="@+id/TextSoyad"
-                                    style="@style/etSolidRounded"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="@dimen/_2pxv"
-                                    android:textAlignment="center"
-
-                                    android:textSize="@dimen/_16pxh" />
-
-                                <View
-                                    android:id="@+id/lineEmailusernameOne"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/_1pxv"
-                                    android:layout_gravity="start"
-                                    android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1" />
-
-                                <TextView
-                                    android:id="@+id/txtSoyad"
-                                    style="@style/txtNunitobold16"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginTop="@dimen/_2pxv"
-                                    android:ellipsize="end"
-                                    android:singleLine="true"
-                                    android:text="@string/lbl_soyad"
-                                    android:textAlignment="center"
-                                    android:textSize="@dimen/_16pxh"
-                                    tools:text="@string/lbl_soyad" />
-
-                            </LinearLayout>
                         </LinearLayout>
 
+                        <TextView
+                            android:id="@+id/emailText"
+                            style="@style/etSolidRounded"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_39pxh"
+                            android:layout_marginEnd="@dimen/_39pxh"
+                            android:gravity="center_horizontal"
 
+                            android:textAlignment="center"
+                            android:textSize="@dimen/_16pxh" />
+
+                        <View
+                            android:id="@+id/lineVehicletextfi"
+                            android:layout_width="@dimen/_322pxh"
+                            android:layout_height="@dimen/_1pxv"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="@dimen/_39pxh"
+                            android:layout_marginTop="@dimen/_2pxv"
+                            android:layout_marginEnd="@dimen/_39pxh"
+                            android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1" />
+
+                        <TextView
+                            android:id="@+id/txtLanguage"
+                            style="@style/txtNunitobold16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="@dimen/_39pxh"
+                            android:layout_marginTop="@dimen/_2pxv"
+                            android:layout_marginEnd="@dimen/_39pxh"
+                            android:ellipsize="end"
+
+                            android:singleLine="true"
+                            android:text="@string/lbl_e_mail_adresi"
+                            android:textAlignment="center"
+                            tools:text="@string/lbl_e_mail_adresi" />
+
+                        <EditText
+                            android:id="@+id/additionalInfoText"
+                            style="@style/txtNunitobold16_additional_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_39pxh"
+                            android:layout_marginTop="@dimen/_39pxv"
+                            android:layout_marginEnd="@dimen/_39pxh"
+                            android:background="@null"
+                            android:gravity="center_horizontal"
+                            android:hint="İki kedim var."
+                            android:textAlignment="center"
+                            android:textColorHint="?android:textColorHint" />
+
+                        <View
+                            android:id="@+id/lineVehicletextfiOne"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1pxv"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="@dimen/_39pxh"
+                            android:layout_marginTop="@dimen/_2pxv"
+                            android:layout_marginEnd="@dimen/_39pxh"
+                            android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1" />
+
+                        <TextView
+                            android:id="@+id/txtYetkililerebil"
+                            style="@style/txtNunitobold14_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_39pxh"
+                            android:layout_marginTop="@dimen/_2pxv"
+                            android:layout_marginEnd="@dimen/_39pxh"
+
+                            android:gravity="center_horizontal"
+                            android:text="@string/msg_yetkililere_bil"
+                            android:textAlignment="center"
+                            tools:text="@string/msg_yetkililere_bil" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnBilgilerimiGncelle"
+                            style="@style/btnSolidRounded_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_39pxh"
+                            android:layout_marginTop="@dimen/_30pxv"
+                            android:layout_marginEnd="@dimen/_39pxh"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="@string/msg_bilgilerimi_g_n"
+                            android:textAllCaps="false"
+                            tools:text="@string/msg_bilgilerimi_g_n" />
                     </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/emailText"
-                        style="@style/etSolidRounded"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_39pxh"
-                        android:layout_marginEnd="@dimen/_39pxh"
-                        android:gravity="center_horizontal"
-
-                        android:textAlignment="center"
-                        android:textSize="@dimen/_16pxh" />
-
-                    <View
-                        android:id="@+id/lineVehicletextfi"
-                        android:layout_width="@dimen/_322pxh"
-                        android:layout_height="@dimen/_1pxv"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginStart="@dimen/_39pxh"
-                        android:layout_marginTop="@dimen/_2pxv"
-                        android:layout_marginEnd="@dimen/_39pxh"
-                        android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1" />
-
-                    <TextView
-                        android:id="@+id/txtLanguage"
-                        style="@style/txtNunitobold16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginStart="@dimen/_39pxh"
-                        android:layout_marginTop="@dimen/_2pxv"
-                        android:layout_marginEnd="@dimen/_39pxh"
-                        android:ellipsize="end"
-
-                        android:singleLine="true"
-                        android:text="@string/lbl_e_mail_adresi"
-                        android:textAlignment="center"
-                        tools:text="@string/lbl_e_mail_adresi" />
-
-                    <EditText
-                        style="@style/txtNunitobold16_additional_info"
-                        android:id="@+id/additionalInfoText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_39pxh"
-                        android:layout_marginTop="@dimen/_39pxv"
-                        android:layout_marginEnd="@dimen/_39pxh"
-                        android:background="@null"
-                        android:gravity="center_horizontal"
-                        android:hint="İki kedim var."
-                        android:textColorHint="?android:textColorHint"
-                        android:textAlignment="center"
-                         />
-
-                    <View
-                        android:id="@+id/lineVehicletextfiOne"
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_1pxv"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginStart="@dimen/_39pxh"
-                        android:layout_marginTop="@dimen/_2pxv"
-                        android:layout_marginEnd="@dimen/_39pxh"
-                        android:background="@drawable/rectangle_bg_indigo_700_f2_radius_bl_1" />
-
-                    <TextView
-                        android:id="@+id/txtYetkililerebil"
-                        style="@style/txtNunitobold14_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_39pxh"
-                        android:layout_marginTop="@dimen/_2pxv"
-                        android:layout_marginEnd="@dimen/_39pxh"
-
-                        android:gravity="center_horizontal"
-                        android:text="@string/msg_yetkililere_bil"
-                        android:textAlignment="center"
-                        tools:text="@string/msg_yetkililere_bil" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnBilgilerimiGncelle"
-                        style="@style/btnSolidRounded_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_39pxh"
-                        android:layout_marginTop="@dimen/_30pxv"
-                        android:layout_marginEnd="@dimen/_39pxh"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:singleLine="true"
-                        android:text="@string/msg_bilgilerimi_g_n"
-                        android:textAllCaps="false"
-                        tools:text="@string/msg_bilgilerimi_g_n" />
-                </LinearLayout>
                 </FrameLayout>
             </ScrollView>
         </LinearLayout>
