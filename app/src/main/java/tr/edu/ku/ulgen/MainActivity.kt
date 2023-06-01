@@ -9,11 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import tr.edu.ku.ulgen.model.SharedPreferencesUtil
-import tr.edu.ku.ulgen.model.apibodies.UserProfile
 import tr.edu.ku.ulgen.model.apiinterface.ApiInterface
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.uiviews.*
@@ -71,6 +67,7 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(destinationId)
         }
     }
+
     override fun onStop() {
         super.onStop()
         SharedPreferencesUtil(this).setMACAddressesSent(false)
@@ -92,7 +89,6 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
-
 
 
 }

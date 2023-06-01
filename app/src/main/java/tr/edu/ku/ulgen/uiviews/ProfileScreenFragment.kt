@@ -148,6 +148,7 @@ class ProfileScreenFragment : Fragment() {
 
     private fun restartActivity() {
         val intent = requireActivity().intent
+        intent.putExtra("isLoggedIn", false)
         requireActivity().finish()
         startActivity(intent)
     }

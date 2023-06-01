@@ -25,13 +25,13 @@ interface ApiInterface {
 
     @Headers("Content-Type:application/json")
     @POST("api/v1/auth/authenticate")
-    fun signin(@Body info: SignInBody): retrofit2.Call<ResponseBody>
+    fun signin(@Body info: SignInBody): Call<ResponseBody>
 
     @Headers("Content-Type:application/json")
     @POST("api/v1/auth/register")
     fun registerUser(
         @Body info: UserBody
-    ): retrofit2.Call<ResponseBody>
+    ): Call<ResponseBody>
 
     @GET("api/v1/user/profile")
     fun getUserProfile(): Call<UserProfile>

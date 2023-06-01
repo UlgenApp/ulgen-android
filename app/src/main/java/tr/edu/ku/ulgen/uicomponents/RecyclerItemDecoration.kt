@@ -1,4 +1,4 @@
-package com.buminaybarssapplication.app.appcomponents.ui
+package tr.edu.ku.ulgen.uicomponents
 
 import android.graphics.Rect
 import android.view.View

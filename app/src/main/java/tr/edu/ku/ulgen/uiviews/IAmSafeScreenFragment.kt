@@ -35,7 +35,7 @@ class IAmSafeScreenFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_i_am_safe_screen, container, false)
 
         safeText = view.findViewById(R.id.txtGvendemisiniz)
-        imageView = view.findViewById<ImageView>(R.id.imageEllipseEleven)
+        imageView = view.findViewById(R.id.imageEllipseEleven)
         imageView.setOnClickListener {
             toggleButton(it)
         }

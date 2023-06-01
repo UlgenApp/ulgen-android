@@ -1,6 +1,5 @@
 package tr.edu.ku.ulgen.uiviews
 
-import DataSource
 import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
@@ -14,8 +13,9 @@ import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import tr.edu.ku.ulgen.R
-import tr.edu.ku.ulgen.datasource.AffectedCitiesDataSource
 import tr.edu.ku.ulgen.model.SharedPreferencesUtil
+import tr.edu.ku.ulgen.model.datasource.AffectedCitiesDataSource
+import tr.edu.ku.ulgen.model.datasource.DataSource
 import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
 
 class VehicleInfoScreenFragment : Fragment() {

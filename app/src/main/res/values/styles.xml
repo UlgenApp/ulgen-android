@@ -256,6 +256,7 @@
         <item name="android:fontFamily">@font/nunito</item>
         <item name="android:textFontWeight" tools:targetApi="p">700</item>
     </style>
+
     <style name="txtNunitobold16_additional_info">
         <item name="android:textSize">@dimen/_16pxh</item>
         <item name="android:textColor">@color/black</item>

@@ -140,7 +140,7 @@ class HomeScreenFragment : Fragment() {
 
         progressBar = view.findViewById(R.id.progressBar)
 
-        nameText = view.findViewById<TextView>(R.id.txtLanguage)
+        nameText = view.findViewById(R.id.txtLanguage)
 
         getUserProfileData()
 

@@ -12,13 +12,13 @@ import tr.edu.ku.ulgen.model.kandillilivedatastructure.KandilliEarthquakeLiveDat
 
 const val KandilliBaseURL = "https://api.orhanaydogdu.com.tr/"
 
-class KandilliDataSource : IObservable {
+class KandilliDataSource : KandilliObservable {
 
-    override val observers: ArrayList<IObserver> = ArrayList()
+    override val observers: ArrayList<KandilliObserver> = ArrayList()
 
     lateinit var kandilliEarthquakeLiveData: KandilliEarthquakeLiveData
 
-    fun addObserver(observer: IObserver) {
+    fun addObserver(observer: KandilliObserver) {
         add(observer)
     }
 
@@ -57,18 +57,18 @@ class KandilliDataSource : IObservable {
 
 }
 
-interface IObserver {
+interface KandilliObserver {
     fun update(kandilliEarthquakeLiveData: KandilliEarthquakeLiveData)
 }
 
-interface IObservable {
-    val observers: ArrayList<IObserver>
+interface KandilliObservable {
+    val observers: ArrayList<KandilliObserver>
 
-    fun add(observer: IObserver) {
+    fun add(observer: KandilliObserver) {
         observers.add(observer)
     }
 
-    fun remove(observer: IObserver) {
+    fun remove(observer: KandilliObserver) {
         observers.remove(observer)
     }
 

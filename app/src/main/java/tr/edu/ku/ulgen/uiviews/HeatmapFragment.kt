@@ -1,13 +1,11 @@
 package tr.edu.ku.ulgen.uiviews
 
-import DataSource
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -21,8 +19,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import tr.edu.ku.ulgen.R
-import tr.edu.ku.ulgen.datasource.AffectedCitiesDataSource
 import tr.edu.ku.ulgen.model.SharedPreferencesUtil
+import tr.edu.ku.ulgen.model.datasource.AffectedCitiesDataSource
+import tr.edu.ku.ulgen.model.datasource.DataSource
 import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapRequest
 import tr.edu.ku.ulgen.model.heatmapdatastructure.HeatMapResponse
@@ -31,12 +30,9 @@ import tr.edu.ku.ulgen.uifeedbackmessage.CustomSnackbar
 class HeatmapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var seekBar: SeekBar
     private lateinit var view: View
     var items = arrayOf<String>()
     var checkedItems = BooleanArray(items.size)
-    var selectedItems = arrayListOf<String>()
-    private var dataReceivedSuccessfully = false
     private lateinit var loadingFrame: FrameLayout
 
     override fun onCreateView(
@@ -71,7 +67,7 @@ class HeatmapFragment : Fragment(), OnMapReadyCallback {
                 items = affectedCities.toTypedArray()
                 checkedItems = BooleanArray(items.size)
 
-                if (checkedItems.size != 0) {
+                if (checkedItems.isNotEmpty()) {
                     getSampleData()
                 }
             },

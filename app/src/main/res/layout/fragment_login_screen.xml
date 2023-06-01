@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-
     <LinearLayout
         android:id="@+id/linearColumnfiftyone"
         style="@style/groupStyleyellow_50"
