@@ -26,6 +26,7 @@ import tr.edu.ku.ulgen.model.datasource.UlgenAPIDataSource
 import tr.edu.ku.ulgen.model.macscannerdatastructure.Location
 import tr.edu.ku.ulgen.model.macscannerdatastructure.MACScannerRequest
 import tr.edu.ku.ulgen.model.macscannerdatastructure.MACScannerResponse
+import tr.edu.ku.ulgen.networkscanner.workers.MACScanWorker
 import java.net.Inet4Address
 import java.net.NetworkInterface
 import java.util.*
@@ -114,6 +115,7 @@ object LocalMACScanner {
                                             "Lütfen uygulamayı kullanmak için giriş yap",
                                             403
                                         )
+                                        MACScanWorker.cancel(applicationContext)
                                     } else {
                                         println("Response failed with status code: ${response.code()}")
                                         println("Body: ${response.body()}")
